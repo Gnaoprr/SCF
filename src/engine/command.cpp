@@ -3129,7 +3129,7 @@ void addsleep(int *msec, char *cmd)
 {
     sleepcmd &s = sleepcmds.add();
     s.delay = max(*msec, 1);
-    s.millis = lastmillis;
+    s.millis = /*lastmillis*/ totalmillis;
     s.command = newstring(cmd);
     s.flags = identflags;
 }

@@ -588,6 +588,18 @@ int playsound(int n, const vec *loc, extentity *ent, int flags, int loops, int f
     return playing;
 }
 
+int playsoundfile(char *file, int* vol) {
+    registersound(file, vol);
+	int n = gamesounds.length() - 1;
+    int i = playsound(n);
+    gamesounds.remove(n);
+    return i;
+}
+
+ICOMMAND(playsoundfile, "si", (char *file, int *vol), {
+    playsoundfile(file, vol);
+})
+
 void stopsounds()
 {
     loopv(channels) if(channels[i].inuse)

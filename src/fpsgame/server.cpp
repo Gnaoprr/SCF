@@ -1353,6 +1353,10 @@ namespace server
         sendf(-1, 1, "riii", N_PAUSEGAME, gamepaused ? 1 : 0, ci ? ci->clientnum : -1);
     }
 
+    ICOMMAND(pausegame, "i", (int*val), {
+        pausegame(*val == 1);
+    })
+
     void checkpausegame()
     {
         if(!gamepaused) return;
