@@ -1300,6 +1300,9 @@ namespace game
                 if(isignored(d->clientnum)) break;
                 if(d->state!=CS_DEAD && d->state!=CS_SPECTATOR)
                     particle_textcopy(d->abovehead(), text, PART_TEXT, 2000, 0x32FF64, 4.0f, -8);
+                if(strstr(text, player1->name)) {
+                    execute("playsoundfile $scf_onname_sound");
+                }
                 conoutf(CON_CHAT, "%s:\f0 %s", colorname(d), text);
                 break;
             }
