@@ -1,6 +1,7 @@
 #include "game.h"
 
 extern const char *getclienthostname(int);
+extern int findtype(char *);
 
 namespace game
 {
@@ -784,8 +785,9 @@ namespace server
 
     // geoip
 	#ifndef _WIN32
-    #include "GeoIP.h"
-    #include "GeoIPCity.h"
+    # ifdef STANDALONE
+    #  include <GeoIP.h>
+    #  include <GeoIPCity.h>
     char _gidb_co_f_[260] = "GeoIP.dat";
     GeoIP *_gidb_co_ = 0; // GeoIP Country DB
     char _gidb_ci_f_[260] = "GeoLiteCity.dat";
@@ -843,13 +845,16 @@ namespace server
         if(!ip) return;
         result(getGeoIpCity(ip));
     })
+    # endif
 	#endif
 
     void serverinit()
     {
 		#ifndef _WIN32
+        # ifdef STANDALONE
         _gidb_co_ = GeoIP_open(_gidb_co_f_, gicache ? GEOIP_MEMORY_CACHE : GEOIP_STANDARD);
         _gidb_ci_ = GeoIP_open(_gidb_ci_f_, gicache ? GEOIP_INDEX_CACHE  : GEOIP_STANDARD);
+        # endif
 		#endif
        smapname[0] = '\0';
         resetitems();
@@ -859,6 +864,7 @@ namespace server
 
     void close() {
 		#ifndef _WIN32
+        # ifdef STANDALONE
         if(_gidb_co_)
         {
             GeoIP_delete(_gidb_co_);
@@ -869,6 +875,7 @@ namespace server
             GeoIP_delete(_gidb_ci_);
             _gidb_ci_ = 0;
         }
+        # endif
 		#endif
         execute("savevars");
     }
@@ -2375,11 +2382,12 @@ namespace server
         dodamage(ci, ci, *damage, GUN_FIST);
     })
 
-    ICOMMAND(scfent, "if3i6", (int *id, float *x, float *y, float *z, int *type, int *a1, int *a2, int *a3, int *a4, int *a5), {
+    ICOMMAND(scfent, "ifffiiiiii", (int *id, float *x, float *y, float *z, char *type, int *a1, int *a2, int *a3, int *a4, int *a5), {
+        if(!id || !x || !y || !z || !type || !a1 || !a2 || !a3 || !a4 || !a5) return;
         int x1 = *x * DMF;
         int y1 = *y * DMF;
         int z1 = *z * DMF;
-        sendf(-1, 1, "ri11", N_EDITENT, *id, x1, y1, z1, *type, *a1, *a2, *a3, *a4, *a5);
+        sendf(-1, 1, "riiiiiiiiiii", N_EDITENT, *id, x1, y1, z1, findtype(type), *a1, *a2, *a3, *a4, *a5);
     })
 
     void suicide(clientinfo *ci)

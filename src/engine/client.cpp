@@ -208,6 +208,8 @@ void localservertoclient(int chan, ENetPacket *packet)   // processes any update
 
 void clientkeepalive() { if(clienthost) enet_host_service(clienthost, NULL, 0); }
 
+COMMAND(clientkeepalive, "");
+
 void gets2c()           // get updates from the server
 {
     ENetEvent event;
