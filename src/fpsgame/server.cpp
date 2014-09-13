@@ -2367,6 +2367,18 @@ namespace server
         }
     }
 
+    ICOMMAND(dodamage, "ii", (int *cn, int *damage), {
+        if(!cn || !damage) return;
+        if(*damage < 0) *damage = *damage * -1;
+        clientinfo *ci = getinfo(*cn);
+        if(!ci || !ci->scfClient) return;
+        dodamage(ci, ci, *damage, GUN_FIST);
+    })
+
+    ICOMMAND(scfent, "siiiiiiii", (char* type, int *x, int *y, int *z, int *a1, int *a2, int *a3, int *a4, int *a5), {
+        loopv(clients) if(clients[i]->scfClient) sendf(i, 1, "risiiiiiiii", N_SCFENTITY, type, *x, *y, *z, *a1, *a2, *a3, *a4, *a5);
+    })
+
     void suicide(clientinfo *ci)
     {
         gamestate &gs = ci->state;
@@ -2404,9 +2416,10 @@ namespace server
                 if(!gs.rockets.remove(id)) return;
                 break;
 
-            case GUN_GL:
+            case GUN_GL: {
                 if(!gs.grenades.remove(id)) return;
                 break;
+            }
 
             default:
                 return;
