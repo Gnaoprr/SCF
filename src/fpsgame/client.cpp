@@ -1,6 +1,7 @@
 #include "game.h"
 
 extern extentity *newentity(bool, const vec&, int, int, int, int, int, int, int&);
+extern int findtype(char *);
 
 namespace game
 {
@@ -1969,18 +1970,19 @@ namespace game
 
             case N_SCFENTITY: {
                 getstring(text, p);
-                int x  = getint(p),
-                    y  = getint(p),
-                    z  = getint(p),
-                    a1 = getint(p),
-                    a2 = getint(p),
-                    a3 = getint(p),
-                    a4 = getint(p),
-                    a5 = getint(p);
-                    const vec &entpos = vec(x, y, z);
-                    int idx;
-                    extentity *t = newentity(true, entpos, type, a1, a2, a3, a4, a5, idx);
-                    if(!t) return;
+                int x    = getint(p),
+                    y    = getint(p),
+                    z    = getint(p),
+                    a1   = getint(p),
+                    a2   = getint(p),
+                    a3   = getint(p),
+                    a4   = getint(p),
+                    a5   = getint(p),
+                    type = findtype(text);
+                const vec &entpos = vec(x, y, z);
+                int idx;
+                extentity *t = newentity(true, entpos, type, a1, a2, a3, a4, a5, idx);
+                if(!t) return;
                 break;
             }
 

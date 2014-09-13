@@ -1,6 +1,6 @@
  sauerbraten
 
- Timestamp is 54141cc2 (Sat Sep 13 12:30:26 2014)
+ Timestamp is 541421eb (Sat Sep 13 12:52:27 2014)
 
  Preferred load address is 00400000
 
@@ -48,11 +48,11 @@
   Address         Publics by Value              Rva+Base       Lib:Object
 
  0000:00000000       ___safe_se_handler_count   00000000     <absolute>
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000000       ___guard_fids_count        00000000     <absolute>
  0000:00000000       ___safe_se_handler_table   00000000     <absolute>
  0000:00000000       ___guard_flags             00000000     <absolute>
  0000:00000000       ___guard_fids_table        00000000     <absolute>
- 0000:00000000       __except_list              00000000     <absolute>
- 0000:00000000       ___guard_fids_count        00000000     <absolute>
  0000:00000000       ___ImageBase               00400000     <linker-defined>
  0001:00000000       _enet_host_create          00401000 f   enet:host.o
  0001:000003c0       _enet_host_destroy         004013c0 f   enet:host.o
@@ -138,155 +138,155 @@
  0001:0001d510       ?hf@cubeloader@@QAEXHHHHHH@Z 0041e510 f i cubeloader.obj
  0001:0001d5f0       ?create_cubes@cubeloader@@QAEXXZ 0041e5f0 f i cubeloader.obj
  0001:0001da50       ?load_cube_world@cubeloader@@QAEXPAD@Z 0041ea50 f i cubeloader.obj
+ 0001:0001e110       ?growbuf@?$vector@PBUextentity@@@@QAEXH@Z 0041f110 f i lightmap.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUextentity@@@@QAEXH@Z 0041f110 f i cubeloader.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUskelmeshgroup@skelmodel@@@@QAEXH@Z 0041f110 f i rendermodel.obj
  0001:0001e110       ?growbuf@?$vector@I@@QAEXH@Z 0041f110 f i command.obj
  0001:0001e110       ?growbuf@?$vector@PAUgameevent@server@@@@QAEXH@Z 0041f110 f i server1.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUkeym@@@@QAEXH@Z 0041f110 f i console.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUfpsent@@@@QAEXH@Z 0041f110 f i ai.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUmaterialsurface@@@@QAEXH@Z 0041f110 f i pvs.obj
+ 0001:0001e110       ?growbuf@?$vector@PBD@@QAEXH@Z 0041f110 f i serverbrowser.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUTexture@@@@QAEXH@Z 0041f110 f i rendertext.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUShader@@@@QAEXH@Z 0041f110 f i shader.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUphysent@@@@QAEXH@Z 0041f110 f i physics.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUoctaentities@@@@QAEXH@Z 0041f110 f i octarender.obj
  0001:0001e110       ?growbuf@?$vector@H@@QAEXH@Z 0041f110 f i lightmap.obj
  0001:0001e110       ?growbuf@?$vector@PAUplink@@@@QAEXH@Z 0041f110 f i octa.obj
- 0001:0001e110       ?growbuf@?$vector@PAUphysent@@@@QAEXH@Z 0041f110 f i physics.obj
- 0001:0001e110       ?growbuf@?$vector@PAUskelmeshgroup@skelmodel@@@@QAEXH@Z 0041f110 f i rendermodel.obj
- 0001:0001e110       ?growbuf@?$vector@PBD@@QAEXH@Z 0041f110 f i serverbrowser.obj
- 0001:0001e110       ?growbuf@?$vector@PAUmaterialsurface@@@@QAEXH@Z 0041f110 f i pvs.obj
- 0001:0001e110       ?growbuf@?$vector@PAUTexture@@@@QAEXH@Z 0041f110 f i rendertext.obj
- 0001:0001e110       ?growbuf@?$vector@PBUextentity@@@@QAEXH@Z 0041f110 f i lightmap.obj
- 0001:0001e110       ?growbuf@?$vector@PAUvtxarray@@@@QAEXH@Z 0041f110 f i octarender.obj
- 0001:0001e110       ?growbuf@?$vector@PAUkeym@@@@QAEXH@Z 0041f110 f i console.obj
- 0001:0001e110       ?growbuf@?$vector@PAUident@@@@QAEXH@Z 0041f110 f i command.obj
- 0001:0001e110       ?growbuf@?$vector@PAD@@QAEXH@Z 0041f110 f i server.obj
- 0001:0001e110       ?growbuf@?$vector@PAUplatforment@@@@QAEXH@Z 0041f110 f i physics.obj
- 0001:0001e110       ?growbuf@?$vector@PAUoctaentities@@@@QAEXH@Z 0041f110 f i octarender.obj
- 0001:0001e110       ?growbuf@?$vector@PAUextentity@@@@QAEXH@Z 0041f110 f i cubeloader.obj
- 0001:0001e110       ?growbuf@?$vector@PAUpart@animmodel@@@@QAEXH@Z 0041f110 f i rendermodel.obj
- 0001:0001e110       ?growbuf@?$vector@PAUclientinfo@server@@@@QAEXH@Z 0041f110 f i server1.obj
  0001:0001e110       ?growbuf@?$vector@PAUmesh@animmodel@@@@QAEXH@Z 0041f110 f i rendermodel.obj
- 0001:0001e110       ?growbuf@?$vector@PAUShader@@@@QAEXH@Z 0041f110 f i shader.obj
- 0001:0001e110       ?growbuf@?$vector@PAUfpsent@@@@QAEXH@Z 0041f110 f i ai.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUplatforment@@@@QAEXH@Z 0041f110 f i physics.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUident@@@@QAEXH@Z 0041f110 f i command.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUpart@animmodel@@@@QAEXH@Z 0041f110 f i rendermodel.obj
+ 0001:0001e110       ?growbuf@?$vector@PAD@@QAEXH@Z 0041f110 f i server.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUvtxarray@@@@QAEXH@Z 0041f110 f i octarender.obj
+ 0001:0001e110       ?growbuf@?$vector@PAUclientinfo@server@@@@QAEXH@Z 0041f110 f i server1.obj
  0001:0001e190       ??Rstringformatter@@QAAXPBDZZ 0041f190 f i cubeloader.obj
  0001:0001e1c0       ??0lightcacheentry@@QAE@XZ 0041f1c0 f i lightmap.obj
  0001:0001e210       ??1lightcacheentry@@QAE@XZ 0041f210 f i lightmap.obj
- 0001:0001e260       ?add@?$vector@PAUfpsent@@@@QAEAAPAUfpsent@@ABQAU2@@Z 0041f260 f i ai.obj
- 0001:0001e260       ?add@?$vector@I@@QAEAAIABI@Z 0041f260 f i command.obj
  0001:0001e260       ?add@?$vector@PAUvtxarray@@@@QAEAAPAUvtxarray@@ABQAU2@@Z 0041f260 f i octarender.obj
- 0001:0001e260       ?add@?$vector@PBD@@QAEAAPBDABQBD@Z 0041f260 f i serverbrowser.obj
  0001:0001e260       ?add@?$vector@PAUmesh@animmodel@@@@QAEAAPAUmesh@animmodel@@ABQAU23@@Z 0041f260 f i rendermodel.obj
- 0001:0001e260       ?add@?$vector@H@@QAEAAHABH@Z 0041f260 f i lightmap.obj
  0001:0001e260       ?add@?$vector@PAUoctaentities@@@@QAEAAPAUoctaentities@@ABQAU2@@Z 0041f260 f i octarender.obj
+ 0001:0001e260       ?add@?$vector@I@@QAEAAIABI@Z 0041f260 f i command.obj
+ 0001:0001e260       ?add@?$vector@H@@QAEAAHABH@Z 0041f260 f i lightmap.obj
+ 0001:0001e260       ?add@?$vector@PAUfpsent@@@@QAEAAPAUfpsent@@ABQAU2@@Z 0041f260 f i ai.obj
+ 0001:0001e260       ?add@?$vector@PBD@@QAEAAPBDABQBD@Z 0041f260 f i serverbrowser.obj
  0001:0001e2a0       ?add@?$vector@ULightMap@@@@QAEAAULightMap@@XZ 0041f2a0 f i lightmap.obj
  0001:0001e390       ?shrink@?$vector@ULightMap@@@@QAEXH@Z 0041f390 f i lightmap.obj
  0001:0001e410       ?add@?$vector@ULightMapTexture@@@@QAEAAULightMapTexture@@XZ 0041f410 f i lightmap.obj
- 0001:0001e4b0       ??1?$vector@PAUTexture@@@@QAE@XZ 0041f4b0 f i rendertext.obj
- 0001:0001e4b0       ??1?$vector@PAUident@@@@QAE@XZ 0041f4b0 f i command.obj
- 0001:0001e4b0       ??1?$vector@G@@QAE@XZ      0041f4b0 f i octaedit.obj
- 0001:0001e4b0       ??1?$vector@PAUphysent@@@@QAE@XZ 0041f4b0 f i physics.obj
- 0001:0001e4b0       ??1?$vector@PAUfpsent@@@@QAE@XZ 0041f4b0 f i ai.obj
- 0001:0001e4b0       ??1?$vector@PAUmesh@animmodel@@@@QAE@XZ 0041f4b0 f i rendermodel.obj
- 0001:0001e4b0       ??1?$vector@PAUpart@animmodel@@@@QAE@XZ 0041f4b0 f i rendermodel.obj
- 0001:0001e4b0       ??1?$vector@H@@QAE@XZ      0041f4b0 f i lightmap.obj
- 0001:0001e4b0       ??1?$vector@PAUclientinfo@server@@@@QAE@XZ 0041f4b0 f i server1.obj
- 0001:0001e4b0       ??1?$vector@PAUShader@@@@QAE@XZ 0041f4b0 f i shader.obj
- 0001:0001e4b0       ??1?$vector@PAUkeym@@@@QAE@XZ 0041f4b0 f i console.obj
- 0001:0001e4b0       ??1?$vector@PAUplink@@@@QAE@XZ 0041f4b0 f i octa.obj
- 0001:0001e4b0       ??1?$vector@PAUmaterialsurface@@@@QAE@XZ 0041f4b0 f i pvs.obj
- 0001:0001e4b0       ??1?$vector@PAUskelmeshgroup@skelmodel@@@@QAE@XZ 0041f4b0 f i rendermodel.obj
- 0001:0001e4b0       ??1?$vector@I@@QAE@XZ      0041f4b0 f i command.obj
  0001:0001e4b0       ??1?$vector@PAD@@QAE@XZ    0041f4b0 f i server.obj
- 0001:0001e4b0       ??1?$vector@PAUvtxarray@@@@QAE@XZ 0041f4b0 f i octarender.obj
+ 0001:0001e4b0       ??1?$vector@H@@QAE@XZ      0041f4b0 f i lightmap.obj
  0001:0001e4b0       ??1?$vector@PAUextentity@@@@QAE@XZ 0041f4b0 f i entities.obj
- 0001:0001e4b0       ??1?$vector@PAUoctaentities@@@@QAE@XZ 0041f4b0 f i octarender.obj
- 0001:0001e4b0       ??1?$vector@E@@QAE@XZ      0041f4b0 f i octaedit.obj
- 0001:0001e4b0       ??1?$vector@PBUextentity@@@@QAE@XZ 0041f4b0 f i lightmap.obj
+ 0001:0001e4b0       ??1?$vector@PAUpart@animmodel@@@@QAE@XZ 0041f4b0 f i rendermodel.obj
+ 0001:0001e4b0       ??1?$vector@PAUmesh@animmodel@@@@QAE@XZ 0041f4b0 f i rendermodel.obj
+ 0001:0001e4b0       ??1?$vector@PAUkeym@@@@QAE@XZ 0041f4b0 f i console.obj
+ 0001:0001e4b0       ??1?$vector@I@@QAE@XZ      0041f4b0 f i command.obj
  0001:0001e4b0       ??1?$vector@D@@QAE@XZ      0041f4b0 f i worldio.obj
+ 0001:0001e4b0       ??1?$vector@PAUmaterialsurface@@@@QAE@XZ 0041f4b0 f i pvs.obj
+ 0001:0001e4b0       ??1?$vector@PAUphysent@@@@QAE@XZ 0041f4b0 f i physics.obj
  0001:0001e4b0       ??1?$vector@PAUgameevent@server@@@@QAE@XZ 0041f4b0 f i server1.obj
- 0001:0001e4d0       ??0?$vector@PAUclientinfo@server@@@@QAE@XZ 0041f4d0 f i server1.obj
- 0001:0001e4d0       ??0?$vector@PAUShader@@@@QAE@XZ 0041f4d0 f i shader.obj
- 0001:0001e4d0       ??0?$vector@PAUvtxarray@@@@QAE@XZ 0041f4d0 f i octarender.obj
+ 0001:0001e4b0       ??1?$vector@PAUskelmeshgroup@skelmodel@@@@QAE@XZ 0041f4b0 f i rendermodel.obj
+ 0001:0001e4b0       ??1?$vector@G@@QAE@XZ      0041f4b0 f i octaedit.obj
+ 0001:0001e4b0       ??1?$vector@PAUplink@@@@QAE@XZ 0041f4b0 f i octa.obj
+ 0001:0001e4b0       ??1?$vector@PAUTexture@@@@QAE@XZ 0041f4b0 f i rendertext.obj
+ 0001:0001e4b0       ??1?$vector@PAUoctaentities@@@@QAE@XZ 0041f4b0 f i octarender.obj
+ 0001:0001e4b0       ??1?$vector@PAUident@@@@QAE@XZ 0041f4b0 f i command.obj
+ 0001:0001e4b0       ??1?$vector@PAUfpsent@@@@QAE@XZ 0041f4b0 f i ai.obj
+ 0001:0001e4b0       ??1?$vector@PAUShader@@@@QAE@XZ 0041f4b0 f i shader.obj
+ 0001:0001e4b0       ??1?$vector@PBUextentity@@@@QAE@XZ 0041f4b0 f i lightmap.obj
+ 0001:0001e4b0       ??1?$vector@E@@QAE@XZ      0041f4b0 f i octaedit.obj
+ 0001:0001e4b0       ??1?$vector@PAUclientinfo@server@@@@QAE@XZ 0041f4b0 f i server1.obj
+ 0001:0001e4b0       ??1?$vector@PAUvtxarray@@@@QAE@XZ 0041f4b0 f i octarender.obj
  0001:0001e4d0       ??0?$vector@Ufacebounds@@@@QAE@XZ 0041f4d0 f i octarender.obj
+ 0001:0001e4d0       ??0?$vector@D@@QAE@XZ      0041f4d0 f i worldio.obj
+ 0001:0001e4d0       ??0?$vector@PAUShader@@@@QAE@XZ 0041f4d0 f i shader.obj
  0001:0001e4d0       ??0?$vector@G@@QAE@XZ      0041f4d0 f i octaedit.obj
+ 0001:0001e4d0       ??0?$vector@Ulightmaptask@@@@QAE@XZ 0041f4d0 f i lightmap.obj
+ 0001:0001e4d0       ??0?$vector@Uanimspec@animmodel@@@@QAE@XZ 0041f4d0 f i rendermodel.obj
+ 0001:0001e4d0       ??0?$vector@PAUvtxarray@@@@QAE@XZ 0041f4d0 f i octarender.obj
  0001:0001e4d0       ??0?$vector@Umergedface@@@@QAE@XZ 0041f4d0 f i octarender.obj
  0001:0001e4d0       ??0?$vector@Utri@BIH@@@@QAE@XZ 0041f4d0 f i rendermodel.obj
- 0001:0001e4d0       ??0?$vector@Uvec@@@@QAE@XZ 0041f4d0 f i worldio.obj
- 0001:0001e4d0       ??0?$vector@D@@QAE@XZ      0041f4d0 f i worldio.obj
+ 0001:0001e4d0       ??0?$vector@PAUclientinfo@server@@@@QAE@XZ 0041f4d0 f i server1.obj
  0001:0001e4d0       ??0?$vector@E@@QAE@XZ      0041f4d0 f i octaedit.obj
- 0001:0001e4d0       ??0?$vector@Uanimspec@animmodel@@@@QAE@XZ 0041f4d0 f i rendermodel.obj
- 0001:0001e4d0       ??0?$vector@Ulightmaptask@@@@QAE@XZ 0041f4d0 f i lightmap.obj
- 0001:0001e4f0       ??1?$vector@Utransparentmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uantipode@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Umergedface@@@@QAE@XZ 0041f4f0 f i octarender.obj
- 0001:0001e4f0       ??1?$vector@Uvvertbumpw@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uholdspawn@ctfservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
- 0001:0001e4f0       ??1?$vector@Ulinkedpart@animmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@UBIHNode@@@@QAE@XZ 0041f4f0 f i bih.obj
- 0001:0001e4f0       ??1?$vector@Uaviindexentry@@@@QAE@XZ 0041f4f0 f i movie.obj
- 0001:0001e4f0       ??1?$vector@Uteamscore@@@@QAE@XZ 0041f4f0 f i scoreboard.obj
- 0001:0001e4f0       ??1?$vector@Utoken@collectservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
- 0001:0001e4f0       ??1?$vector@Uivec@@@@QAE@XZ 0041f4f0 f i worldio.obj
- 0001:0001e4f0       ??1?$vector@Uvvertff@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Umd5joint@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvert@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvvertw@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvvertbump@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Ucrcinfo@server@@@@QAE@XZ 0041f4f0 f i server1.obj
- 0001:0001e4f0       ??1?$vector@Uvec@@@@QAE@XZ 0041f4f0 f i worldio.obj
- 0001:0001e4f0       ??1?$vector@Uskin@animmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvvertbump@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Umaterialsurface@@@@QAE@XZ 0041f4f0 f i octarender.obj
- 0001:0001e4f0       ??1?$vector@Uaistate@ai@@@@QAE@XZ 0041f4f0 f i ai.obj
- 0001:0001e4f0       ??1?$vector@Ublendcombo@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Ueditline@@@@QAE@XZ 0041f4f0 f i 3dgui.obj
- 0001:0001e4f0       ??1?$vector@Utoken@collectclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
- 0001:0001e4f0       ??1?$vector@Ujoint@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Ubase@collectservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
- 0001:0001e4f0       ??1?$vector@Upitchtarget@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Utri@BIH@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Urotlimit@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@UTex@Slot@@@@QAE@XZ 0041f4f0 f i texture.obj
- 0001:0001e4f0       ??1?$vector@Ubaseinfo@captureclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
- 0001:0001e4f0       ??1?$vector@Uavisegmentinfo@@@@QAE@XZ 0041f4f0 f i movie.obj
- 0001:0001e4f0       ??1?$vector@Utri@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uobstacle@avoidset@ai@@@@QAE@XZ 0041f4f0 f i ai.obj
- 0001:0001e4f0       ??1?$vector@Usortitem@@@@QAE@XZ 0041f4f0 f i command.obj
- 0001:0001e4f0       ??1?$vector@Uscore@captureclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
- 0001:0001e4f0       ??1?$vector@Upoly@@@@QAE@XZ 0041f4f0 f i octa.obj
- 0001:0001e4f0       ??1?$vector@Ulightmaptask@@@@QAE@XZ 0041f4f0 f i lightmap.obj
- 0001:0001e4f0       ??1?$vector@Ubaseinfo@captureservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
- 0001:0001e4f0       ??1?$vector@Uwaterinfo@@@@QAE@XZ 0041f4f0 f i material.obj
- 0001:0001e4f0       ??1?$vector@Utri@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Umd5hierarchy@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uanimspec@animmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@UUniformLoc@@@@QAE@XZ 0041f4f0 f i shader.obj
+ 0001:0001e4d0       ??0?$vector@Uvec@@@@QAE@XZ 0041f4d0 f i worldio.obj
  0001:0001e4f0       ??1?$vector@Uholdspawn@ctfclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
- 0001:0001e4f0       ??1?$vector@Uskelcacheentry@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Udistlimit@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@UAttribLoc@@@@QAE@XZ 0041f4f0 f i shader.obj
- 0001:0001e4f0       ??1?$vector@Uvvert@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Ubase@collectclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
- 0001:0001e4f0       ??1?$vector@Ufacebounds@@@@QAE@XZ 0041f4f0 f i octarender.obj
+ 0001:0001e4f0       ??1?$vector@Utoken@collectservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
  0001:0001e4f0       ??1?$vector@Ugrasstri@@@@QAE@XZ 0041f4f0 f i octarender.obj
  0001:0001e4f0       ??1?$vector@Usortkey@@@@QAE@XZ 0041f4f0 f i octarender.obj
- 0001:0001e4f0       ??1?$vector@Utcvert@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@ULocalShaderParamState@@@@QAE@XZ 0041f4f0 f i shader.obj
- 0001:0001e4f0       ??1?$vector@Upitchcorrect@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvert@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uflag@ctfclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
- 0001:0001e4f0       ??1?$vector@UShaderParam@@@@QAE@XZ 0041f4f0 f i octaedit.obj
  0001:0001e4f0       ??1?$vector@Unode@wpcache@ai@@@@QAE@XZ 0041f4f0 f i waypoint.obj
- 0001:0001e4f0       ??1?$vector@Uvvert@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Urotfriction@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvert@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uflag@ctfservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
  0001:0001e4f0       ??1?$vector@Uvertex@@@@QAE@XZ 0041f4f0 f i octarender.obj
- 0001:0001e4f0       ??1?$vector@Ureljoint@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Utri@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Upitchdep@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Udualquat@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Ucrcinfo@server@@@@QAE@XZ 0041f4f0 f i server1.obj
+ 0001:0001e4f0       ??1?$vector@Uvec@@@@QAE@XZ 0041f4f0 f i worldio.obj
+ 0001:0001e4f0       ??1?$vector@Uskelcacheentry@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uteamscore@@@@QAE@XZ 0041f4f0 f i scoreboard.obj
  0001:0001e4f0       ??1?$vector@Uufval@unionfind@@@@QAE@XZ 0041f4f0 f i material.obj
- 0001:0001e4f0       ??1?$vector@Uhitinfo@server@@@@QAE@XZ 0041f4f0 f i server1.obj
- 0001:0001e4f0       ??1?$vector@Ubatchedmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvvertn@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Upitchcorrect@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uvvert@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Ubaseinfo@captureservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
+ 0001:0001e4f0       ??1?$vector@Uholdspawn@ctfservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
+ 0001:0001e4f0       ??1?$vector@Uvert@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Utcvert@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uvvertbump@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uvert@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Ubase@collectservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
+ 0001:0001e4f0       ??1?$vector@Ujoint@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uskin@animmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Utransparentmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@UTex@Slot@@@@QAE@XZ 0041f4f0 f i texture.obj
+ 0001:0001e4f0       ??1?$vector@Urotlimit@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Utri@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uvvertff@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uvert@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Umd5joint@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Upoly@@@@QAE@XZ 0041f4f0 f i octa.obj
+ 0001:0001e4f0       ??1?$vector@Ubaseinfo@captureclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
+ 0001:0001e4f0       ??1?$vector@Upitchdep@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@UAttribLoc@@@@QAE@XZ 0041f4f0 f i shader.obj
  0001:0001e4f0       ??1?$vector@Usmdbone@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
- 0001:0001e4f0       ??1?$vector@Uvec2@@@@QAE@XZ 0041f4f0 f i worldio.obj
+ 0001:0001e4f0       ??1?$vector@Uavisegmentinfo@@@@QAE@XZ 0041f4f0 f i movie.obj
+ 0001:0001e4f0       ??1?$vector@Uvvertbump@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Ublendcombo@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uaistate@ai@@@@QAE@XZ 0041f4f0 f i ai.obj
+ 0001:0001e4f0       ??1?$vector@Uvvertbumpw@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Urotfriction@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uhitinfo@server@@@@QAE@XZ 0041f4f0 f i server1.obj
+ 0001:0001e4f0       ??1?$vector@Udistlimit@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
  0001:0001e4f0       ??1?$vector@Ucharinfo@font@@@@QAE@XZ 0041f4f0 f i rendertext.obj
+ 0001:0001e4f0       ??1?$vector@Uivec@@@@QAE@XZ 0041f4f0 f i worldio.obj
+ 0001:0001e4f0       ??1?$vector@Ubase@collectclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
+ 0001:0001e4f0       ??1?$vector@Utri@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Utri@BIH@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Ubatchedmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Ulightmaptask@@@@QAE@XZ 0041f4f0 f i lightmap.obj
+ 0001:0001e4f0       ??1?$vector@Uwaterinfo@@@@QAE@XZ 0041f4f0 f i material.obj
+ 0001:0001e4f0       ??1?$vector@Uvvert@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Utoken@collectclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
+ 0001:0001e4f0       ??1?$vector@Uanimspec@animmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Ulinkedpart@animmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uflag@ctfclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
+ 0001:0001e4f0       ??1?$vector@Uantipode@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
  0001:0001e4f0       ??1?$vector@Uvotecount@server@@@@QAE@XZ 0041f4f0 f i server1.obj
+ 0001:0001e4f0       ??1?$vector@Umd5hierarchy@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Utri@vertmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Udualquat@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uobstacle@avoidset@ai@@@@QAE@XZ 0041f4f0 f i ai.obj
+ 0001:0001e4f0       ??1?$vector@Ueditline@@@@QAE@XZ 0041f4f0 f i 3dgui.obj
+ 0001:0001e4f0       ??1?$vector@Uvvertw@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Umaterialsurface@@@@QAE@XZ 0041f4f0 f i octarender.obj
+ 0001:0001e4f0       ??1?$vector@Uvec2@@@@QAE@XZ 0041f4f0 f i worldio.obj
+ 0001:0001e4f0       ??1?$vector@UUniformLoc@@@@QAE@XZ 0041f4f0 f i shader.obj
+ 0001:0001e4f0       ??1?$vector@Uvvertn@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uflag@ctfservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
  0001:0001e4f0       ??1?$vector@Uscore@captureservmode@server@@@@QAE@XZ 0041f4f0 f i server1.obj
+ 0001:0001e4f0       ??1?$vector@Uaviindexentry@@@@QAE@XZ 0041f4f0 f i movie.obj
+ 0001:0001e4f0       ??1?$vector@Upitchtarget@skelmodel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Uscore@captureclientmode@game@@@@QAE@XZ 0041f4f0 f i client1.obj
+ 0001:0001e4f0       ??1?$vector@Usortitem@@@@QAE@XZ 0041f4f0 f i command.obj
+ 0001:0001e4f0       ??1?$vector@UShaderParam@@@@QAE@XZ 0041f4f0 f i octaedit.obj
+ 0001:0001e4f0       ??1?$vector@ULocalShaderParamState@@@@QAE@XZ 0041f4f0 f i shader.obj
+ 0001:0001e4f0       ??1?$vector@Ufacebounds@@@@QAE@XZ 0041f4f0 f i octarender.obj
+ 0001:0001e4f0       ??1?$vector@Ureljoint@ragdollskel@@@@QAE@XZ 0041f4f0 f i rendermodel.obj
+ 0001:0001e4f0       ??1?$vector@Umergedface@@@@QAE@XZ 0041f4f0 f i octarender.obj
+ 0001:0001e4f0       ??1?$vector@UBIHNode@@@@QAE@XZ 0041f4f0 f i bih.obj
  0001:0001e510       ?move@?$vector@Ulightmaptask@@@@QAEXAAU1@@Z 0041f510 f i lightmap.obj
  0001:0001e5b0       ??0?$hashset@Ulayoutinfo@@@@QAE@H@Z 0041f5b0 f i lightmap.obj
  0001:0001e640       ??1?$hashset@Ulayoutinfo@@@@QAE@XZ 0041f640 f i lightmap.obj
@@ -295,45 +295,45 @@
  0001:0001e790       ?growbuf@?$vector@ULightMapTexture@@@@QAEXH@Z 0041f790 f i lightmap.obj
  0001:0001e820       ?growbuf@?$vector@PAUlightmapworker@@@@QAEXH@Z 0041f820 f i lightmap.obj
  0001:0001e8b0       ?growbuf@?$vector@Ulightmaptask@@@@QAEXH@Z 0041f8b0 f i lightmap.obj
- 0001:0001e8b0       ?growbuf@?$vector@Uvvertw@skelmodel@@@@QAEXH@Z 0041f8b0 f i rendermodel.obj
  0001:0001e8b0       ?growbuf@?$vector@Uvert@skelmodel@@@@QAEXH@Z 0041f8b0 f i rendermodel.obj
- 0001:0001e8b0       ?growbuf@?$vector@Upitchdep@skelmodel@@@@QAEXH@Z 0041f8b0 f i rendermodel.obj
+ 0001:0001e8b0       ?growbuf@?$vector@Uvvertw@skelmodel@@@@QAEXH@Z 0041f8b0 f i rendermodel.obj
  0001:0001e8b0       ?growbuf@?$vector@Uholdspawn@ctfclientmode@game@@@@QAEXH@Z 0041f8b0 f i client1.obj
+ 0001:0001e8b0       ?growbuf@?$vector@Upitchdep@skelmodel@@@@QAEXH@Z 0041f8b0 f i rendermodel.obj
  0001:0001e930       ?growbuf@?$vector@Ulightmapext@@@@QAEXH@Z 0041f930 f i lightmap.obj
  0001:0001e9c0       ??$access@Ulightmapinfo@@@?$hashset@Ulayoutinfo@@@@QAEPAUlayoutinfo@@ABUlightmapinfo@@@Z 0041f9c0 f i lightmap.obj
  0001:0001ea40       ??$?AUlightmapinfo@@@?$hashset@Ulayoutinfo@@@@QAEAAUlayoutinfo@@ABUlightmapinfo@@@Z 0041fa40 f i lightmap.obj
  0001:0001eac0       ?insert@?$hashset@Ulayoutinfo@@@@QAEPAUchain@1@I@Z 0041fac0 f i lightmap.obj
- 0001:0001ec20       ?update@servmode@server@@UAEXXZ 0041fc20 f i server1.obj
- 0001:0001ec20       ??3@YAXPAX0@Z              0041fc20 f i lightmap.obj
- 0001:0001ec20       ?gameover@clientmode@game@@UAEXXZ 0041fc20 f i client1.obj
- 0001:0001ec20       ?startrender@textrenderer@@UAEXXZ 0041fc20 f i renderparticles.obj
- 0001:0001ec20       ?startrender@model@@UAEXXZ 0041fc20 f i rendermodel.obj
- 0001:0001ec20       ?cleanup@partrenderer@@UAEXXZ 0041fc20 f i renderparticles.obj
  0001:0001ec20       ?endrender@textrenderer@@UAEXXZ 0041fc20 f i renderparticles.obj
- 0001:0001ec20       ?doclear@rendertarget@@UAEXXZ 0041fc20 f i glare.obj
- 0001:0001ec20       ?preloadshaders@model@@UAEXXZ 0041fc20 f i rendermodel.obj
- 0001:0001ec20       ?rendergame@clientmode@game@@UAEXXZ 0041fc20 f i client1.obj
- 0001:0001ec20       ?poplist@g3d_gui@@UAEXXZ   0041fc20 f i 3dgui.obj
- 0001:0001ec20       ?cleanup@meshgroup@animmodel@@UAEXXZ 0041fc20 f i rendermodel.obj
  0001:0001ec20       ?newmap@servmode@server@@UAEXXZ 0041fc20 f i server1.obj
- 0001:0001ec20       ?setup@clientmode@game@@UAEXXZ 0041fc20 f i client1.obj
+ 0001:0001ec20       ?cleanup@meshgroup@animmodel@@UAEXXZ 0041fc20 f i rendermodel.obj
  0001:0001ec20       ?preload@clientmode@game@@UAEXXZ 0041fc20 f i client1.obj
  0001:0001ec20       ?setup@servmode@server@@UAEXXZ 0041fc20 f i server1.obj
- 0001:0001ec20       ?cleanup@servmode@server@@UAEXXZ 0041fc20 f i server1.obj
+ 0001:0001ec20       ?poplist@g3d_gui@@UAEXXZ   0041fc20 f i 3dgui.obj
  0001:0001ec20       ?update@partrenderer@@UAEXXZ 0041fc20 f i renderparticles.obj
+ 0001:0001ec20       ?update@servmode@server@@UAEXXZ 0041fc20 f i server1.obj
+ 0001:0001ec20       ?cleanup@partrenderer@@UAEXXZ 0041fc20 f i renderparticles.obj
+ 0001:0001ec20       ?gameover@clientmode@game@@UAEXXZ 0041fc20 f i client1.obj
  0001:0001ec20       ?intermission@servmode@server@@UAEXXZ 0041fc20 f i server1.obj
- 0001:0001ec20       ?preloadmeshes@model@@UAEXXZ 0041fc20 f i rendermodel.obj
- 0001:0001ec20       ?endrender@model@@UAEXXZ   0041fc20 f i rendermodel.obj
+ 0001:0001ec20       ?rendergame@clientmode@game@@UAEXXZ 0041fc20 f i client1.obj
+ 0001:0001ec20       ??3@YAXPAX0@Z              0041fc20 f i lightmap.obj
  0001:0001ec20       ?cleanup@model@@UAEXXZ     0041fc20 f i rendermodel.obj
+ 0001:0001ec20       ?preloadshaders@model@@UAEXXZ 0041fc20 f i rendermodel.obj
+ 0001:0001ec20       ?doclear@rendertarget@@UAEXXZ 0041fc20 f i glare.obj
  0001:0001ec20       ?pushlist@g3d_gui@@UAEXXZ  0041fc20 f i 3dgui.obj
+ 0001:0001ec20       ?preloadmeshes@model@@UAEXXZ 0041fc20 f i rendermodel.obj
+ 0001:0001ec20       ?cleanup@servmode@server@@UAEXXZ 0041fc20 f i server1.obj
+ 0001:0001ec20       ?endrender@model@@UAEXXZ   0041fc20 f i rendermodel.obj
+ 0001:0001ec20       ?startrender@model@@UAEXXZ 0041fc20 f i rendermodel.obj
+ 0001:0001ec20       ?startrender@textrenderer@@UAEXXZ 0041fc20 f i renderparticles.obj
+ 0001:0001ec20       ?setup@clientmode@game@@UAEXXZ 0041fc20 f i client1.obj
  0001:0001ec30       ?calcsize@ImageData@@QBEHXZ 0041fc30 f i lightmap.obj
  0001:0001ece0       ??0ImageData@@QAE@HHHPAE@Z 0041fce0 f i lightmap.obj
  0001:0001ed60       ?boundbox@model@@QAEXAAUvec@@0@Z 0041fd60 f i lightmap.obj
  0001:0001edd0       ?above@model@@QAEMXZ       0041fdd0 f i lightmap.obj
  0001:0001ee50       ?toplane@plane@@QAE_NABUvec@@00@Z 0041fe50 f i lightmap.obj
+ 0001:0001efa0       ??0clipplanes@@QAE@XZ      0041ffa0 f i octa.obj
  0001:0001efa0       ?animkey@meshgroup@animmodel@@UAEPAXXZ 0041ffa0 f i rendermodel.obj
  0001:0001efa0       ??0plane@@QAE@XZ           0041ffa0 f i lightmap.obj
- 0001:0001efa0       ??0clipplanes@@QAE@XZ      0041ffa0 f i octa.obj
  0001:0001efb0       ?iszero@vec@@QBE_NXZ       0041ffb0 f i lightmap.obj
  0001:0001eff0       ??0PackNode@@QAE@GGGG@Z    0041fff0 f i lightmap.obj
  0001:0001f040       ??1PackNode@@QAE@XZ        00420040 f i lightmap.obj
@@ -351,22 +351,22 @@
  0001:0001f730       ??8vec@@QBE_NABU0@@Z       00420730 f i normal.obj
  0001:0001f770       ??9facevec@@QBE_NABU0@@Z   00420770 f i octa.obj
  0001:0001f790       ??0?$hashset@Uplink@@@@QAE@H@Z 00420790 f i octa.obj
+ 0001:0001f800       ??1?$hashset@U?$hashtableentry@Uvec@@H@@@@QAE@XZ 00420800 f i worldio.obj
  0001:0001f800       ??1?$hashset@Uplink@@@@QAE@XZ 00420800 f i octa.obj
  0001:0001f800       ??1?$hashset@U?$hashtableentry@Uivec@@H@@@@QAE@XZ 00420800 f i rendermodel.obj
- 0001:0001f800       ??1?$hashset@U?$hashtableentry@Uvec@@H@@@@QAE@XZ 00420800 f i worldio.obj
  0001:0001f850       ?add@?$vector@Upoly@@@@QAEAAUpoly@@ABU2@@Z 00420850 f i octa.obj
  0001:0001f8c0       ??A?$hashtable@Ucfkey@@Ucfpolys@@@@QAEAAUcfpolys@@ABUcfkey@@@Z 004208c0 f i octa.obj
  0001:0001f970       ??1?$hashset@U?$hashtableentry@Ucfkey@@Ucfpolys@@@@@@QAE@XZ 00420970 f i octa.obj
  0001:0001f9a0       ?clear@?$hashset@U?$hashtableentry@Ucfkey@@Ucfpolys@@@@@@QAEXXZ 004209a0 f i octa.obj
- 0001:0001fa40       ?growbuf@?$vector@Upoly@@@@QAEXH@Z 00420a40 f i octa.obj
  0001:0001fa40       ?growbuf@?$vector@Ujoint@ragdollskel@@@@QAEXH@Z 00420a40 f i rendermodel.obj
+ 0001:0001fa40       ?growbuf@?$vector@Upoly@@@@QAEXH@Z 00420a40 f i octa.obj
  0001:0001fac0       ??0?$hashset@U?$hashtableentry@Ucfkey@@Ucfpolys@@@@@@QAE@H@Z 00420ac0 f i octa.obj
  0001:0001fb50       ?deletechunks@?$hashset@U?$hashtableentry@Ucfkey@@Ucfpolys@@@@@@QAEXXZ 00420b50 f i octa.obj
  0001:0001fbc0       ??1chain@?$hashset@U?$hashtableentry@Ucfkey@@Ucfpolys@@@@@@QAE@XZ 00420bc0 f i octa.obj
  0001:0001fc30       ??1?$hashtableentry@Ucfkey@@Ucfpolys@@@@QAE@XZ 00420c30 f i octa.obj
- 0001:0001fc90       ??1wpcache@ai@@QAE@XZ      00420c90 f i waypoint.obj
  0001:0001fc90       ??1cfpolys@@QAE@XZ         00420c90 f i octa.obj
  0001:0001fc90       ??1unionfind@@QAE@XZ       00420c90 f i material.obj
+ 0001:0001fc90       ??1wpcache@ai@@QAE@XZ      00420c90 f i waypoint.obj
  0001:0001fce0       ?insert@?$hashset@U?$hashtableentry@Ucfkey@@Ucfpolys@@@@@@QAEPAUchain@1@I@Z 00420ce0 f i octa.obj
  0001:0001fe90       ??0chain@?$hashset@U?$hashtableentry@Ucfkey@@Ucfpolys@@@@@@QAE@XZ 00420e90 f i octa.obj
  0001:0001fef0       ??$access@Upedge@@U1@@?$hashset@Uplink@@@@QAEAAUplink@@ABUpedge@@0@Z 00420ef0 f i octa.obj
@@ -377,12 +377,12 @@
  0001:00020210       ?gui@texturegui@@UAEXAAUg3d_gui@@_N@Z 00421210 f i octaedit.obj
  0001:00020470       ?showtextures@texturegui@@QAEX_N@Z 00421470 f i octaedit.obj
  0001:000205b0       ?show@texturegui@@QAEXXZ   004215b0 f i octaedit.obj
- 0001:00020680       ??_Gscoreboardgui@game@@UAEPAXI@Z 00421680 f i scoreboard.obj
- 0001:00020680       ??_Emenu@@UAEPAXI@Z        00421680 f i * CIL library *:* CIL module *
- 0001:00020680       ??_Gmenu@@UAEPAXI@Z        00421680 f i menus.obj
- 0001:00020680       ??_Gtexturegui@@UAEPAXI@Z  00421680 f i octaedit.obj
- 0001:00020680       ??_Escoreboardgui@game@@UAEPAXI@Z 00421680 f i * CIL library *:* CIL module *
  0001:00020680       ??_Etexturegui@@UAEPAXI@Z  00421680 f i * CIL library *:* CIL module *
+ 0001:00020680       ??_Emenu@@UAEPAXI@Z        00421680 f i * CIL library *:* CIL module *
+ 0001:00020680       ??_Escoreboardgui@game@@UAEPAXI@Z 00421680 f i * CIL library *:* CIL module *
+ 0001:00020680       ??_Gmenu@@UAEPAXI@Z        00421680 f i menus.obj
+ 0001:00020680       ??_Gscoreboardgui@game@@UAEPAXI@Z 00421680 f i scoreboard.obj
+ 0001:00020680       ??_Gtexturegui@@UAEPAXI@Z  00421680 f i octaedit.obj
  0001:000206d0       ?add@?$vector@UShaderParam@@@@QAEAAUShaderParam@@ABU2@@Z 004216d0 f i octaedit.obj
  0001:00020720       ?add@?$vector@G@@QAEAAGABG@Z 00421720 f i octaedit.obj
  0001:00020760       ?remove@?$vector@G@@QAEGH@Z 00421760 f i octaedit.obj
@@ -390,13 +390,13 @@
  0001:00020820       ?add@?$vector@PAUeditinfo@@@@QAEAAPAUeditinfo@@ABQAU2@@Z 00421820 f i octaedit.obj
  0001:00020870       ?removeobj@?$vector@PAUeditinfo@@@@QAEXABQAUeditinfo@@@Z 00421870 f i octaedit.obj
  0001:000208d0       ??0?$hashset@Uprefab@@@@QAE@H@Z 004218d0 f i octaedit.obj
- 0001:00020960       ?growbuf@?$vector@Ublendcombo@skelmodel@@@@QAEXH@Z 00421960 f i rendermodel.obj
- 0001:00020960       ?growbuf@?$vector@Uvvert@vertmodel@@@@QAEXH@Z 00421960 f i rendermodel.obj
- 0001:00020960       ?growbuf@?$vector@UShaderParam@@@@QAEXH@Z 00421960 f i octaedit.obj
+ 0001:00020960       ?growbuf@?$vector@Uvertex@@@@QAEXH@Z 00421960 f i octarender.obj
+ 0001:00020960       ?growbuf@?$vector@Uvvertn@skelmodel@@@@QAEXH@Z 00421960 f i rendermodel.obj
  0001:00020960       ?growbuf@?$vector@Upitchcorrect@skelmodel@@@@QAEXH@Z 00421960 f i rendermodel.obj
  0001:00020960       ?growbuf@?$vector@Utoken@collectservmode@server@@@@QAEXH@Z 00421960 f i server1.obj
- 0001:00020960       ?growbuf@?$vector@Uvvertn@skelmodel@@@@QAEXH@Z 00421960 f i rendermodel.obj
- 0001:00020960       ?growbuf@?$vector@Uvertex@@@@QAEXH@Z 00421960 f i octarender.obj
+ 0001:00020960       ?growbuf@?$vector@Ublendcombo@skelmodel@@@@QAEXH@Z 00421960 f i rendermodel.obj
+ 0001:00020960       ?growbuf@?$vector@UShaderParam@@@@QAEXH@Z 00421960 f i octaedit.obj
+ 0001:00020960       ?growbuf@?$vector@Uvvert@vertmodel@@@@QAEXH@Z 00421960 f i rendermodel.obj
  0001:00020960       ?growbuf@?$vector@Udualquat@@@@QAEXH@Z 00421960 f i rendermodel.obj
  0001:000209e0       ?growbuf@?$vector@G@@QAEXH@Z 004219e0 f i octaedit.obj
  0001:00020a60       ?growbuf@?$vector@PAUeditinfo@@@@QAEXH@Z 00421a60 f i octaedit.obj
@@ -410,14 +410,14 @@
  0001:00020ec0       ?get@?$databuf@E@@QAEHPAEH@Z 00421ec0 f i octaedit.obj
  0001:00020f00       ?insert@?$hashset@Uprefab@@@@QAEPAUchain@1@I@Z 00421f00 f i octaedit.obj
  0001:000210a0       ??0chain@?$hashset@Uprefab@@@@QAE@XZ 004220a0 f i octaedit.obj
- 0001:000210e0       ?growbuf@?$vector@D@@QAEXH@Z 004220e0 f i worldio.obj
  0001:000210e0       ?growbuf@?$vector@E@@QAEXH@Z 004220e0 f i octaedit.obj
+ 0001:000210e0       ?growbuf@?$vector@D@@QAEXH@Z 004220e0 f i worldio.obj
  0001:00021160       ?get@?$databuf@E@@QAEABEXZ 00422160 f i octaedit.obj
  0001:00021180       ?add@?$vector@D@@QAEAADABD@Z 00422180 f i serverbrowser.obj
  0001:00021180       ?add@?$vector@E@@QAEAAEABE@Z 00422180 f i octaedit.obj
  0001:000211b0       ?dist@vec@@QBEMABU1@@Z     004221b0 f i octaedit.obj
- 0001:00021210       ??_Gg3d_callback@@UAEPAXI@Z 00422210 f i octaedit.obj
  0001:00021210       ??_Eg3d_callback@@UAEPAXI@Z 00422210 f i * CIL library *:* CIL module *
+ 0001:00021210       ??_Gg3d_callback@@UAEPAXI@Z 00422210 f i octaedit.obj
  0001:00021230       ??1g3d_callback@@UAE@XZ    00422230 f i octaedit.obj
  0001:00021240       ??1VSlot@@QAE@XZ           00422240 f i octaedit.obj
  0001:00021290       ?reset@VSlot@@QAEXXZ       00422290 f i octaedit.obj
@@ -441,10 +441,10 @@
  0001:00022ec0       ??1?$hashtable@Usortkey@@Usortval@@@@QAE@XZ 00423ec0 f i octarender.obj
  0001:00022f20       ??0vtxarray@@QAE@XZ        00423f20 f i octarender.obj
  0001:00022fb0       ??1vtxarray@@QAE@XZ        00423fb0 f i octarender.obj
- 0001:00023050       ?removeobj@?$vector@PAUoctaentities@@@@QAEXABQAUoctaentities@@@Z 00424050 f i world.obj
  0001:00023050       ?removeobj@?$vector@PAUskelmeshgroup@skelmodel@@@@QAEXABQAUskelmeshgroup@skelmodel@@@Z 00424050 f i rendermodel.obj
- 0001:00023050       ?removeobj@?$vector@PAUmesh@animmodel@@@@QAEXABQAUmesh@animmodel@@@Z 00424050 f i rendermodel.obj
  0001:00023050       ?removeobj@?$vector@PAUvtxarray@@@@QAEXABQAUvtxarray@@@Z 00424050 f i octarender.obj
+ 0001:00023050       ?removeobj@?$vector@PAUmesh@animmodel@@@@QAEXABQAUmesh@animmodel@@@Z 00424050 f i rendermodel.obj
+ 0001:00023050       ?removeobj@?$vector@PAUoctaentities@@@@QAEXABQAUoctaentities@@@Z 00424050 f i world.obj
  0001:00023050       ?removeobj@?$vector@PAUclientinfo@server@@@@QAEXABQAUclientinfo@server@@@Z 00424050 f i server1.obj
  0001:00023050       ?removeobj@?$vector@H@@QAEXABH@Z 00424050 f i world.obj
  0001:000230a0       ??1?$hashset@U?$hashtableentry@IUvboinfo@@@@@@QAE@XZ 004240a0 f i octarender.obj
@@ -461,30 +461,30 @@
  0001:000235d0       ?growbuf@?$vector@Ugrasstri@@@@QAEXH@Z 004245d0 f i octarender.obj
  0001:00023650       ?growbuf@?$vector@Utjoint@@@@QAEXH@Z 00424650 f i octarender.obj
  0001:000236e0       ??0?$hashset@U?$hashtableentry@IUvboinfo@@@@@@QAE@H@Z 004246e0 f i octarender.obj
- 0001:00023770       ??0?$hashset@U?$hashtableentry@Usortkey@@Usortval@@@@@@QAE@H@Z 00424770 f i octarender.obj
  0001:00023770       ??0?$hashset@U?$hashtableentry@Uivec@@H@@@@QAE@H@Z 00424770 f i rendermodel.obj
+ 0001:00023770       ??0?$hashset@U?$hashtableentry@Usortkey@@Usortval@@@@@@QAE@H@Z 00424770 f i octarender.obj
  0001:00023770       ??0?$hashset@Uteaminfo@@@@QAE@H@Z 00424770 f i scoreboard.obj
  0001:000237e0       ?deletechunks@?$hashset@U?$hashtableentry@Usortkey@@Usortval@@@@@@QAEXXZ 004247e0 f i octarender.obj
  0001:00023850       ?growbuf@?$vector@Usortkey@@@@QAEXH@Z 00424850 f i octarender.obj
- 0001:000238d0       ?growbuf@?$vector@UAttribLoc@@@@QAEXH@Z 004248d0 f i shader.obj
- 0001:000238d0       ?growbuf@?$vector@Utcvert@vertmodel@@@@QAEXH@Z 004248d0 f i rendermodel.obj
- 0001:000238d0       ?growbuf@?$vector@Uteamscore@@@@QAEXH@Z 004248d0 f i client1.obj
- 0001:000238d0       ?growbuf@?$vector@Uvec2@@@@QAEXH@Z 004248d0 f i worldio.obj
  0001:000238d0       ?growbuf@?$vector@Uantipode@skelmodel@@@@QAEXH@Z 004248d0 f i rendermodel.obj
- 0001:000238d0       ?growbuf@?$vector@UBIHNode@@@@QAEXH@Z 004248d0 f i bih.obj
+ 0001:000238d0       ?growbuf@?$vector@Utcvert@vertmodel@@@@QAEXH@Z 004248d0 f i rendermodel.obj
  0001:000238d0       ?growbuf@?$vector@Ucrcinfo@server@@@@QAEXH@Z 004248d0 f i server1.obj
  0001:000238d0       ?growbuf@?$vector@Ureljoint@ragdollskel@@@@QAEXH@Z 004248d0 f i rendermodel.obj
+ 0001:000238d0       ?growbuf@?$vector@Uteamscore@@@@QAEXH@Z 004248d0 f i client1.obj
  0001:000238d0       ?growbuf@?$vector@Ufacebounds@@@@QAEXH@Z 004248d0 f i octarender.obj
+ 0001:000238d0       ?growbuf@?$vector@UBIHNode@@@@QAEXH@Z 004248d0 f i bih.obj
+ 0001:000238d0       ?growbuf@?$vector@Uvec2@@@@QAEXH@Z 004248d0 f i worldio.obj
  0001:000238d0       ?growbuf@?$vector@Uufval@unionfind@@@@QAEXH@Z 004248d0 f i material.obj
  0001:000238d0       ?growbuf@?$vector@Usoundslot@@@@QAEXH@Z 004248d0 f i sound.obj
+ 0001:000238d0       ?growbuf@?$vector@UAttribLoc@@@@QAEXH@Z 004248d0 f i shader.obj
  0001:00023950       ?growbuf@?$vector@Ucubeedge@@@@QAEXH@Z 00424950 f i octarender.obj
  0001:000239d0       ??0?$hashset@U?$hashtableentry@Uedgegroup@@H@@@@QAE@H@Z 004249d0 f i octarender.obj
- 0001:00023a60       ?growbuf@?$vector@Uvert@ragdollskel@@@@QAEXH@Z 00424a60 f i rendermodel.obj
- 0001:00023a60       ?growbuf@?$vector@Uinterest@ai@@@@QAEXH@Z 00424a60 f i ai.obj
- 0001:00023a60       ?growbuf@?$vector@Uzipfile@@@@QAEXH@Z 00424a60 f i zip.obj
- 0001:00023a60       ?growbuf@?$vector@Uvvert@skelmodel@@@@QAEXH@Z 00424a60 f i rendermodel.obj
- 0001:00023a60       ?growbuf@?$vector@Umergedface@@@@QAEXH@Z 00424a60 f i octarender.obj
  0001:00023a60       ?growbuf@?$vector@Uvvertff@vertmodel@@@@QAEXH@Z 00424a60 f i rendermodel.obj
+ 0001:00023a60       ?growbuf@?$vector@Uvert@ragdollskel@@@@QAEXH@Z 00424a60 f i rendermodel.obj
+ 0001:00023a60       ?growbuf@?$vector@Uzipfile@@@@QAEXH@Z 00424a60 f i zip.obj
+ 0001:00023a60       ?growbuf@?$vector@Umergedface@@@@QAEXH@Z 00424a60 f i octarender.obj
+ 0001:00023a60       ?growbuf@?$vector@Uvvert@skelmodel@@@@QAEXH@Z 00424a60 f i rendermodel.obj
+ 0001:00023a60       ?growbuf@?$vector@Uinterest@ai@@@@QAEXH@Z 00424a60 f i ai.obj
  0001:00023ae0       ??1chain@?$hashset@U?$hashtableentry@Usortkey@@Usortval@@@@@@QAE@XZ 00424ae0 f i octarender.obj
  0001:00023b40       ??1?$hashtableentry@Usortkey@@Usortval@@@@QAE@XZ 00424b40 f i octarender.obj
  0001:00023b90       ??1sortval@@QAE@XZ         00424b90 f i octarender.obj
@@ -561,12 +561,12 @@
  0001:00033d50       ??$getlil@G@stream@@QAEGXZ 00434d50 f i pvs.obj
  0001:00033d70       ??_Goctaentities@@QAEPAXI@Z 00434d70 f i world.obj
  0001:00033df0       ?add@?$vector@Uentity@@@@QAEAAUentity@@ABU2@@Z 00434df0 f i world.obj
- 0001:00033e60       ?growbuf@?$vector@Uwaterinfo@@@@QAEXH@Z 00434e60 f i material.obj
- 0001:00033e60       ?growbuf@?$vector@Uskeladjustment@@@@QAEXH@Z 00434e60 f i rendermodel.obj
- 0001:00033e60       ?growbuf@?$vector@Uaistate@ai@@@@QAEXH@Z 00434e60 f i ai.obj
- 0001:00033e60       ?growbuf@?$vector@Uvert@vertmodel@@@@QAEXH@Z 00434e60 f i rendermodel.obj
- 0001:00033e60       ?growbuf@?$vector@Ubase@collectservmode@server@@@@QAEXH@Z 00434e60 f i server1.obj
  0001:00033e60       ?growbuf@?$vector@Uentity@@@@QAEXH@Z 00434e60 f i world.obj
+ 0001:00033e60       ?growbuf@?$vector@Uaistate@ai@@@@QAEXH@Z 00434e60 f i ai.obj
+ 0001:00033e60       ?growbuf@?$vector@Uskeladjustment@@@@QAEXH@Z 00434e60 f i rendermodel.obj
+ 0001:00033e60       ?growbuf@?$vector@Uvert@vertmodel@@@@QAEXH@Z 00434e60 f i rendermodel.obj
+ 0001:00033e60       ?growbuf@?$vector@Uwaterinfo@@@@QAEXH@Z 00434e60 f i material.obj
+ 0001:00033e60       ?growbuf@?$vector@Ubase@collectservmode@server@@@@QAEXH@Z 00434e60 f i server1.obj
  0001:00033ee0       ?rotate@vec@@QAEAAU1@MABU1@@Z 00434ee0 f i world.obj
  0001:00034080       ?orthogonal@vec@@QAEXABU1@@Z 00435080 f i world.obj
  0001:00034110       ?concatstring@@YAPADPADPBDI@Z 00435110 f i world.obj
@@ -582,17 +582,17 @@
  0001:00034460       ??1?$hashset@U?$hashtableentry@Uvec2@@H@@@@QAE@XZ 00435460 f i worldio.obj
  0001:000344b0       ??1?$hashset@U?$hashtableentry@HU?$vector@Uivec@@@@@@@@QAE@XZ 004354b0 f i worldio.obj
  0001:000344e0       ?growbuf@?$vector@PAUVSlot@@@@QAEXH@Z 004354e0 f i worldio.obj
- 0001:00034570       ?growbuf@?$vector@Ueditline@@@@QAEXH@Z 00435570 f i 3dgui.obj
- 0001:00034570       ?growbuf@?$vector@Usortitem@@@@QAEXH@Z 00435570 f i command.obj
- 0001:00034570       ?growbuf@?$vector@Uivec@@@@QAEXH@Z 00435570 f i worldio.obj
- 0001:00034570       ?growbuf@?$vector@Uholdspawn@ctfservmode@server@@@@QAEXH@Z 00435570 f i server1.obj
  0001:00034570       ?growbuf@?$vector@Uskelanimspec@skelmodel@@@@QAEXH@Z 00435570 f i rendermodel.obj
- 0001:00034570       ?growbuf@?$vector@Uvotecount@server@@@@QAEXH@Z 00435570 f i server1.obj
- 0001:00034570       ?growbuf@?$vector@Usoundconfig@@@@QAEXH@Z 00435570 f i sound.obj
  0001:00034570       ?growbuf@?$vector@Utri@ragdollskel@@@@QAEXH@Z 00435570 f i rendermodel.obj
  0001:00034570       ?growbuf@?$vector@Uvec@@@@QAEXH@Z 00435570 f i worldio.obj
+ 0001:00034570       ?growbuf@?$vector@Usortitem@@@@QAEXH@Z 00435570 f i command.obj
  0001:00034570       ?growbuf@?$vector@Uobstacle@avoidset@ai@@@@QAEXH@Z 00435570 f i ai.obj
+ 0001:00034570       ?growbuf@?$vector@Usoundconfig@@@@QAEXH@Z 00435570 f i sound.obj
+ 0001:00034570       ?growbuf@?$vector@Uvotecount@server@@@@QAEXH@Z 00435570 f i server1.obj
  0001:00034570       ?growbuf@?$vector@Utransparentmodel@@@@QAEXH@Z 00435570 f i rendermodel.obj
+ 0001:00034570       ?growbuf@?$vector@Uholdspawn@ctfservmode@server@@@@QAEXH@Z 00435570 f i server1.obj
+ 0001:00034570       ?growbuf@?$vector@Ueditline@@@@QAEXH@Z 00435570 f i 3dgui.obj
+ 0001:00034570       ?growbuf@?$vector@Uivec@@@@QAEXH@Z 00435570 f i worldio.obj
  0001:000345f0       ??0?$hashset@U?$hashtableentry@Uvec2@@H@@@@QAE@H@Z 004355f0 f i worldio.obj
  0001:00034660       ??0?$hashset@U?$hashtableentry@HU?$vector@Uivec@@@@@@@@QAE@H@Z 00435660 f i worldio.obj
  0001:000346d0       ?deletechunks@?$hashset@U?$hashtableentry@HU?$vector@Uivec@@@@@@@@QAEXXZ 004356d0 f i worldio.obj
@@ -692,8 +692,8 @@
  0001:0003bdc0       ?adjustverticalcolumn@gui@@QAEXHH@Z 0043cdc0 f i 3dgui.obj
  0001:0003be30       ?adjustcolumns@gui@@QAEXXZ 0043ce30 f i 3dgui.obj
  0001:0003bee0       ?end@gui@@UAEXXZ           0043cee0 f i 3dgui.obj
- 0001:0003c2d0       ?add@?$vector@Ueditline@@@@QAEAAUeditline@@XZ 0043d2d0 f i 3dgui.obj
  0001:0003c2d0       ?add@?$vector@Uskelanimspec@skelmodel@@@@QAEAAUskelanimspec@skelmodel@@XZ 0043d2d0 f i rendermodel.obj
+ 0001:0003c2d0       ?add@?$vector@Ueditline@@@@QAEAAUeditline@@XZ 0043d2d0 f i 3dgui.obj
  0001:0003c350       ?insert@?$vector@Ueditline@@@@QAEAAUeditline@@HABU2@@Z 0043d350 f i 3dgui.obj
  0001:0003c400       ?insert@?$vector@PAUeditor@@@@QAEAAPAUeditor@@HABQAU2@@Z 0043d400 f i 3dgui.obj
  0001:0003c470       ??_Egui@@UAEPAXI@Z         0043d470 f i * CIL library *:* CIL module *
@@ -704,20 +704,20 @@
  0001:0003c620       ?growbuf@?$vector@Ugui@@@@QAEXH@Z 0043d620 f i 3dgui.obj
  0001:0003c6a0       ??4gui@@QAEAAU0@ABU0@@Z    0043d6a0 f i 3dgui.obj
  0001:0003c710       ??0gui@@QAE@ABU0@@Z        0043d710 f i 3dgui.obj
- 0001:0003c7d0       ??_Gg3d_gui@@UAEPAXI@Z     0043d7d0 f i 3dgui.obj
  0001:0003c7d0       ??_Eg3d_gui@@UAEPAXI@Z     0043d7d0 f i * CIL library *:* CIL module *
- 0001:0003c7f0       ?envmapped@model@@UAE_NXZ  0043d7f0 f i rendermodel.obj
- 0001:0003c7f0       ?swaptexs@rendertarget@@UBE_NXZ 0043d7f0 f i glare.obj
+ 0001:0003c7d0       ??_Gg3d_gui@@UAEPAXI@Z     0043d7d0 f i 3dgui.obj
+ 0001:0003c7f0       ?hidefrags@clientmode@game@@UAE_NXZ 0043d7f0 f i client1.obj
  0001:0003c7f0       ?flipdebug@shadowmaptexture@@UBE_NXZ 0043d7f0 f i shadowmap.obj
+ 0001:0003c7f0       ?swaptexs@rendertarget@@UBE_NXZ 0043d7f0 f i glare.obj
+ 0001:0003c7f0       ?shadowcompare@rendertarget@@UBE_NXZ 0043d7f0 f i glare.obj
  0001:0003c7f0       ?usesvertexarray@partrenderer@@UAE_NXZ 0043d7f0 f i renderparticles.obj
  0001:0003c7f0       ?texrect@rendertarget@@UBE_NXZ 0043d7f0 f i glare.obj
+ 0001:0003c7f0       ?envmapped@model@@UAE_NXZ  0043d7f0 f i rendermodel.obj
  0001:0003c7f0       ?hidefrags@servmode@server@@UAE_NXZ 0043d7f0 f i server1.obj
- 0001:0003c7f0       ?shadowcompare@rendertarget@@UBE_NXZ 0043d7f0 f i glare.obj
- 0001:0003c7f0       ?skeletal@model@@UBE_NXZ   0043d7f0 f i rendermodel.obj
  0001:0003c7f0       ?shouldtab@g3d_gui@@UAE_NXZ 0043d7f0 f i 3dgui.obj
- 0001:0003c7f0       ?keepable@gameevent@server@@UBE_NXZ 0043d7f0 f i server1.obj
  0001:0003c7f0       ?screenview@rendertarget@@UBE_NXZ 0043d7f0 f i glare.obj
- 0001:0003c7f0       ?hidefrags@clientmode@game@@UAE_NXZ 0043d7f0 f i client1.obj
+ 0001:0003c7f0       ?skeletal@model@@UBE_NXZ   0043d7f0 f i rendermodel.obj
+ 0001:0003c7f0       ?keepable@gameevent@server@@UBE_NXZ 0043d7f0 f i server1.obj
  0001:0003c800       ?playerpreview@g3d_gui@@UAEHHHHM_N@Z 0043d800 f i 3dgui.obj
  0001:0003c810       ?modelpreview@g3d_gui@@UAEHPBDHM_N@Z 0043d810 f i 3dgui.obj
  0001:0003c820       ??1g3d_gui@@UAE@XZ         0043d820 f i 3dgui.obj
@@ -769,23 +769,23 @@
  0001:000430c0       ?colorformats@rendertarget@@UBEPBIXZ 004440c0 f i glare.obj
  0001:000430d0       ?depthformats@rendertarget@@UBEPBIXZ 004440d0 f i glare.obj
  0001:000430e0       ?keepable@explodeevent@server@@UBE_NXZ 004440e0 f i server1.obj
- 0001:000430e0       ?hidefrags@collectservmode@server@@UAE_NXZ 004440e0 f i server1.obj
- 0001:000430e0       ?usesvertexarray@?$varenderer@$00@@UAE_NXZ 004440e0 f i renderparticles.obj
- 0001:000430e0       ?hidefrags@captureclientmode@game@@UAE_NXZ 004440e0 f i client1.obj
- 0001:000430e0       ?hidefrags@ctfservmode@server@@UAE_NXZ 004440e0 f i server1.obj
- 0001:000430e0       ?depthtest@rendertarget@@UBE_NXZ 004440e0 f i glare.obj
- 0001:000430e0       ?usesvertexarray@?$varenderer@$0A@@@UAE_NXZ 004440e0 f i renderparticles.obj
- 0001:000430e0       ?shouldrender@rendertarget@@UAE_NXZ 004440e0 f i glare.obj
- 0001:000430e0       ?filter@rendertarget@@UBE_NXZ 004440e0 f i glare.obj
- 0001:000430e0       ?flush@stream@@UAE_NXZ     004440e0 f i stream.obj
- 0001:000430e0       ?loaddefaultparts@animmodel@@UAE_NXZ 004440e0 f i rendermodel.obj
- 0001:000430e0       ?flipdebug@rendertarget@@UBE_NXZ 004440e0 f i glare.obj
- 0001:000430e0       ?dorender@rendertarget@@UAE_NXZ 004440e0 f i glare.obj
- 0001:000430e0       ?usesvertexarray@?$varenderer@$01@@UAE_NXZ 004440e0 f i renderparticles.obj
  0001:000430e0       ?skeletal@skelmodel@@UBE_NXZ 004440e0 f i rendermodel.obj
- 0001:000430e0       ?hidefrags@collectclientmode@game@@UAE_NXZ 004440e0 f i client1.obj
  0001:000430e0       ?hidefrags@ctfclientmode@game@@UAE_NXZ 004440e0 f i client1.obj
+ 0001:000430e0       ?hidefrags@ctfservmode@server@@UAE_NXZ 004440e0 f i server1.obj
+ 0001:000430e0       ?usesvertexarray@?$varenderer@$0A@@@UAE_NXZ 004440e0 f i renderparticles.obj
+ 0001:000430e0       ?hidefrags@captureclientmode@game@@UAE_NXZ 004440e0 f i client1.obj
+ 0001:000430e0       ?loaddefaultparts@animmodel@@UAE_NXZ 004440e0 f i rendermodel.obj
+ 0001:000430e0       ?dorender@rendertarget@@UAE_NXZ 004440e0 f i glare.obj
+ 0001:000430e0       ?shouldrender@rendertarget@@UAE_NXZ 004440e0 f i glare.obj
+ 0001:000430e0       ?hidefrags@collectservmode@server@@UAE_NXZ 004440e0 f i server1.obj
+ 0001:000430e0       ?flush@stream@@UAE_NXZ     004440e0 f i stream.obj
+ 0001:000430e0       ?depthtest@rendertarget@@UBE_NXZ 004440e0 f i glare.obj
+ 0001:000430e0       ?flipdebug@rendertarget@@UBE_NXZ 004440e0 f i glare.obj
  0001:000430e0       ?hidefrags@captureservmode@server@@UAE_NXZ 004440e0 f i server1.obj
+ 0001:000430e0       ?usesvertexarray@?$varenderer@$00@@UAE_NXZ 004440e0 f i renderparticles.obj
+ 0001:000430e0       ?usesvertexarray@?$varenderer@$01@@UAE_NXZ 004440e0 f i renderparticles.obj
+ 0001:000430e0       ?hidefrags@collectclientmode@game@@UAE_NXZ 004440e0 f i client1.obj
+ 0001:000430e0       ?filter@rendertarget@@UBE_NXZ 004440e0 f i glare.obj
  0001:000430f0       ?cleanupblur@rendertarget@@QAEXXZ 004440f0 f i glare.obj
  0001:00043150       ?setupblur@rendertarget@@QAEXXZ 00444150 f i glare.obj
  0001:00043260       ?setup@rendertarget@@QAEXHH@Z 00444260 f i glare.obj
@@ -795,20 +795,20 @@
  0001:00043bb0       ?scissorrender@rendertarget@@UAE_NAAH000@Z 00444bb0 f i glare.obj
  0001:00043dd0       ?scissorblur@rendertarget@@UAE_NAAH000@Z 00444dd0 f i glare.obj
  0001:00043fd0       ?render@rendertarget@@QAEXHHHM@Z 00444fd0 f i glare.obj
- 0001:000444f0       ?died@servmode@server@@UAEXPAUclientinfo@2@0@Z 004454f0 f i server1.obj
- 0001:000444f0       ?setglare@model@@UAEXMM@Z  004454f0 f i rendermodel.obj
- 0001:000444f0       ?dodebug@rendertarget@@UAEXHH@Z 004454f0 f i glare.obj
  0001:000444f0       ?leavegame@servmode@server@@UAEXPAUclientinfo@2@_N@Z 004454f0 f i server1.obj
+ 0001:000444f0       ?setglare@model@@UAEXMM@Z  004454f0 f i rendermodel.obj
+ 0001:000444f0       ?died@servmode@server@@UAEXPAUclientinfo@2@0@Z 004454f0 f i server1.obj
+ 0001:000444f0       ?dodebug@rendertarget@@UAEXHH@Z 004454f0 f i glare.obj
  0001:00044500       ?debug@rendertarget@@QAEXXZ 00445500 f i glare.obj
- 0001:00044700       ??_Erendertarget@@UAEPAXI@Z 00445700 f i * CIL library *:* CIL module *
  0001:00044700       ??_Grendertarget@@UAEPAXI@Z 00445700 f i glare.obj
+ 0001:00044700       ??_Erendertarget@@UAEPAXI@Z 00445700 f i * CIL library *:* CIL module *
  0001:00044720       ?dorender@glaretexture@@UAE_NXZ 00445720 f i glare.obj
- 0001:00044730       ??_Gdepthfxtexture@@UAEPAXI@Z 00445730 f i renderparticles.obj
- 0001:00044730       ??_Edepthfxtexture@@UAEPAXI@Z 00445730 f i * CIL library *:* CIL module *
- 0001:00044730       ??_Gglaretexture@@UAEPAXI@Z 00445730 f i glare.obj
- 0001:00044730       ??_Gshadowmaptexture@@UAEPAXI@Z 00445730 f i shadowmap.obj
  0001:00044730       ??_Eglaretexture@@UAEPAXI@Z 00445730 f i * CIL library *:* CIL module *
  0001:00044730       ??_Eshadowmaptexture@@UAEPAXI@Z 00445730 f i * CIL library *:* CIL module *
+ 0001:00044730       ??_Gshadowmaptexture@@UAEPAXI@Z 00445730 f i shadowmap.obj
+ 0001:00044730       ??_Gglaretexture@@UAEPAXI@Z 00445730 f i glare.obj
+ 0001:00044730       ??_Gdepthfxtexture@@UAEPAXI@Z 00445730 f i renderparticles.obj
+ 0001:00044730       ??_Edepthfxtexture@@UAEPAXI@Z 00445730 f i * CIL library *:* CIL module *
  0001:00044780       ?growbuf@?$vector@Ugrassvert@@@@QAEXH@Z 00445780 f i grass.obj
  0001:00044800       ?growbuf@?$vector@Ugrassgroup@@@@QAEXH@Z 00445800 f i grass.obj
  0001:00044890       ??0QuadNode@@QAE@HHH@Z     00445890 f i material.obj
@@ -817,8 +817,8 @@
  0001:00044920       ?insert@QuadNode@@QAEXHHH@Z 00445920 f i material.obj
  0001:00044a70       ?genmatsurfs@QuadNode@@QAEXGEEHAAPAUmaterialsurface@@@Z 00445a70 f i material.obj
  0001:00044bd0       ?growbuf@?$vector@Umd5joint@@@@QAEXH@Z 00445bd0 f i rendermodel.obj
- 0001:00044bd0       ?growbuf@?$vector@Umaterialsurface@@@@QAEXH@Z 00445bd0 f i material.obj
  0001:00044bd0       ?growbuf@?$vector@Uhitinfo@server@@@@QAEXH@Z 00445bd0 f i server1.obj
+ 0001:00044bd0       ?growbuf@?$vector@Umaterialsurface@@@@QAEXH@Z 00445bd0 f i material.obj
  0001:00044c60       ?compressfind@unionfind@@QAEHH@Z 00445c60 f i material.obj
  0001:00044c90       ?unite@unionfind@@QAEXHH@Z 00445c90 f i material.obj
  0001:00044d90       ??$perspectivetransform@Uvec4@@@glmatrixf@@QBE?AUvec@@ABUvec4@@@Z 00445d90 f i rendergl.obj
@@ -845,49 +845,49 @@
  0001:00048690       ?loadshader@skin@animmodel@@QAEPAUShader@@_N0@Z 00449690 f i rendermodel.obj
  0001:00048940       ?bind@skin@animmodel@@QAEXPAUmesh@2@PBUanimstate@2@@Z 00449940 f i rendermodel.obj
  0001:00048fd0       ??1mesh@animmodel@@UAE@XZ  00449fd0 f i rendermodel.obj
- 0001:00049000       ?initclient@servmode@server@@UAEXPAUclientinfo@2@AAUpacketbuf@@_N@Z 0044a000 f i server1.obj
+ 0001:00049000       ?calcbb@mesh@animmodel@@UAEXAAUvec@@0ABUmatrix3x4@@@Z 0044a000 f i rendermodel.obj
+ 0001:00049000       ?gentris@mesh@animmodel@@UAEXPAUTexture@@PAU?$vector@Utri@BIH@@@@ABUmatrix3x4@@@Z 0044a000 f i rendermodel.obj
  0001:00049000       ?changeteam@collectservmode@server@@UAEXPAUclientinfo@2@PBD1@Z 0044a000 f i server1.obj
+ 0001:00049000       ?initclient@servmode@server@@UAEXPAUclientinfo@2@AAUpacketbuf@@_N@Z 0044a000 f i server1.obj
  0001:00049000       ?setenvmap@model@@UAEXMMPAUTexture@@@Z 0044a000 f i rendermodel.obj
  0001:00049000       ?setglow@model@@UAEXMMM@Z  0044a000 f i rendermodel.obj
- 0001:00049000       ?gentris@mesh@animmodel@@UAEXPAUTexture@@PAU?$vector@Utri@BIH@@@@ABUmatrix3x4@@@Z 0044a000 f i rendermodel.obj
- 0001:00049000       ?changeteam@servmode@server@@UAEXPAUclientinfo@2@PBD1@Z 0044a000 f i server1.obj
  0001:00049000       ?aifind@clientmode@game@@UAEXPAUfpsent@@AAUaistate@ai@@AAU?$vector@Uinterest@ai@@@@@Z 0044a000 f i client1.obj
- 0001:00049000       ?calcbb@mesh@animmodel@@UAEXAAUvec@@0ABUmatrix3x4@@@Z 0044a000 f i rendermodel.obj
  0001:00049000       ?drawhud@clientmode@game@@UAEXPAUfpsent@@HH@Z 0044a000 f i client1.obj
+ 0001:00049000       ?changeteam@servmode@server@@UAEXPAUclientinfo@2@PBD1@Z 0044a000 f i server1.obj
  0001:00049010       ?setshader@mesh@animmodel@@UAEXPAUShader@@@Z 0044a010 f i rendermodel.obj
  0001:00049080       ??1meshgroup@animmodel@@UAE@XZ 0044a080 f i rendermodel.obj
  0001:00049130       ?findtag@meshgroup@animmodel@@UAEHPBD@Z 0044a130 f i rendermodel.obj
  0001:00049140       ?concattagtransform@meshgroup@animmodel@@UAEXPAUpart@2@HABUmatrix3x4@@AAU4@@Z 0044a140 f i rendermodel.obj
  0001:00049150       ?gentris@meshgroup@animmodel@@QAEXAAU?$vector@Uskin@animmodel@@@@PAU?$vector@Utri@BIH@@@@ABUmatrix3x4@@@Z 0044a150 f i rendermodel.obj
- 0001:000491a0       ?type@md3@@UBEHXZ          0044a1a0 f i rendermodel.obj
  0001:000491a0       ?totalframes@meshgroup@animmodel@@UBEHXZ 0044a1a0 f i rendermodel.obj
- 0001:000491b0       ?setspec@model@@UAEXM@Z    0044a1b0 f i rendermodel.obj
- 0001:000491b0       ?senditems@clientmode@game@@UAEXAAUpacketbuf@@@Z 0044a1b0 f i client1.obj
- 0001:000491b0       ?process@gameevent@server@@UAEXPAUclientinfo@2@@Z 0044a1b0 f i server1.obj
- 0001:000491b0       ?setshader@model@@UAEXPAUShader@@@Z 0044a1b0 f i rendermodel.obj
- 0001:000491b0       ?getteamscores@servmode@server@@UAEXAAU?$vector@Uteamscore@@@@@Z 0044a1b0 f i server1.obj
- 0001:000491b0       ?respawned@clientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
- 0001:000491b0       ?resettracked@partrenderer@@UAEXPAUphysent@@@Z 0044a1b0 f i renderparticles.obj
+ 0001:000491a0       ?type@md3@@UBEHXZ          0044a1a0 f i rendermodel.obj
  0001:000491b0       ?setalphablend@model@@UAEX_N@Z 0044a1b0 f i rendermodel.obj
- 0001:000491b0       ?setcullface@model@@UAEX_N@Z 0044a1b0 f i rendermodel.obj
- 0001:000491b0       ?preload@meshgroup@animmodel@@UAEXPAUpart@2@@Z 0044a1b0 f i rendermodel.obj
- 0001:000491b0       ?init@partrenderer@@UAEXH@Z 0044a1b0 f i renderparticles.obj
- 0001:000491b0       ?setfullbright@model@@UAEXM@Z 0044a1b0 f i rendermodel.obj
- 0001:000491b0       ?checkitems@clientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
- 0001:000491b0       ?respawned@captureclientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
- 0001:000491b0       ?spawned@servmode@server@@UAEXPAUclientinfo@2@@Z 0044a1b0 f i server1.obj
- 0001:000491b0       ?setambient@model@@UAEXM@Z 0044a1b0 f i rendermodel.obj
  0001:000491b0       ?setalphatest@model@@UAEXM@Z 0044a1b0 f i rendermodel.obj
- 0001:000491b0       ?removeplayer@clientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
- 0001:000491b0       ?getteamscores@clientmode@game@@UAEXAAU?$vector@Uteamscore@@@@@Z 0044a1b0 f i client1.obj
+ 0001:000491b0       ?preload@meshgroup@animmodel@@UAEXPAUpart@2@@Z 0044a1b0 f i rendermodel.obj
+ 0001:000491b0       ?senditems@clientmode@game@@UAEXAAUpacketbuf@@@Z 0044a1b0 f i client1.obj
  0001:000491b0       ?entergame@servmode@server@@UAEXPAUclientinfo@2@@Z 0044a1b0 f i server1.obj
+ 0001:000491b0       ?setshader@model@@UAEXPAUShader@@@Z 0044a1b0 f i rendermodel.obj
+ 0001:000491b0       ?setspec@model@@UAEXM@Z    0044a1b0 f i rendermodel.obj
+ 0001:000491b0       ?getteamscores@clientmode@game@@UAEXAAU?$vector@Uteamscore@@@@@Z 0044a1b0 f i client1.obj
+ 0001:000491b0       ?init@partrenderer@@UAEXH@Z 0044a1b0 f i renderparticles.obj
+ 0001:000491b0       ?setambient@model@@UAEXM@Z 0044a1b0 f i rendermodel.obj
+ 0001:000491b0       ?spawned@servmode@server@@UAEXPAUclientinfo@2@@Z 0044a1b0 f i server1.obj
+ 0001:000491b0       ?respawned@clientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
+ 0001:000491b0       ?setfullbright@model@@UAEXM@Z 0044a1b0 f i rendermodel.obj
+ 0001:000491b0       ?respawned@captureclientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
+ 0001:000491b0       ?removeplayer@clientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
+ 0001:000491b0       ?resettracked@partrenderer@@UAEXPAUphysent@@@Z 0044a1b0 f i renderparticles.obj
+ 0001:000491b0       ?setcullface@model@@UAEX_N@Z 0044a1b0 f i rendermodel.obj
+ 0001:000491b0       ?checkitems@clientmode@game@@UAEXPAUfpsent@@@Z 0044a1b0 f i client1.obj
+ 0001:000491b0       ?process@gameevent@server@@UAEXPAUclientinfo@2@@Z 0044a1b0 f i server1.obj
  0001:000491b0       ?killpart@listrenderer@@UAEXPAUlistparticle@@@Z 0044a1b0 f i renderparticles.obj
- 0001:000491c0       ?render@meshgroup@animmodel@@UAEXPBUanimstate@2@MABUvec@@1PAUdynent@@PAUpart@2@@Z 0044a1c0 f i rendermodel.obj
+ 0001:000491b0       ?getteamscores@servmode@server@@UAEXAAU?$vector@Uteamscore@@@@@Z 0044a1b0 f i server1.obj
  0001:000491c0       ?seedemitter@partrenderer@@UAEXAAUparticleemitter@@ABUvec@@1HMH@Z 0044a1c0 f i renderparticles.obj
- 0001:000491d0       ?clipconsole@clientmode@game@@UAEHHH@Z 0044a1d0 f i client1.obj
+ 0001:000491c0       ?render@meshgroup@animmodel@@UAEXPBUanimstate@2@MABUvec@@1PAUdynent@@PAUpart@2@@Z 0044a1c0 f i rendermodel.obj
+ 0001:000491d0       ?write@stream@@UAEIPBXI@Z  0044a1d0 f i stream.obj
  0001:000491d0       ?adddepthfx@partrenderer@@UAEHAAUvec@@0@Z 0044a1d0 f i renderparticles.obj
  0001:000491d0       ?loadmeshes@animmodel@@UAEPAUmeshgroup@1@PBDPAD@Z 0044a1d0 f i rendermodel.obj
- 0001:000491d0       ?write@stream@@UAEIPBXI@Z  0044a1d0 f i stream.obj
+ 0001:000491d0       ?clipconsole@clientmode@game@@UAEHHH@Z 0044a1d0 f i client1.obj
  0001:000491d0       ?read@stream@@UAEIPAXI@Z   0044a1d0 f i stream.obj
  0001:000491e0       ?sharemeshes@animmodel@@QAAPAUmeshgroup@1@PBDZZ 0044a1e0 f i rendermodel.obj
  0001:00049290       ??0part@animmodel@@QAE@XZ  0044a290 f i rendermodel.obj
@@ -905,10 +905,10 @@
  0001:0004a1a0       ?render@part@animmodel@@QAEXHHHMABUvec@@0PAUdynent@@PAUanimstate@2@@Z 0044b1a0 f i rendermodel.obj
  0001:0004aee0       ?setanim@part@animmodel@@QAEXHHHHMH@Z 0044bee0 f i rendermodel.obj
  0001:0004b020       ?respawnwait@clientmode@game@@UAEHPAUfpsent@@@Z 0044c020 f i client1.obj
- 0001:0004b020       ?getteamscore@clientmode@game@@UAEHPBD@Z 0044c020 f i client1.obj
  0001:0004b020       ?linktype@animmodel@@UBEHPAU1@@Z 0044c020 f i rendermodel.obj
- 0001:0004b020       ?getteamscore@servmode@server@@UAEHPBD@Z 0044c020 f i server1.obj
  0001:0004b020       ?loadanim@skelmeshgroup@skelmodel@@UAEPAUskelanimspec@2@PBD@Z 0044c020 f i rendermodel.obj
+ 0001:0004b020       ?getteamscore@clientmode@game@@UAEHPBD@Z 0044c020 f i client1.obj
+ 0001:0004b020       ?getteamscore@servmode@server@@UAEHPBD@Z 0044c020 f i server1.obj
  0001:0004b030       ?render@animmodel@@QAEXHHHMABUvec@@0PAUdynent@@PAUmodelattach@@@Z 0044c030 f i rendermodel.obj
  0001:0004b2f0       ?render@animmodel@@UAEXHHHABUvec@@MMPAUdynent@@PAUmodelattach@@00M@Z 0044c2f0 f i rendermodel.obj
  0001:0004ba50       ??0animmodel@@QAE@PBD@Z    0044ca50 f i rendermodel.obj
@@ -937,10 +937,10 @@
  0001:0004c850       ?disablevbo@animmodel@@SAXXZ 0044d850 f i rendermodel.obj
  0001:0004c960       ?disableglow@animmodel@@SAXXZ 0044d960 f i rendermodel.obj
  0001:0004c9b0       ?endrender@animmodel@@UAEXXZ 0044d9b0 f i rendermodel.obj
- 0001:0004caf0       ??_Gmesh@animmodel@@UAEPAXI@Z 0044daf0 f i rendermodel.obj
  0001:0004caf0       ??_Emesh@animmodel@@UAEPAXI@Z 0044daf0 f i * CIL library *:* CIL module *
- 0001:0004cb30       ??_Gmeshgroup@animmodel@@UAEPAXI@Z 0044db30 f i rendermodel.obj
+ 0001:0004caf0       ??_Gmesh@animmodel@@UAEPAXI@Z 0044daf0 f i rendermodel.obj
  0001:0004cb30       ??_Emeshgroup@animmodel@@UAEPAXI@Z 0044db30 f i * CIL library *:* CIL module *
+ 0001:0004cb30       ??_Gmeshgroup@animmodel@@UAEPAXI@Z 0044db30 f i rendermodel.obj
  0001:0004cb60       ??_Epart@animmodel@@UAEPAXI@Z 0044db60 f i * CIL library *:* CIL module *
  0001:0004cb60       ??_Gpart@animmodel@@UAEPAXI@Z 0044db60 f i rendermodel.obj
  0001:0004cb90       ??_Eanimmodel@@UAEPAXI@Z   0044db90 f i * CIL library *:* CIL module *
@@ -954,19 +954,19 @@
  0001:0004d430       ?genvbo@vertmesh@vertmodel@@QAEHAAU?$vector@G@@H@Z 0044e430 f i rendermodel.obj
  0001:0004d4f0       ?interpverts@vertmesh@vertmodel@@QAEXABUanimstate@animmodel@@_N1PIAXAAUskin@4@@Z 0044e4f0 f i rendermodel.obj
  0001:0004df50       ?render@vertmesh@vertmodel@@QAEXPBUanimstate@animmodel@@AAUskin@4@AAUvbocacheentry@2@@Z 0044ef50 f i rendermodel.obj
- 0001:0004e270       ??0videobuffer@recorder@@QAE@XZ 0044f270 f i movie.obj
  0001:0004e270       ??0tag@vertmodel@@QAE@XZ   0044f270 f i rendermodel.obj
- 0001:0004e280       ??1tag@vertmodel@@QAE@XZ   0044f280 f i rendermodel.obj
- 0001:0004e280       ??1videobuffer@recorder@@QAE@XZ 0044f280 f i movie.obj
- 0001:0004e280       ??1soundsample@@QAE@XZ     0044f280 f i sound.obj
+ 0001:0004e270       ??0videobuffer@recorder@@QAE@XZ 0044f270 f i movie.obj
  0001:0004e280       ??1boneinfo@skelmodel@@QAE@XZ 0044f280 f i rendermodel.obj
+ 0001:0004e280       ??1tag@vertmodel@@QAE@XZ   0044f280 f i rendermodel.obj
+ 0001:0004e280       ??1soundsample@@QAE@XZ     0044f280 f i sound.obj
  0001:0004e280       ??1zipfile@@QAE@XZ         0044f280 f i zip.obj
+ 0001:0004e280       ??1videobuffer@recorder@@QAE@XZ 0044f280 f i movie.obj
  0001:0004e2a0       ??0vertmeshgroup@vertmodel@@QAE@XZ 0044f2a0 f i rendermodel.obj
  0001:0004e3a0       ??1vertmeshgroup@vertmodel@@UAE@XZ 0044f3a0 f i rendermodel.obj
  0001:0004e490       ?findtag@vertmeshgroup@vertmodel@@UAEHPBD@Z 0044f490 f i rendermodel.obj
+ 0001:0004e4f0       ?totalframes@vertmeshgroup@vertmodel@@UBEHXZ 0044f4f0 f i rendermodel.obj
  0001:0004e4f0       ?animkey@skelmeshgroup@skelmodel@@UAEPAXXZ 0044f4f0 f i rendermodel.obj
  0001:0004e4f0       ?count@flarerenderer@@UAEHXZ 0044f4f0 f i renderparticles.obj
- 0001:0004e4f0       ?totalframes@vertmeshgroup@vertmodel@@UBEHXZ 0044f4f0 f i rendermodel.obj
  0001:0004e500       ?concattagtransform@vertmeshgroup@vertmodel@@UAEXPAUpart@animmodel@@HABUmatrix3x4@@AAU5@@Z 0044f500 f i rendermodel.obj
  0001:0004e5f0       ?calctagmatrix@vertmeshgroup@vertmodel@@QAEXPAUpart@animmodel@@HABUanimstate@4@AAUglmatrixf@@@Z 0044f5f0 f i rendermodel.obj
  0001:0004eb10       ?genvbo@vertmeshgroup@vertmodel@@QAEX_N0AAUvbocacheentry@2@@Z 0044fb10 f i rendermodel.obj
@@ -978,12 +978,12 @@
  0001:0004fa00       ??_Evertmesh@vertmodel@@UAEPAXI@Z 00450a00 f i * CIL library *:* CIL module *
  0001:0004fa30       ??_Evertmeshgroup@vertmodel@@UAEPAXI@Z 00450a30 f i * CIL library *:* CIL module *
  0001:0004fa30       ??_Gvertmeshgroup@vertmodel@@UAEPAXI@Z 00450a30 f i rendermodel.obj
- 0001:0004fa60       ??_Gskelmodel@@UAEPAXI@Z   00450a60 f i rendermodel.obj
  0001:0004fa60       ??_Evertmodel@@UAEPAXI@Z   00450a60 f i * CIL library *:* CIL module *
  0001:0004fa60       ??_Eskelmodel@@UAEPAXI@Z   00450a60 f i * CIL library *:* CIL module *
  0001:0004fa60       ??_Gvertmodel@@UAEPAXI@Z   00450a60 f i rendermodel.obj
- 0001:0004fac0       ??1skelmodel@@UAE@XZ       00450ac0 f i rendermodel.obj
+ 0001:0004fa60       ??_Gskelmodel@@UAEPAXI@Z   00450a60 f i rendermodel.obj
  0001:0004fac0       ??1vertmodel@@UAE@XZ       00450ac0 f i rendermodel.obj
+ 0001:0004fac0       ??1skelmodel@@UAE@XZ       00450ac0 f i rendermodel.obj
  0001:0004fb00       ?sortcmp@blendcombo@skelmodel@@SA_NABU12@0@Z 00450b00 f i rendermodel.obj
  0001:0004fb60       ?addweight@blendcombo@skelmodel@@QAEHHMH@Z 00450b60 f i rendermodel.obj
  0001:0004fc90       ?finalize@blendcombo@skelmodel@@QAEXH@Z 00450c90 f i rendermodel.obj
@@ -1049,8 +1049,8 @@
  0001:0005a0c0       ?sharepartmask@skelpart@skelmodel@@QAEPAEPAUanimpartmask@2@@Z 0045b0c0 f i rendermodel.obj
  0001:0005a160       ?initanimparts@skelpart@skelmodel@@QAEXXZ 0045b160 f i rendermodel.obj
  0001:0005a1c0       ?linktype@skelmodel@@UBEHPAUanimmodel@@@Z 0045b1c0 f i rendermodel.obj
- 0001:0005a210       ??_Gskelmesh@skelmodel@@UAEPAXI@Z 0045b210 f i rendermodel.obj
  0001:0005a210       ??_Eskelmesh@skelmodel@@UAEPAXI@Z 0045b210 f i * CIL library *:* CIL module *
+ 0001:0005a210       ??_Gskelmesh@skelmodel@@UAEPAXI@Z 0045b210 f i rendermodel.obj
  0001:0005a240       ??1?$hashtable@IH@@QAE@XZ  0045b240 f i rendermodel.obj
  0001:0005a280       ??_Eskelmeshgroup@skelmodel@@UAEPAXI@Z 0045b280 f i * CIL library *:* CIL module *
  0001:0005a280       ??_Gskelmeshgroup@skelmodel@@UAEPAXI@Z 0045b280 f i rendermodel.obj
@@ -1058,10 +1058,10 @@
  0001:0005a2b0       ??_Gskelpart@skelmodel@@UAEPAXI@Z 0045b2b0 f i rendermodel.obj
  0001:0005a330       ??1ragdollskel@@QAE@XZ     0045b330 f i rendermodel.obj
  0001:0005a470       ?adjust@skeladjustment@@QAEXAAUdualquat@@@Z 0045b470 f i rendermodel.obj
- 0001:0005a6e0       ?type@md2@@UBEHXZ          0045b6e0 f i rendermodel.obj
  0001:0005a6e0       __matherr                  0045b6e0 f i LIBCMT:matherr.obj
- 0001:0005a6e0       ?setBIH@model@@UAEPAUBIH@@XZ 0045b6e0 f i rendermodel.obj
  0001:0005a6e0       ?getcrc@stream@@UAEIXZ     0045b6e0 f i stream.obj
+ 0001:0005a6e0       ?type@md2@@UBEHXZ          0045b6e0 f i rendermodel.obj
+ 0001:0005a6e0       ?setBIH@model@@UAEPAUBIH@@XZ 0045b6e0 f i rendermodel.obj
  0001:0005a6f0       ?linktype@md2@@UBEHPAUanimmodel@@@Z 0045b6f0 f i rendermodel.obj
  0001:0005a700       ?genverts@md2meshgroup@md2@@QAEXPAHAAU?$vector@Utcvert@vertmodel@@@@AAU?$vector@G@@AAU?$vector@Utri@vertmodel@@@@@Z 0045b700 f i rendermodel.obj
  0001:0005aa10       ?load@md2meshgroup@md2@@QAE_NPBD@Z 0045ba10 f i rendermodel.obj
@@ -1069,23 +1069,23 @@
  0001:0005b000       ?loadmeshes@md2@@UAEPAUmeshgroup@animmodel@@PBDPAD@Z 0045c000 f i rendermodel.obj
  0001:0005b0a0       ?load@md2@@UAE_NXZ         0045c0a0 f i rendermodel.obj
  0001:0005b340       ??_Emd3@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
- 0001:0005b340       ??_Eiqm@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
- 0001:0005b340       ??_Giqm@@UAEPAXI@Z         0045c340 f i rendermodel.obj
- 0001:0005b340       ??_Emd2@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
- 0001:0005b340       ??_Eobj@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
+ 0001:0005b340       ??_Gmd5@@UAEPAXI@Z         0045c340 f i rendermodel.obj
  0001:0005b340       ??_Gmd2@@UAEPAXI@Z         0045c340 f i rendermodel.obj
  0001:0005b340       ??_Gsmd@@UAEPAXI@Z         0045c340 f i rendermodel.obj
+ 0001:0005b340       ??_Eiqm@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
  0001:0005b340       ??_Gmd3@@UAEPAXI@Z         0045c340 f i rendermodel.obj
- 0001:0005b340       ??_Emd5@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
- 0001:0005b340       ??_Gmd5@@UAEPAXI@Z         0045c340 f i rendermodel.obj
- 0001:0005b340       ??_Esmd@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
+ 0001:0005b340       ??_Emd2@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
+ 0001:0005b340       ??_Giqm@@UAEPAXI@Z         0045c340 f i rendermodel.obj
  0001:0005b340       ??_Gobj@@UAEPAXI@Z         0045c340 f i rendermodel.obj
- 0001:0005b3a0       ??_Emd2meshgroup@md2@@UAEPAXI@Z 0045c3a0 f i * CIL library *:* CIL module *
- 0001:0005b3a0       ??_Gmd3meshgroup@md3@@UAEPAXI@Z 0045c3a0 f i rendermodel.obj
- 0001:0005b3a0       ??_Emd3meshgroup@md3@@UAEPAXI@Z 0045c3a0 f i * CIL library *:* CIL module *
- 0001:0005b3a0       ??_Gmd2meshgroup@md2@@UAEPAXI@Z 0045c3a0 f i rendermodel.obj
+ 0001:0005b340       ??_Esmd@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
+ 0001:0005b340       ??_Emd5@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
+ 0001:0005b340       ??_Eobj@@UAEPAXI@Z         0045c340 f i * CIL library *:* CIL module *
  0001:0005b3a0       ??_Eobjmeshgroup@obj@@UAEPAXI@Z 0045c3a0 f i * CIL library *:* CIL module *
  0001:0005b3a0       ??_Gobjmeshgroup@obj@@UAEPAXI@Z 0045c3a0 f i rendermodel.obj
+ 0001:0005b3a0       ??_Emd2meshgroup@md2@@UAEPAXI@Z 0045c3a0 f i * CIL library *:* CIL module *
+ 0001:0005b3a0       ??_Gmd2meshgroup@md2@@UAEPAXI@Z 0045c3a0 f i rendermodel.obj
+ 0001:0005b3a0       ??_Emd3meshgroup@md3@@UAEPAXI@Z 0045c3a0 f i * CIL library *:* CIL module *
+ 0001:0005b3a0       ??_Gmd3meshgroup@md3@@UAEPAXI@Z 0045c3a0 f i rendermodel.obj
  0001:0005b400       ??_Emd2part@md2@@UAEPAXI@Z 0045c400 f i * CIL library *:* CIL module *
  0001:0005b400       ??_Gmd2part@md2@@UAEPAXI@Z 0045c400 f i rendermodel.obj
  0001:0005b460       ?load@md3meshgroup@md3@@QAE_NPBD@Z 0045c460 f i rendermodel.obj
@@ -1103,12 +1103,12 @@
  0001:0005dd00       ?load@md5@@UAE_NXZ         0045ed00 f i rendermodel.obj
  0001:0005deb0       ??_Gmd5mesh@md5@@UAEPAXI@Z 0045eeb0 f i rendermodel.obj
  0001:0005deb0       ??_Emd5mesh@md5@@UAEPAXI@Z 0045eeb0 f i * CIL library *:* CIL module *
- 0001:0005df40       ??_Emd5meshgroup@md5@@UAEPAXI@Z 0045ef40 f i * CIL library *:* CIL module *
  0001:0005df40       ??_Eiqmmeshgroup@iqm@@UAEPAXI@Z 0045ef40 f i * CIL library *:* CIL module *
- 0001:0005df40       ??_Gmd5meshgroup@md5@@UAEPAXI@Z 0045ef40 f i rendermodel.obj
  0001:0005df40       ??_Giqmmeshgroup@iqm@@UAEPAXI@Z 0045ef40 f i rendermodel.obj
- 0001:0005df40       ??_Gsmdmeshgroup@smd@@UAEPAXI@Z 0045ef40 f i rendermodel.obj
  0001:0005df40       ??_Esmdmeshgroup@smd@@UAEPAXI@Z 0045ef40 f i * CIL library *:* CIL module *
+ 0001:0005df40       ??_Gmd5meshgroup@md5@@UAEPAXI@Z 0045ef40 f i rendermodel.obj
+ 0001:0005df40       ??_Emd5meshgroup@md5@@UAEPAXI@Z 0045ef40 f i * CIL library *:* CIL module *
+ 0001:0005df40       ??_Gsmdmeshgroup@smd@@UAEPAXI@Z 0045ef40 f i rendermodel.obj
  0001:0005dfa0       ?type@obj@@UBEHXZ          0045efa0 f i rendermodel.obj
  0001:0005dfb0       ?parsevert@objmeshgroup@obj@@QAEXPADAAU?$vector@Uvec@@@@@Z 0045efb0 f i rendermodel.obj
  0001:0005e0a0       ?load@objmeshgroup@obj@@QAE_NPBDM@Z 0045f0a0 f i rendermodel.obj
@@ -1160,8 +1160,8 @@
  0001:00063f00       ?add@?$vector@Umd5joint@@@@QAEAAUmd5joint@@ABU2@@Z 00464f00 f i rendermodel.obj
  0001:00063f60       ?add@?$vector@Umd5hierarchy@@@@QAEAAUmd5hierarchy@@ABU2@@Z 00464f60 f i rendermodel.obj
  0001:00063fa0       ??0?$skelcommands@Umd5@@@@QAE@XZ 00464fa0 f i rendermodel.obj
- 0001:00064000       ?inrange@?$vector@Ucharinfo@font@@@@QBE_NH@Z 00465000 f i rendertext.obj
  0001:00064000       ?inrange@?$vector@Usmdbone@@@@QBE_NH@Z 00465000 f i rendermodel.obj
+ 0001:00064000       ?inrange@?$vector@Ucharinfo@font@@@@QBE_NH@Z 00465000 f i rendertext.obj
  0001:00064020       ?access@?$hashtable@PBDUsmdmeshdata@smdmeshgroup@smd@@@@QAEPAUsmdmeshdata@smdmeshgroup@smd@@ABQBD@Z 00465020 f i rendermodel.obj
  0001:000640b0       ??A?$hashtable@PBDUsmdmeshdata@smdmeshgroup@smd@@@@QAEAAUsmdmeshdata@smdmeshgroup@smd@@ABQBD@Z 004650b0 f i rendermodel.obj
  0001:00064150       ??1?$hashset@U?$hashtableentry@PBDUsmdmeshdata@smdmeshgroup@smd@@@@@@QAE@XZ 00465150 f i rendermodel.obj
@@ -1174,21 +1174,21 @@
  0001:00064440       ??1?$hashset@U?$hashtableentry@PBDPAUmodel@@@@@@QAE@XZ 00465440 f i rendermodel.obj
  0001:00064490       ?add@?$vector@Umodelattach@@@@QAEAAUmodelattach@@ABU2@@Z 00465490 f i rendermodel.obj
  0001:00064500       ?growbuf@?$vector@Umapmodelinfo@@@@QAEXH@Z 00465500 f i rendermodel.obj
- 0001:00064590       ?growbuf@?$vector@Uaviindexentry@@@@QAEXH@Z 00465590 f i movie.obj
- 0001:00064590       ?growbuf@?$vector@Uanimspec@animmodel@@@@QAEXH@Z 00465590 f i rendermodel.obj
  0001:00064590       ?growbuf@?$vector@Unode@wpcache@ai@@@@QAEXH@Z 00465590 f i waypoint.obj
- 0001:00064590       ?growbuf@?$vector@Udistlimit@ragdollskel@@@@QAEXH@Z 00465590 f i rendermodel.obj
+ 0001:00064590       ?growbuf@?$vector@Uanimspec@animmodel@@@@QAEXH@Z 00465590 f i rendermodel.obj
  0001:00064590       ?growbuf@?$vector@Ucharinfo@font@@@@QAEXH@Z 00465590 f i rendertext.obj
+ 0001:00064590       ?growbuf@?$vector@Udistlimit@ragdollskel@@@@QAEXH@Z 00465590 f i rendermodel.obj
+ 0001:00064590       ?growbuf@?$vector@Uaviindexentry@@@@QAEXH@Z 00465590 f i movie.obj
  0001:00064610       ?growbuf@?$vector@Uvvertbump@vertmodel@@@@QAEXH@Z 00465610 f i rendermodel.obj
- 0001:00064610       ?growbuf@?$vector@Uvvertbump@skelmodel@@@@QAEXH@Z 00465610 f i rendermodel.obj
  0001:00064610       ?growbuf@?$vector@Uavisegmentinfo@@@@QAEXH@Z 00465610 f i movie.obj
  0001:00064610       ?growbuf@?$vector@Urotlimit@ragdollskel@@@@QAEXH@Z 00465610 f i rendermodel.obj
+ 0001:00064610       ?growbuf@?$vector@Uvvertbump@skelmodel@@@@QAEXH@Z 00465610 f i rendermodel.obj
  0001:00064690       ?growbuf@?$vector@Urotfriction@ragdollskel@@@@QAEXH@Z 00465690 f i rendermodel.obj
  0001:00064710       ?growbuf@?$vector@Ulinkedpart@animmodel@@@@QAEXH@Z 00465710 f i rendermodel.obj
  0001:00064790       ?growbuf@?$vector@Uskin@animmodel@@@@QAEXH@Z 00465790 f i rendermodel.obj
  0001:00064810       ??0?$hashset@U?$hashtableentry@PBDPAUmeshgroup@animmodel@@@@@@QAE@H@Z 00465810 f i rendermodel.obj
- 0001:000648a0       ?growbuf@?$vector@Utri@BIH@@@@QAEXH@Z 004658a0 f i rendermodel.obj
  0001:000648a0       ?growbuf@?$vector@Uflag@ctfservmode@server@@@@QAEXH@Z 004658a0 f i server1.obj
+ 0001:000648a0       ?growbuf@?$vector@Utri@BIH@@@@QAEXH@Z 004658a0 f i rendermodel.obj
  0001:00064920       ?shrink@?$vector@Uskelanimspec@skelmodel@@@@QAEXH@Z 00465920 f i rendermodel.obj
  0001:00064960       ?shrink@?$vector@Utag@skelmodel@@@@QAEXH@Z 00465960 f i rendermodel.obj
  0001:000649b0       ?growbuf@?$vector@Uvvertbumpw@skelmodel@@@@QAEXH@Z 004659b0 f i rendermodel.obj
@@ -1219,8 +1219,8 @@
  0001:00066610       ?setpitch@?$vertcommands@Uobj@@@@SAXPAM000@Z 00467610 f i rendermodel.obj
  0001:000666c0       ??0?$modelcommands@Uobj@@Uvertmesh@vertmodel@@@@QAE@XZ 004676c0 f i rendermodel.obj
  0001:000667a0       ?growbuf@?$vector@Usmdbone@@@@QAEXH@Z 004677a0 f i rendermodel.obj
- 0001:000667a0       ?growbuf@?$vector@Uscore@captureservmode@server@@@@QAEXH@Z 004677a0 f i server1.obj
  0001:000667a0       ?growbuf@?$vector@Uscore@captureclientmode@game@@@@QAEXH@Z 004677a0 f i client1.obj
+ 0001:000667a0       ?growbuf@?$vector@Uscore@captureservmode@server@@@@QAEXH@Z 004677a0 f i server1.obj
  0001:00066820       ??0?$hashset@U?$hashtableentry@PBDUsmdmeshdata@smdmeshgroup@smd@@@@@@QAE@H@Z 00467820 f i rendermodel.obj
  0001:00066890       ?deletechunks@?$hashset@U?$hashtableentry@PBDUsmdmeshdata@smdmeshgroup@smd@@@@@@QAEXXZ 00467890 f i rendermodel.obj
  0001:00066900       ?loadpart@?$skelcommands@Usmd@@@@SAXPAD0PAM@Z 00467900 f i rendermodel.obj
@@ -1474,14 +1474,14 @@
  0001:00079660       ?startrender@meterrenderer@@UAEXXZ 0047a660 f i renderparticles.obj
  0001:000796b0       ?endrender@meterrenderer@@UAEXXZ 0047a6b0 f i renderparticles.obj
  0001:00079700       ?renderpart@meterrenderer@@UAEXPAUlistparticle@@ABUvec@@1HHPAE@Z 0047a700 f i renderparticles.obj
- 0001:00079c00       ??_Gmeterrenderer@@UAEPAXI@Z 0047ac00 f i renderparticles.obj
+ 0001:00079c00       ??_Glightningrenderer@@UAEPAXI@Z 0047ac00 f i renderparticles.obj
  0001:00079c00       ??_Gfireballrenderer@@UAEPAXI@Z 0047ac00 f i renderparticles.obj
- 0001:00079c00       ??_Emeterrenderer@@UAEPAXI@Z 0047ac00 f i * CIL library *:* CIL module *
+ 0001:00079c00       ??_Efireballrenderer@@UAEPAXI@Z 0047ac00 f i * CIL library *:* CIL module *
  0001:00079c00       ??_Elightningrenderer@@UAEPAXI@Z 0047ac00 f i * CIL library *:* CIL module *
  0001:00079c00       ??_Etextrenderer@@UAEPAXI@Z 0047ac00 f i * CIL library *:* CIL module *
+ 0001:00079c00       ??_Gmeterrenderer@@UAEPAXI@Z 0047ac00 f i renderparticles.obj
+ 0001:00079c00       ??_Emeterrenderer@@UAEPAXI@Z 0047ac00 f i * CIL library *:* CIL module *
  0001:00079c00       ??_Gtextrenderer@@UAEPAXI@Z 0047ac00 f i renderparticles.obj
- 0001:00079c00       ??_Efireballrenderer@@UAEPAXI@Z 0047ac00 f i * CIL library *:* CIL module *
- 0001:00079c00       ??_Glightningrenderer@@UAEPAXI@Z 0047ac00 f i renderparticles.obj
  0001:00079c60       ??0textrenderer@@QAE@H@Z   0047ac60 f i renderparticles.obj
  0001:00079d10       ?killpart@textrenderer@@UAEXPAUlistparticle@@@Z 0047ad10 f i renderparticles.obj
  0001:00079d30       ?renderpart@textrenderer@@UAEXPAUlistparticle@@ABUvec@@1HHPAE@Z 0047ad30 f i renderparticles.obj
@@ -1510,14 +1510,14 @@
  0001:0007c000       ?haswork@flarerenderer@@UAE_NXZ 0047d000 f i renderparticles.obj
  0001:0007c030       ?render@flarerenderer@@UAEXXZ 0047d030 f i renderparticles.obj
  0001:0007c530       ?addpart@flarerenderer@@UAEPAUparticle@@ABUvec@@0HHMH@Z 0047d530 f i renderparticles.obj
- 0001:0007c540       ??_E?$varenderer@$00@@UAEPAXI@Z 0047d540 f i * CIL library *:* CIL module *
- 0001:0007c540       ??_Eflarerenderer@@UAEPAXI@Z 0047d540 f i * CIL library *:* CIL module *
- 0001:0007c540       ??_Gflarerenderer@@UAEPAXI@Z 0047d540 f i renderparticles.obj
  0001:0007c540       ??_G?$varenderer@$01@@UAEPAXI@Z 0047d540 f i renderparticles.obj
+ 0001:0007c540       ??_E?$varenderer@$00@@UAEPAXI@Z 0047d540 f i * CIL library *:* CIL module *
  0001:0007c540       ??_E?$varenderer@$0A@@@UAEPAXI@Z 0047d540 f i * CIL library *:* CIL module *
  0001:0007c540       ??_G?$varenderer@$00@@UAEPAXI@Z 0047d540 f i renderparticles.obj
- 0001:0007c540       ??_E?$varenderer@$01@@UAEPAXI@Z 0047d540 f i * CIL library *:* CIL module *
  0001:0007c540       ??_G?$varenderer@$0A@@@UAEPAXI@Z 0047d540 f i renderparticles.obj
+ 0001:0007c540       ??_Gflarerenderer@@UAEPAXI@Z 0047d540 f i renderparticles.obj
+ 0001:0007c540       ??_Eflarerenderer@@UAEPAXI@Z 0047d540 f i * CIL library *:* CIL module *
+ 0001:0007c540       ??_E?$varenderer@$01@@UAEPAXI@Z 0047d540 f i * CIL library *:* CIL module *
  0001:0007c590       ??0lightningrenderer@@QAE@XZ 0047d590 f i renderparticles.obj
  0001:0007c640       ?startrender@lightningrenderer@@UAEXXZ 0047d640 f i renderparticles.obj
  0001:0007c650       ?endrender@lightningrenderer@@UAEXXZ 0047d650 f i renderparticles.obj
@@ -1525,24 +1525,24 @@
  0001:0007c6b0       ?seedemitter@lightningrenderer@@UAEXAAUparticleemitter@@ABUvec@@1HMH@Z 0047d6b0 f i renderparticles.obj
  0001:0007c800       ?renderpart@lightningrenderer@@UAEXPAUlistparticle@@ABUvec@@1HHPAE@Z 0047d800 f i renderparticles.obj
  0001:0007c880       ?add@?$vector@Uparticleemitter@@@@QAEAAUparticleemitter@@ABU2@@Z 0047d880 f i renderparticles.obj
- 0001:0007c910       ?init@?$varenderer@$00@@UAEXH@Z 0047d910 f i renderparticles.obj
  0001:0007c910       ?init@?$varenderer@$0A@@@UAEXH@Z 0047d910 f i renderparticles.obj
  0001:0007c910       ?init@?$varenderer@$01@@UAEXH@Z 0047d910 f i renderparticles.obj
+ 0001:0007c910       ?init@?$varenderer@$00@@UAEXH@Z 0047d910 f i renderparticles.obj
  0001:0007c9f0       ?reset@?$varenderer@$0A@@@UAEXXZ 0047d9f0 f i renderparticles.obj
  0001:0007c9f0       ?reset@?$varenderer@$01@@UAEXXZ 0047d9f0 f i renderparticles.obj
  0001:0007c9f0       ?reset@?$varenderer@$00@@UAEXXZ 0047d9f0 f i renderparticles.obj
+ 0001:0007ca00       ?resettracked@?$varenderer@$00@@UAEXPAUphysent@@@Z 0047da00 f i renderparticles.obj
  0001:0007ca00       ?resettracked@?$varenderer@$0A@@@UAEXPAUphysent@@@Z 0047da00 f i renderparticles.obj
  0001:0007ca00       ?resettracked@?$varenderer@$01@@UAEXPAUphysent@@@Z 0047da00 f i renderparticles.obj
- 0001:0007ca00       ?resettracked@?$varenderer@$00@@UAEXPAUphysent@@@Z 0047da00 f i renderparticles.obj
- 0001:0007ca50       ?count@?$varenderer@$01@@UAEHXZ 0047da50 f i renderparticles.obj
  0001:0007ca50       ?count@?$varenderer@$0A@@@UAEHXZ 0047da50 f i renderparticles.obj
  0001:0007ca50       ?count@?$varenderer@$00@@UAEHXZ 0047da50 f i renderparticles.obj
- 0001:0007ca60       ?haswork@?$varenderer@$0A@@@UAE_NXZ 0047da60 f i renderparticles.obj
+ 0001:0007ca50       ?count@?$varenderer@$01@@UAEHXZ 0047da50 f i renderparticles.obj
  0001:0007ca60       ?haswork@?$varenderer@$00@@UAE_NXZ 0047da60 f i renderparticles.obj
  0001:0007ca60       ?haswork@?$varenderer@$01@@UAE_NXZ 0047da60 f i renderparticles.obj
- 0001:0007ca70       ?addpart@?$varenderer@$0A@@@UAEPAUparticle@@ABUvec@@0HHMH@Z 0047da70 f i renderparticles.obj
+ 0001:0007ca60       ?haswork@?$varenderer@$0A@@@UAE_NXZ 0047da60 f i renderparticles.obj
  0001:0007ca70       ?addpart@?$varenderer@$01@@UAEPAUparticle@@ABUvec@@0HHMH@Z 0047da70 f i renderparticles.obj
  0001:0007ca70       ?addpart@?$varenderer@$00@@UAEPAUparticle@@ABUvec@@0HHMH@Z 0047da70 f i renderparticles.obj
+ 0001:0007ca70       ?addpart@?$varenderer@$0A@@@UAEPAUparticle@@ABUvec@@0HHMH@Z 0047da70 f i renderparticles.obj
  0001:0007cb60       ?seedemitter@?$varenderer@$0A@@@UAEXAAUparticleemitter@@ABUvec@@1HMH@Z 0047db60 f i renderparticles.obj
  0001:0007cde0       ?update@?$varenderer@$0A@@@UAEXXZ 0047dde0 f i renderparticles.obj
  0001:0007d140       ?render@?$varenderer@$0A@@@UAEXXZ 0047e140 f i renderparticles.obj
@@ -1747,8 +1747,8 @@
  0001:00088430       ?deletechunks@?$hashset@U?$hashtableentry@PBDUsoundsample@@@@@@QAEXXZ 00489430 f i sound.obj
  0001:000884a0       ??1chain@?$hashset@U?$hashtableentry@PBDUzipfile@@@@@@QAE@XZ 004894a0 f i zip.obj
  0001:000884a0       ??1chain@?$hashset@U?$hashtableentry@PBDUsoundsample@@@@@@QAE@XZ 004894a0 f i sound.obj
- 0001:00088500       ??1?$hashtableentry@PBDUzipfile@@@@QAE@XZ 00489500 f i zip.obj
  0001:00088500       ??1?$hashtableentry@PBDUsoundsample@@@@QAE@XZ 00489500 f i sound.obj
+ 0001:00088500       ??1?$hashtableentry@PBDUzipfile@@@@QAE@XZ 00489500 f i zip.obj
  0001:00088550       ?insert@?$hashset@U?$hashtableentry@PBDUsoundsample@@@@@@QAEPAUchain@1@I@Z 00489550 f i sound.obj
  0001:00088700       ??0chain@?$hashset@U?$hashtableentry@PBDUsoundsample@@@@@@QAE@XZ 00489700 f i sound.obj
  0001:00088750       ?invert@gfield@@QAE_NABU1@@Z 00489750 f i crypto.obj
@@ -1765,8 +1765,8 @@
  0001:00089950       ??$add@$0N@$0N@@?$bigint@$0N@@@QAEAAU0@ABU0@0@Z 0048a950 f i crypto.obj
  0001:00089950       ??$add@$0N@$00@?$bigint@$0N@@@QAEAAU0@ABU0@ABU?$bigint@$00@@@Z 0048a950 f i crypto.obj
  0001:00089a10       ??$?M$0N@@?$bigint@$0N@@@QBE_NABU0@@Z 0048aa10 f i crypto.obj
- 0001:00089a70       ??$sub@$0N@$0N@@?$bigint@$0N@@@QAEAAU0@ABU0@0@Z 0048aa70 f i crypto.obj
  0001:00089a70       ??$sub@$0N@$00@?$bigint@$0N@@@QAEAAU0@ABU0@ABU?$bigint@$00@@@Z 0048aa70 f i crypto.obj
+ 0001:00089a70       ??$sub@$0N@$0N@@?$bigint@$0N@@@QAEAAU0@ABU0@0@Z 0048aa70 f i crypto.obj
  0001:00089b30       ??$legendre@$0N@@gfield@@SAHABU?$bigint@$0N@@@@Z 0048ab30 f i crypto.obj
  0001:00089c10       ??$pow@$0N@$0N@@gfield@@QAEAAU0@ABU?$bigint@$0N@@@0@Z 0048ac10 f i crypto.obj
  0001:00089cf0       ??$sub@$0N@$0N@@gfield@@QAEAAU0@ABU?$bigint@$0N@@@0@Z 0048acf0 f i crypto.obj
@@ -1775,8 +1775,8 @@
  0001:00089da0       ?numbits@?$bigint@$0N@@@QBEHXZ 0048ada0 f i crypto.obj
  0001:00089df0       ??$mul@$0N@$0N@@?$bigint@$0BK@@@QAEAAU0@ABU?$bigint@$0N@@@0@Z 0048adf0 f i crypto.obj
  0001:00089ef0       ??$reduce@$0BK@@gfield@@QAEXABU?$bigint@$0BK@@@@Z 0048aef0 f i crypto.obj
- 0001:0008a130       ??$mul@$0M@@ecjacobian@@QAEXABU0@ABU?$bigint@$0M@@@@Z 0048b130 f i crypto.obj
  0001:0008a130       ??$mul@$0N@@ecjacobian@@QAEXABU0@ABU?$bigint@$0N@@@@Z 0048b130 f i crypto.obj
+ 0001:0008a130       ??$mul@$0M@@ecjacobian@@QAEXABU0@ABU?$bigint@$0M@@@@Z 0048b130 f i crypto.obj
  0001:0008a1d0       ?close@filestream@@UAEXXZ  0048b1d0 f i stream.obj
  0001:0008a1f0       ?end@filestream@@UAE_NXZ   0048b1f0 f i stream.obj
  0001:0008a210       ?tell@filestream@@UAE_JXZ  0048b210 f i stream.obj
@@ -1789,8 +1789,8 @@
  0001:0008a2e0       ?getline@filestream@@UAE_NPADI@Z 0048b2e0 f i stream.obj
  0001:0008a300       ?putstring@filestream@@UAE_NPBD@Z 0048b300 f i stream.obj
  0001:0008a320       ?printf@filestream@@UAAIPBDZZ 0048b320 f i stream.obj
- 0001:0008a350       ??_Gfilestream@@UAEPAXI@Z  0048b350 f i stream.obj
  0001:0008a350       ??_Efilestream@@UAEPAXI@Z  0048b350 f i * CIL library *:* CIL module *
+ 0001:0008a350       ??_Gfilestream@@UAEPAXI@Z  0048b350 f i stream.obj
  0001:0008a3d0       ??0gzstream@@QAE@XZ        0048b3d0 f i stream.obj
  0001:0008a470       ?readbyte@gzstream@@QAEEI@Z 0048b470 f i stream.obj
  0001:0008a4c0       ?skipbytes@gzstream@@QAEXI@Z 0048b4c0 f i stream.obj
@@ -1828,8 +1828,8 @@
  0001:0008b800       ??_Eutf8stream@@UAEPAXI@Z  0048c800 f i * CIL library *:* CIL module *
  0001:0008b800       ??_Gutf8stream@@UAEPAXI@Z  0048c800 f i stream.obj
  0001:0008b890       ?growbuf@?$vector@Upackagedir@@@@QAEXH@Z 0048c890 f i stream.obj
- 0001:0008b910       ??_Estream@@UAEPAXI@Z      0048c910 f i * CIL library *:* CIL module *
  0001:0008b910       ??_Gstream@@UAEPAXI@Z      0048c910 f i stream.obj
+ 0001:0008b910       ??_Estream@@UAEPAXI@Z      0048c910 f i * CIL library *:* CIL module *
  0001:0008b930       ?rawtell@stream@@UAE_JXZ   0048c930 f i stream.obj
  0001:0008b940       ?rawsize@stream@@UAE_JXZ   0048c940 f i stream.obj
  0001:0008b950       ?getchar@stream@@UAEHXZ    0048c950 f i stream.obj
@@ -1941,8 +1941,8 @@
  0001:00090760       ??0baseinfo@captureclientmode@game@@QAE@XZ 00491760 f i client1.obj
  0001:00090800       ?getteamscore@captureservmode@server@@UAEHPBD@Z 00491800 f i server1.obj
  0001:00090800       ?getteamscore@captureclientmode@game@@UAEHPBD@Z 00491800 f i client1.obj
- 0001:00090870       ?getteamscores@captureclientmode@game@@UAEXAAU?$vector@Uteamscore@@@@@Z 00491870 f i client1.obj
  0001:00090870       ?getteamscores@captureservmode@server@@UAEXAAU?$vector@Uteamscore@@@@@Z 00491870 f i server1.obj
+ 0001:00090870       ?getteamscores@captureclientmode@game@@UAEXAAU?$vector@Uteamscore@@@@@Z 00491870 f i client1.obj
  0001:000908e0       ?findscore@captureclientmode@game@@QAEAAUscore@12@PBD@Z 004918e0 f i client1.obj
  0001:000909c0       ?initbase@captureclientmode@game@@QAEXHHPBD0HH@Z 004919c0 f i client1.obj
  0001:00090a80       ?disttoenemy@captureclientmode@game@@QAEMAAUbaseinfo@12@@Z 00491a80 f i client1.obj
@@ -1955,9 +1955,9 @@
  0001:000916a0       ?rendergame@captureclientmode@game@@UAEXXZ 004926a0 f i client1.obj
  0001:00091e10       ?drawblips@captureclientmode@game@@QAEXPAUfpsent@@MHHH_N@Z 00492e10 f i client1.obj
  0001:000923b0       ?respawnwait@captureclientmode@game@@UAEHPAUfpsent@@@Z 004933b0 f i client1.obj
+ 0001:00092410       ?clipconsole@collectclientmode@game@@UAEHHH@Z 00493410 f i client1.obj
  0001:00092410       ?clipconsole@ctfclientmode@game@@UAEHHH@Z 00493410 f i client1.obj
  0001:00092410       ?clipconsole@captureclientmode@game@@UAEHHH@Z 00493410 f i client1.obj
- 0001:00092410       ?clipconsole@collectclientmode@game@@UAEHHH@Z 00493410 f i client1.obj
  0001:00092430       ?drawhud@captureclientmode@game@@UAEXPAUfpsent@@HH@Z 00493430 f i client1.obj
  0001:00092900       ?setup@captureclientmode@game@@UAEXXZ 00493900 f i client1.obj
  0001:00092bd0       ?senditems@captureclientmode@game@@UAEXAAUpacketbuf@@@Z 00493bd0 f i client1.obj
@@ -1966,10 +1966,10 @@
  0001:00093210       ?closesttoenemy@captureclientmode@game@@QAEHPBD_N1@Z 00494210 f i client1.obj
  0001:00093320       ?pickteamspawn@captureclientmode@game@@QAEHPBD@Z 00494320 f i client1.obj
  0001:00093480       ?pickspawn@captureclientmode@game@@UAEXPAUfpsent@@@Z 00494480 f i client1.obj
- 0001:000934b0       ?aidefend@clientmode@game@@UAE_NPAUfpsent@@AAUaistate@ai@@@Z 004944b0 f i client1.obj
- 0001:000934b0       ?extinfoteam@servmode@server@@UAE_NPBDAAU?$databuf@E@@@Z 004944b0 f i server1.obj
- 0001:000934b0       ?aicheck@clientmode@game@@UAE_NPAUfpsent@@AAUaistate@ai@@@Z 004944b0 f i client1.obj
  0001:000934b0       ?aicheck@captureclientmode@game@@UAE_NPAUfpsent@@AAUaistate@ai@@@Z 004944b0 f i client1.obj
+ 0001:000934b0       ?aicheck@clientmode@game@@UAE_NPAUfpsent@@AAUaistate@ai@@@Z 004944b0 f i client1.obj
+ 0001:000934b0       ?extinfoteam@servmode@server@@UAE_NPBDAAU?$databuf@E@@@Z 004944b0 f i server1.obj
+ 0001:000934b0       ?aidefend@clientmode@game@@UAE_NPAUfpsent@@AAUaistate@ai@@@Z 004944b0 f i client1.obj
  0001:000934b0       ?aipursue@clientmode@game@@UAE_NPAUfpsent@@AAUaistate@ai@@@Z 004944b0 f i client1.obj
  0001:000934c0       ?aifind@captureclientmode@game@@UAEXPAUfpsent@@AAUaistate@ai@@AAU?$vector@Uinterest@ai@@@@@Z 004944c0 f i client1.obj
  0001:000939e0       ?aidefend@captureclientmode@game@@UAE_NPAUfpsent@@AAUaistate@ai@@@Z 004949e0 f i client1.obj
@@ -1978,8 +1978,8 @@
  0001:00093db0       ??_Gctfclientmode@game@@UAEPAXI@Z 00494db0 f i client1.obj
  0001:00093db0       ??_Gcaptureclientmode@game@@UAEPAXI@Z 00494db0 f i client1.obj
  0001:00093db0       ??_Ecaptureclientmode@game@@UAEPAXI@Z 00494db0 f i * CIL library *:* CIL module *
- 0001:00093de0       ??1captureclientmode@game@@UAE@XZ 00494de0 f i client1.obj
  0001:00093de0       ??1ctfclientmode@game@@UAE@XZ 00494de0 f i client1.obj
+ 0001:00093de0       ??1captureclientmode@game@@UAE@XZ 00494de0 f i client1.obj
  0001:00093e70       ?reset@flag@ctfclientmode@game@@QAEXXZ 00494e70 f i client1.obj
  0001:00093f40       ?pos@flag@ctfclientmode@game@@QAEABUvec@@XZ 00494f40 f i client1.obj
  0001:00093f60       ?addflag@ctfclientmode@game@@QAE_NHABUvec@@HH@Z 00494f60 f i client1.obj
@@ -1988,8 +1988,8 @@
  0001:000940a0       ?returnflag@ctfclientmode@game@@QAEXHH@Z 004950a0 f i client1.obj
  0001:00094110       ?getteamscore@ctfservmode@server@@UAEHPBD@Z 00495110 f i server1.obj
  0001:00094110       ?getteamscore@ctfclientmode@game@@UAEHPBD@Z 00495110 f i client1.obj
- 0001:000941b0       ?getteamscores@ctfclientmode@game@@UAEXAAU?$vector@Uteamscore@@@@@Z 004951b0 f i client1.obj
  0001:000941b0       ?getteamscores@ctfservmode@server@@UAEXAAU?$vector@Uteamscore@@@@@Z 004951b0 f i server1.obj
+ 0001:000941b0       ?getteamscores@ctfclientmode@game@@UAEXAAU?$vector@Uteamscore@@@@@Z 004951b0 f i client1.obj
  0001:00094220       ?preload@ctfclientmode@game@@UAEXXZ 00495220 f i client1.obj
  0001:000942d0       ?drawblip@ctfclientmode@game@@QAEXPAUfpsent@@MMMABUvec@@_N@Z 004952d0 f i client1.obj
  0001:000944c0       ?drawblip@ctfclientmode@game@@QAEXPAUfpsent@@MMMH_N@Z 004954c0 f i client1.obj
@@ -2028,8 +2028,8 @@
  0001:00099880       ?removetoken@collectclientmode@game@@QAE_NH@Z 0049a880 f i client1.obj
  0001:00099900       ?getteamscore@collectservmode@server@@UAEHPBD@Z 0049a900 f i server1.obj
  0001:00099900       ?getteamscore@collectclientmode@game@@UAEHPBD@Z 0049a900 f i client1.obj
- 0001:000999a0       ?getteamscores@collectservmode@server@@UAEXAAU?$vector@Uteamscore@@@@@Z 0049a9a0 f i server1.obj
  0001:000999a0       ?getteamscores@collectclientmode@game@@UAEXAAU?$vector@Uteamscore@@@@@Z 0049a9a0 f i client1.obj
+ 0001:000999a0       ?getteamscores@collectservmode@server@@UAEXAAU?$vector@Uteamscore@@@@@Z 0049a9a0 f i server1.obj
  0001:00099a10       ?preload@collectclientmode@game@@UAEXXZ 0049aa10 f i client1.obj
  0001:00099aa0       ?drawblip@collectclientmode@game@@QAEXPAUfpsent@@MMMABUvec@@M@Z 0049aaa0 f i client1.obj
  0001:00099c50       ?drawbaseblip@collectclientmode@game@@QAEXPAUfpsent@@MMMH@Z 0049ac50 f i client1.obj
@@ -2071,8 +2071,8 @@
  0001:0009d120       ?pickspawn@clientmode@game@@UAEXPAUfpsent@@@Z 0049e120 f i client1.obj
  0001:0009d140       ??1clientmode@game@@UAE@XZ 0049e140 f i client1.obj
  0001:0009d150       ??1gameevent@server@@UAE@XZ 0049e150 f i server1.obj
- 0001:0009d160       ??_Ggameevent@server@@UAEPAXI@Z 0049e160 f i server1.obj
  0001:0009d160       ??_Egameevent@server@@UAEPAXI@Z 0049e160 f i * CIL library *:* CIL module *
+ 0001:0009d160       ??_Ggameevent@server@@UAEPAXI@Z 0049e160 f i server1.obj
  0001:0009d180       ?reset@gamestate@server@@QAEXXZ 0049e180 f i server1.obj
  0001:0009d220       ?respawn@gamestate@server@@QAEXXZ 0049e220 f i server1.obj
  0001:0009d2b0       ?save@savedscore@server@@QAEXAAUgamestate@2@@Z 0049e2b0 f i server1.obj
@@ -2095,8 +2095,8 @@
  0001:0009dc00       ?canspawn@servmode@server@@UAE_NPAUclientinfo@2@_N@Z 0049ec00 f i server1.obj
  0001:0009dc10       ?fragvalue@servmode@server@@UAEHPAUclientinfo@2@0@Z 0049ec10 f i server1.obj
  0001:0009dc80       ?canchangeteam@servmode@server@@UAE_NPAUclientinfo@2@PBD1@Z 0049ec80 f i server1.obj
- 0001:0009dc90       ??_Eservmode@server@@UAEPAXI@Z 0049ec90 f i * CIL library *:* CIL module *
  0001:0009dc90       ??_Gservmode@server@@UAEPAXI@Z 0049ec90 f i server1.obj
+ 0001:0009dc90       ??_Eservmode@server@@UAEPAXI@Z 0049ec90 f i * CIL library *:* CIL module *
  0001:0009dcb0       ??0baseinfo@captureservmode@server@@QAE@XZ 0049ecb0 f i server1.obj
  0001:0009dd10       ?valid@baseinfo@captureservmode@server@@QBE_NXZ 0049ed10 f i server1.obj
  0001:0009dd30       ?enter@baseinfo@captureservmode@server@@QAE_NPBD@Z 0049ed30 f i server1.obj
@@ -2128,12 +2128,12 @@
  0001:0009f3a0       ?changeteam@captureservmode@server@@UAEXPAUclientinfo@2@PBD1@Z 004a03a0 f i server1.obj
  0001:0009f420       ?parsebases@captureservmode@server@@QAEXAAU?$databuf@E@@_N@Z 004a0420 f i server1.obj
  0001:0009f540       ?extinfoteam@captureservmode@server@@UAE_NPBDAAU?$databuf@E@@@Z 004a0540 f i server1.obj
- 0001:0009f610       ??_Gcaptureservmode@server@@UAEPAXI@Z 004a0610 f i server1.obj
- 0001:0009f610       ??_Ecaptureservmode@server@@UAEPAXI@Z 004a0610 f i * CIL library *:* CIL module *
- 0001:0009f610       ??_Ectfservmode@server@@UAEPAXI@Z 004a0610 f i * CIL library *:* CIL module *
  0001:0009f610       ??_Gctfservmode@server@@UAEPAXI@Z 004a0610 f i server1.obj
- 0001:0009f640       ??1ctfservmode@server@@UAE@XZ 004a0640 f i server1.obj
+ 0001:0009f610       ??_Ecaptureservmode@server@@UAEPAXI@Z 004a0610 f i * CIL library *:* CIL module *
+ 0001:0009f610       ??_Gcaptureservmode@server@@UAEPAXI@Z 004a0610 f i server1.obj
+ 0001:0009f610       ??_Ectfservmode@server@@UAEPAXI@Z 004a0610 f i * CIL library *:* CIL module *
  0001:0009f640       ??1captureservmode@server@@UAE@XZ 004a0640 f i server1.obj
+ 0001:0009f640       ??1ctfservmode@server@@UAE@XZ 004a0640 f i server1.obj
  0001:0009f6d0       ?reset@flag@ctfservmode@server@@QAEXXZ 004a06d0 f i server1.obj
  0001:0009f740       ?addflag@ctfservmode@server@@QAE_NHABUvec@@HH@Z 004a0740 f i server1.obj
  0001:0009f810       ?addholdspawn@ctfservmode@server@@QAE_NABUvec@@@Z 004a0810 f i server1.obj
@@ -2174,25 +2174,25 @@
  0001:000a1a40       ?update@collectservmode@server@@UAEXXZ 004a2a40 f i server1.obj
  0001:000a1b60       ?initclient@collectservmode@server@@UAEXPAUclientinfo@2@AAUpacketbuf@@_N@Z 004a2b60 f i server1.obj
  0001:000a1c90       ?parsebases@collectservmode@server@@QAEXAAU?$databuf@E@@_N@Z 004a2c90 f i server1.obj
- 0001:000a1d40       ??_Gcollectservmode@server@@UAEPAXI@Z 004a2d40 f i server1.obj
  0001:000a1d40       ??_Ecollectservmode@server@@UAEPAXI@Z 004a2d40 f i * CIL library *:* CIL module *
+ 0001:000a1d40       ??_Gcollectservmode@server@@UAEPAXI@Z 004a2d40 f i server1.obj
  0001:000a1d70       ??1collectservmode@server@@UAE@XZ 004a2d70 f i server1.obj
  0001:000a1e00       ??1userinfo@server@@QAE@XZ 004a2e00 f i server1.obj
  0001:000a1e40       ??0msgfilter@server@@QAA@HZZ 004a2e40 f i server1.obj
  0001:000a1e90       ?compare@crcinfo@server@@SA_NABU12@0@Z 004a2e90 f i server1.obj
  0001:000a1eb0       ??0shotevent@server@@QAE@XZ 004a2eb0 f i server1.obj
  0001:000a1f20       ??0explodeevent@server@@QAE@XZ 004a2f20 f i server1.obj
- 0001:000a1f90       ??_Epickupevent@server@@UAEPAXI@Z 004a2f90 f i * CIL library *:* CIL module *
  0001:000a1f90       ??_Gpickupevent@server@@UAEPAXI@Z 004a2f90 f i server1.obj
- 0001:000a1f90       ??_Etimedevent@server@@UAEPAXI@Z 004a2f90 f i * CIL library *:* CIL module *
+ 0001:000a1f90       ??_Gsuicideevent@server@@UAEPAXI@Z 004a2f90 f i server1.obj
  0001:000a1f90       ??_Gtimedevent@server@@UAEPAXI@Z 004a2f90 f i server1.obj
  0001:000a1f90       ??_Esuicideevent@server@@UAEPAXI@Z 004a2f90 f i * CIL library *:* CIL module *
- 0001:000a1f90       ??_Gsuicideevent@server@@UAEPAXI@Z 004a2f90 f i server1.obj
- 0001:000a1fe0       ??_Gshotevent@server@@UAEPAXI@Z 004a2fe0 f i server1.obj
+ 0001:000a1f90       ??_Etimedevent@server@@UAEPAXI@Z 004a2f90 f i * CIL library *:* CIL module *
+ 0001:000a1f90       ??_Epickupevent@server@@UAEPAXI@Z 004a2f90 f i * CIL library *:* CIL module *
  0001:000a1fe0       ??_Eshotevent@server@@UAEPAXI@Z 004a2fe0 f i * CIL library *:* CIL module *
+ 0001:000a1fe0       ??_Gshotevent@server@@UAEPAXI@Z 004a2fe0 f i server1.obj
  0001:000a2060       ??1timedevent@server@@UAE@XZ 004a3060 f i server1.obj
- 0001:000a20a0       ??_Eexplodeevent@server@@UAEPAXI@Z 004a30a0 f i * CIL library *:* CIL module *
  0001:000a20a0       ??_Gexplodeevent@server@@UAEPAXI@Z 004a30a0 f i server1.obj
+ 0001:000a20a0       ??_Eexplodeevent@server@@UAEPAXI@Z 004a30a0 f i * CIL library *:* CIL module *
  0001:000a2120       ?add@?$vector@Uhitinfo@server@@@@QAEAAUhitinfo@server@@XZ 004a3120 f i server1.obj
  0001:000a2180       ?add@?$projectilestate@$07@server@@QAEXH@Z 004a3180 f i server1.obj
  0001:000a21a0       ?removeobj@?$vector@I@@QAEXABI@Z 004a31a0 f i server1.obj
@@ -2539,8 +2539,8 @@
  0001:000b27e9       __abnormal_termination     004b37e9 f   LIBCMT:exsup.obj
  0001:000b280c       __NLG_Notify1              004b380c f   LIBCMT:exsup.obj
  0001:000b2815       __NLG_Notify               004b3815 f   LIBCMT:exsup.obj
- 0001:000b282c       __NLG_Dispatch2            004b382c     LIBCMT:exsup.obj
  0001:000b282c       __NLG_Dispatch             004b382c     LIBCMT:exsup.obj
+ 0001:000b282c       __NLG_Dispatch2            004b382c     LIBCMT:exsup.obj
  0001:000b2834       __NLG_Call                 004b3834 f   LIBCMT:exsup.obj
  0001:000b2836       __NLG_Return2              004b3836     LIBCMT:exsup.obj
  0001:000b2837       __mbtowc_l                 004b3837 f   LIBCMT:mbtowc.obj
@@ -4564,151 +4564,151 @@
  0001:00195330       ?gotoplayer@game@@YAXPBD@Z 00596330 f   client1.obj
  0001:001954c0       ?sendmap@game@@YAXXZ       005964c0 f   client1.obj
  0001:00195650       ?listdemos@game@@YAXXZ     00596650 f   client1.obj
- 0001:00195670       ?run@?$_icmd_getdemo@$0IEO@@game@@SAXPAH@Z 00596670 f   client1.obj
+ 0001:00195670       ?run@?$_icmd_getdemo@$0IFA@@game@@SAXPAH@Z 00596670 f   client1.obj
  0001:001956c0       ?getdemo@game@@YAXH@Z      005966c0 f   client1.obj
- 0001:00195710       ?run@?$_icmd_cleardemos@$0IEG@@game@@SAXPAH@Z 00596710 f   client1.obj
+ 0001:00195710       ?run@?$_icmd_cleardemos@$0IEI@@game@@SAXPAH@Z 00596710 f   client1.obj
  0001:00195740       ?cleardemos@game@@YAXH@Z   00596740 f   client1.obj
- 0001:00195770       ?run@?$_icmd_recorddemo@$0IDP@@game@@SAXPAH@Z 00596770 f   client1.obj
+ 0001:00195770       ?run@?$_icmd_recorddemo@$0IEB@@game@@SAXPAH@Z 00596770 f   client1.obj
  0001:001957a0       ?recorddemo@game@@YAXH@Z   005967a0 f   client1.obj
  0001:001957d0       ?stopdemo@game@@YAXXZ      005967d0 f   client1.obj
  0001:00195820       ?getmap@game@@YAXXZ        00596820 f   client1.obj
  0001:00195870       ?receivefile@game@@YAXAAUpacketbuf@@@Z 00596870 f   client1.obj
  0001:00195c80       ?parsemessages@game@@YAXHPAUfpsent@@AAU?$databuf@E@@@Z 00596c80 f   client1.obj
- 0001:001987d0       ?parsestate@game@@YAXPAUfpsent@@AAU?$databuf@E@@_N@Z 005997d0 f   client1.obj
- 0001:00198940       ?parsepositions@game@@YAXAAU?$databuf@E@@@Z 00599940 f   client1.obj
- 0001:00199310       ?updatepos@game@@YAXPAUfpsent@@@Z 0059a310 f   client1.obj
- 0001:00199410       ?sendintro@game@@YAXXZ     0059a410 f   client1.obj
- 0001:001996b0       ?scfAnswerModelAuth@game@@YA_NHPAUfpsent@@@Z 0059a6b0 f   client1.obj
- 0001:00199730       ?sendmessages@game@@YAXXZ  0059a730 f   client1.obj
- 0001:001999a0       ?sendpositions@game@@YAXXZ 0059a9a0 f   client1.obj
- 0001:0019a430       ?run@?$_icmd_servcmd@$0DGD@@game@@SAXPAD@Z 0059b430 f   client1.obj
- 0001:0019a450       ?sayteam@game@@YAXPAD@Z    0059b450 f   client1.obj
- 0001:0019a4a0       ?run@?$_icmd_gamespeed@$0COL@@game@@SAXPAH0PAUident@@@Z 0059b4a0 f   client1.obj
- 0001:0019a520       ?changegamespeed@game@@YAXH@Z 0059b520 f   client1.obj
- 0001:0019a580       ?run@?$_icmd_paused@$0CNK@@game@@SAXPAH0PAUident@@@Z 0059b580 f   client1.obj
- 0001:0019a610       ?run@?$_icmd_pausegame@$0CNE@@game@@SAXPAH@Z 0059b610 f   client1.obj
- 0001:0019a620       ?pausegame@game@@YAX_N@Z   0059b620 f   client1.obj
- 0001:0019a680       ?printvar@game@@YAXPAUfpsent@@PAUident@@@Z 0059b680 f   client1.obj
- 0001:0019a7b0       ?sendclipboard@game@@YAXXZ 0059b7b0 f   client1.obj
- 0001:0019a930       ?run@?$_icmd_map@$0CEE@@game@@SAXPAD@Z 0059b930 f   client1.obj
- 0001:0019a940       ?run@?$_icmds_@$0CDF@@game@@SAXPAH@Z 0059b940 f   client1.obj
- 0001:0019a980       ?run@?$_icmds_@$0CDE@@game@@SAXPAH@Z 0059b980 f   client1.obj
- 0001:0019a9c0       ?run@?$_icmds_@$0CDD@@game@@SAXPAH@Z 0059b9c0 f   client1.obj
- 0001:0019aa00       ?run@?$_icmds_@$0CDC@@game@@SAXPAH@Z 0059ba00 f   client1.obj
- 0001:0019aa40       ?run@?$_icmds_@$0CDB@@game@@SAXPAH@Z 0059ba40 f   client1.obj
- 0001:0019aa80       ?run@?$_icmds_@$0CDA@@game@@SAXPAH@Z 0059ba80 f   client1.obj
- 0001:0019aac0       ?run@?$_icmds_@$0CCP@@game@@SAXPAH@Z 0059bac0 f   client1.obj
- 0001:0019ab00       ?run@?$_icmds_@$0CCO@@game@@SAXPAH@Z 0059bb00 f   client1.obj
- 0001:0019ab40       ?run@?$_icmds_@$0CCN@@game@@SAXPAH@Z 0059bb40 f   client1.obj
- 0001:0019ab90       ?run@?$_icmds_@$0CCM@@game@@SAXPAH@Z 0059bb90 f   client1.obj
- 0001:0019abe0       ?run@?$_icmds_@$0CCL@@game@@SAXPAH@Z 0059bbe0 f   client1.obj
- 0001:0019ac20       ?run@?$_icmds_@$0CCK@@game@@SAXPAH@Z 0059bc20 f   client1.obj
- 0001:0019ac70       ?run@?$_icmds_@$0CCJ@@game@@SAXPAH@Z 0059bc70 f   client1.obj
- 0001:0019acb0       ?run@?$_icmds_@$0CCI@@game@@SAXPAH@Z 0059bcb0 f   client1.obj
- 0001:0019acf0       ?run@?$_icmds_@$0CCH@@game@@SAXPAH@Z 0059bcf0 f   client1.obj
- 0001:0019ad30       ?run@?$_icmds_@$0CCG@@game@@SAXPAH@Z 0059bd30 f   client1.obj
- 0001:0019ad70       ?run@?$_icmds_@$0CCF@@game@@SAXPAH@Z 0059bd70 f   client1.obj
- 0001:0019adb0       ?run@?$_icmds_@$0CCE@@game@@SAXPAH@Z 0059bdb0 f   client1.obj
- 0001:0019adf0       ?run@?$_icmd_timeremaining@$0CCD@@game@@SAXPAH@Z 0059bdf0 f   client1.obj
- 0001:0019aed0       ?run@?$_icmd_getmode@$0CBJ@@game@@SAXXZ 0059bed0 f   client1.obj
- 0001:0019aef0       ?run@?$_icmd_mode@$0CBI@@game@@SAXPAH@Z 0059bef0 f   client1.obj
- 0001:0019af00       ?setmode@game@@YAXH@Z      0059bf00 f   client1.obj
- 0001:0019af80       ?changemapserv@game@@YAXPBDH@Z 0059bf80 f   client1.obj
- 0001:0019b0b0       ?run@?$_icmd_checkmaps@$0BPE@@game@@SAXXZ 0059c0b0 f   client1.obj
- 0001:0019b0c0       ?run@?$_icmd_spectator@$0BPC@@game@@SAXPAHPAD@Z 0059c0c0 f   client1.obj
- 0001:0019b100       ?togglespectator@game@@YAXHPBD@Z 0059c100 f   client1.obj
- 0001:0019b140       ?run@?$_icmd_dauth@$0BOL@@game@@SAXPAD@Z 0059c140 f   client1.obj
- 0001:0019b170       ?run@?$_icmd_sauth@$0BOK@@game@@SAXXZ 0059c170 f   client1.obj
- 0001:0019b1b0       ?run@?$_icmd_auth@$0BOJ@@game@@SAXPAD@Z 0059c1b0 f   client1.obj
- 0001:0019b1e0       ?tryauth@game@@YA_NPBD@Z   0059c1e0 f   client1.obj
- 0001:0019b210       ?run@?$_icmd_mastermode@$0BNP@@game@@SAXPAH@Z 0059c210 f   client1.obj
- 0001:0019b230       ?setmaster@game@@YAXPBD0@Z 0059c230 f   client1.obj
- 0001:0019b300       ?hashpwd@game@@YAXPBD@Z    0059c300 f   client1.obj
- 0001:0019b380       ?setteam@game@@YAXPBD0@Z   0059c380 f   client1.obj
- 0001:0019b3b0       ?run@?$_icmd_isignored@$0BLK@@game@@SAXPAD@Z 0059c3b0 f   client1.obj
- 0001:0019b400       ?run@?$_icmd_unignore@$0BLJ@@game@@SAXPAD@Z 0059c400 f   client1.obj
- 0001:0019b410       ?run@?$_icmd_ignore@$0BLI@@game@@SAXPAD@Z 0059c410 f   client1.obj
- 0001:0019b420       ?isignored@game@@YA_NH@Z   0059c420 f   client1.obj
- 0001:0019b450       ?ignore@game@@YAXH@Z       0059c450 f   client1.obj
- 0001:0019b500       ?run@?$_icmd_dauthkick@$0BKC@@game@@SAXPBD00@Z 0059c500 f   client1.obj
- 0001:0019b560       ?run@?$_icmd_sauthkick@$0BKB@@game@@SAXPBD0@Z 0059c560 f   client1.obj
- 0001:0019b5c0       ?run@?$_icmd_authkick@$0BKA@@game@@SAXPBD0@Z 0059c5c0 f   client1.obj
- 0001:0019b620       ?authkick@game@@YAXPBD00@Z 0059c620 f   client1.obj
- 0001:0019b670       ?kick@game@@YAXPBD0@Z      0059c670 f   client1.obj
- 0001:0019b6a0       ?clearbans@game@@YAXXZ     0059c6a0 f   client1.obj
- 0001:0019b6b0       ?run@?$_icmd_listclients@$0BIH@@game@@SAXPAH0@Z 0059c6b0 f   client1.obj
- 0001:0019b6d0       ?listclients@game@@YAX_N0@Z 0059c6d0 f   client1.obj
- 0001:0019b940       ?run@?$_icmd_getclientnum@$0BHB@@game@@SAXPAD@Z 0059c940 f   client1.obj
- 0001:0019b980       ?run@?$_icmd_isscf@$0BFI@@game@@SAXPAH@Z 0059c980 f   client1.obj
- 0001:0019b9d0       ?run@?$_icmd_isai@$0BFD@@game@@SAXPAH0@Z 0059c9d0 f   client1.obj
- 0001:0019ba40       ?isai@game@@YA_NHH@Z       0059ca40 f   client1.obj
- 0001:0019ba90       ?run@?$_icmd_isspectator@$0BEL@@game@@SAXPAH@Z 0059ca90 f   client1.obj
- 0001:0019baf0       ?isspectator@game@@YA_NH@Z 0059caf0 f   client1.obj
- 0001:0019bb30       ?run@?$_icmd_mastermodename@$0BEE@@game@@SAXPAH@Z 0059cb30 f   client1.obj
- 0001:0019bba0       ?run@?$_icmd_getmastermode@$0BED@@game@@SAXXZ 0059cba0 f   client1.obj
- 0001:0019bbc0       ?run@?$_icmd_isadmin@$0BEB@@game@@SAXPAH@Z 0059cbc0 f   client1.obj
- 0001:0019bc20       ?isadmin@game@@YA_NH@Z     0059cc20 f   client1.obj
- 0001:0019bc60       ?run@?$_icmd_isauth@$0BDK@@game@@SAXPAH@Z 0059cc60 f   client1.obj
- 0001:0019bcc0       ?isauth@game@@YA_NH@Z      0059ccc0 f   client1.obj
- 0001:0019bd00       ?run@?$_icmd_ismaster@$0BDD@@game@@SAXPAH@Z 0059cd00 f   client1.obj
- 0001:0019bd60       ?ismaster@game@@YA_NH@Z    0059cd60 f   client1.obj
- 0001:0019bda0       ?run@?$_icmd_getclienticon@$0BCM@@game@@SAXPAH@Z 0059cda0 f   client1.obj
- 0001:0019be00       ?getclienticon@game@@YAPBDH@Z 0059ce00 f   client1.obj
- 0001:0019bec0       ?run@?$_icmd_getclientmodel@$0BCD@@game@@SAXPAH@Z 0059cec0 f   client1.obj
- 0001:0019bf20       ?getclientmodel@game@@YAHH@Z 0059cf20 f   client1.obj
- 0001:0019bf50       ?run@?$_icmd_getclientteam@$0BBM@@game@@SAXPAH@Z 0059cf50 f   client1.obj
- 0001:0019bfd0       ?getclientteam@game@@YAPBDH@Z 0059cfd0 f   client1.obj
- 0001:0019c010       ?run@?$_icmd_getclientname@$0BBF@@game@@SAXPAH@Z 0059d010 f   client1.obj
- 0001:0019c090       ?getclientname@game@@YAPBDH@Z 0059d090 f   client1.obj
- 0001:0019c0d0       ?saveauthkeys@game@@YAXXZ  0059d0d0 f   client1.obj
- 0001:0019c180       ?genauthkey@game@@YAXPBD@Z 0059d180 f   client1.obj
- 0001:0019c280       ?run@?$_icmd_hasauthkey@$0NE@@game@@SAXPAD0@Z 0059d280 f   client1.obj
- 0001:0019c2b0       ?hasauthkey@game@@YA_NPBD0@Z 0059d2b0 f   client1.obj
- 0001:0019c360       ?run@?$_icmd_authkey@$0ML@@game@@SAXPAD00@Z 0059d360 f   client1.obj
- 0001:0019c380       ?addauthkey@game@@YAXPBD00@Z 0059d380 f   client1.obj
- 0001:0019c4f0       ?findauthkey@game@@YAPAUauthkey@1@PBD@Z 0059d4f0 f   client1.obj
- 0001:0019c5d0       ?run@?$_icmd_getteam@$0KB@@game@@SAXXZ 0059d5d0 f   client1.obj
- 0001:0019c630       ?run@?$_icmd_team@$0KA@@game@@SAXPADPAH@Z 0059d630 f   client1.obj
- 0001:0019c6b0       ?printteam@game@@YAXXZ     0059d6b0 f   client1.obj
- 0001:0019c6d0       ?switchteam@game@@YAXPBD@Z 0059d6d0 f   client1.obj
- 0001:0019c710       ?run@?$_icmd_getname@$0JA@@game@@SAXXZ 0059d710 f   client1.obj
- 0001:0019c770       ?run@?$_icmd_name@$0IP@@game@@SAXPADPAH@Z 0059d770 f   client1.obj
- 0001:0019c7d0       ?printname@game@@YAXXZ     0059d7d0 f   client1.obj
- 0001:0019c800       ?switchname@game@@YAXPBD@Z 0059d800 f   client1.obj
- 0001:0019c870       ?run@?$_icmd_dropflag@$0EKM@@game@@SAXXZ 0059d870 f   client1.obj
- 0001:0019c880       ?run@?$_icmd_insidebases@$0DAJ@@game@@SAXXZ 0059d880 f   client1.obj
- 0001:0019cad0       ?run@?$_icmd_repammo@$0CPJ@@game@@SAXXZ 0059dad0 f   client1.obj
- 0001:0019cae0       ?drawteammates@game@@YAXPAUfpsent@@MMM@Z 0059dae0 f   client1.obj
- 0001:0019ce00       ?drawteammate@game@@YAXPAUfpsent@@MMM0M@Z 0059de00 f   client1.obj
- 0001:0019d0e0       ?drawradar@game@@YAXMMM@Z  0059e0e0 f   client1.obj
- 0001:0019d1f0       ?drawminimap@game@@YAXPAUfpsent@@MMM@Z 0059e1f0 f   client1.obj
- 0001:0019d460       ?calcradarscale@game@@YAMXZ 0059e460 f   client1.obj
- 0001:0019d4b0       ?parseplayer@game@@YAHPBD@Z 0059e4b0 f   client1.obj
- 0001:0019d5b0       ?c2sinfo@game@@YAX_N@Z     0059e5b0 f   client1.obj
- 0001:0019d600       ?changemap@game@@YAXPBDH@Z 0059e600 f   client1.obj
- 0001:0019d650       ?unignore@game@@YAXH@Z     0059e650 f   client1.obj
- 0001:0019d6d0       ?setclientmode@game@@YAXXZ 0059e6d0 f   client1.obj
- 0001:0019d730       ?switchplayermodel@game@@YAXH@Z 0059e730 f   client1.obj
- 0001:0019d760       ?sendmapinfo@game@@YAXXZ   0059e760 f   client1.obj
- 0001:0019d7a0       ?sendposition@game@@YAXPAUfpsent@@_N@Z 0059e7a0 f   client1.obj
- 0001:0019d8c0       ?addmsg@game@@YAXHPBDZZ    0059e8c0 f   client1.obj
- 0001:0019dc60       ?changemap@game@@YAXPBD@Z  0059ec60 f   client1.obj
- 0001:0019dcc0       ?toserver@game@@YAXPAD@Z   0059ecc0 f   client1.obj
- 0001:0019dd10       ?vartrigger@game@@YAXPAUident@@@Z 0059ed10 f   client1.obj
- 0001:0019ddb0       ?writeclientinfo@game@@YAXPAUstream@@@Z 0059edb0 f   client1.obj
- 0001:0019dde0       ?allowmouselook@game@@YA_NXZ 0059ede0 f   client1.obj
- 0001:0019de20       ?ispaused@game@@YA_NXZ     0059ee20 f   client1.obj
- 0001:0019de30       ?connectfail@game@@YAXXZ   0059ee30 f   client1.obj
- 0001:0019de50       ?connectattempt@game@@YAXPBD0ABU_ENetAddress@@@Z 0059ee50 f   client1.obj
- 0001:0019de90       ?gamedisconnect@game@@YAX_N@Z 0059ee90 f   client1.obj
- 0001:0019dfa0       ?parsepacketclient@game@@YAXHAAUpacketbuf@@@Z 0059efa0 f   client1.obj
- 0001:0019dfe0       ?gameconnect@game@@YAX_N@Z 0059efe0 f   client1.obj
- 0001:0019dff0       ?newmap@game@@YAXH@Z       0059eff0 f   client1.obj
- 0001:0019e010       ?scaletime@game@@YAHH@Z    0059f010 f   client1.obj
- 0001:0019e020       ?allowedittoggle@game@@YA_NXZ 0059f020 f   client1.obj
- 0001:0019e0a0       ?edittoggled@game@@YAX_N@Z 0059f0a0 f   client1.obj
- 0001:0019e130       ?edittrigger@game@@YAXABUselinfo@@HHHH@Z 0059f130 f   client1.obj
- 0001:0019e300       ?forceedit@game@@YAXPBD@Z  0059f300 f   client1.obj
+ 0001:001987e0       ?parsestate@game@@YAXPAUfpsent@@AAU?$databuf@E@@_N@Z 005997e0 f   client1.obj
+ 0001:00198950       ?parsepositions@game@@YAXAAU?$databuf@E@@@Z 00599950 f   client1.obj
+ 0001:00199320       ?updatepos@game@@YAXPAUfpsent@@@Z 0059a320 f   client1.obj
+ 0001:00199420       ?sendintro@game@@YAXXZ     0059a420 f   client1.obj
+ 0001:001996c0       ?scfAnswerModelAuth@game@@YA_NHPAUfpsent@@@Z 0059a6c0 f   client1.obj
+ 0001:00199740       ?sendmessages@game@@YAXXZ  0059a740 f   client1.obj
+ 0001:001999b0       ?sendpositions@game@@YAXXZ 0059a9b0 f   client1.obj
+ 0001:0019a440       ?run@?$_icmd_servcmd@$0DGE@@game@@SAXPAD@Z 0059b440 f   client1.obj
+ 0001:0019a460       ?sayteam@game@@YAXPAD@Z    0059b460 f   client1.obj
+ 0001:0019a4b0       ?run@?$_icmd_gamespeed@$0COM@@game@@SAXPAH0PAUident@@@Z 0059b4b0 f   client1.obj
+ 0001:0019a530       ?changegamespeed@game@@YAXH@Z 0059b530 f   client1.obj
+ 0001:0019a590       ?run@?$_icmd_paused@$0CNL@@game@@SAXPAH0PAUident@@@Z 0059b590 f   client1.obj
+ 0001:0019a620       ?run@?$_icmd_pausegame@$0CNF@@game@@SAXPAH@Z 0059b620 f   client1.obj
+ 0001:0019a630       ?pausegame@game@@YAX_N@Z   0059b630 f   client1.obj
+ 0001:0019a690       ?printvar@game@@YAXPAUfpsent@@PAUident@@@Z 0059b690 f   client1.obj
+ 0001:0019a7c0       ?sendclipboard@game@@YAXXZ 0059b7c0 f   client1.obj
+ 0001:0019a940       ?run@?$_icmd_map@$0CEF@@game@@SAXPAD@Z 0059b940 f   client1.obj
+ 0001:0019a950       ?run@?$_icmds_@$0CDG@@game@@SAXPAH@Z 0059b950 f   client1.obj
+ 0001:0019a990       ?run@?$_icmds_@$0CDF@@game@@SAXPAH@Z 0059b990 f   client1.obj
+ 0001:0019a9d0       ?run@?$_icmds_@$0CDE@@game@@SAXPAH@Z 0059b9d0 f   client1.obj
+ 0001:0019aa10       ?run@?$_icmds_@$0CDD@@game@@SAXPAH@Z 0059ba10 f   client1.obj
+ 0001:0019aa50       ?run@?$_icmds_@$0CDC@@game@@SAXPAH@Z 0059ba50 f   client1.obj
+ 0001:0019aa90       ?run@?$_icmds_@$0CDB@@game@@SAXPAH@Z 0059ba90 f   client1.obj
+ 0001:0019aad0       ?run@?$_icmds_@$0CDA@@game@@SAXPAH@Z 0059bad0 f   client1.obj
+ 0001:0019ab10       ?run@?$_icmds_@$0CCP@@game@@SAXPAH@Z 0059bb10 f   client1.obj
+ 0001:0019ab50       ?run@?$_icmds_@$0CCO@@game@@SAXPAH@Z 0059bb50 f   client1.obj
+ 0001:0019aba0       ?run@?$_icmds_@$0CCN@@game@@SAXPAH@Z 0059bba0 f   client1.obj
+ 0001:0019abf0       ?run@?$_icmds_@$0CCM@@game@@SAXPAH@Z 0059bbf0 f   client1.obj
+ 0001:0019ac30       ?run@?$_icmds_@$0CCL@@game@@SAXPAH@Z 0059bc30 f   client1.obj
+ 0001:0019ac80       ?run@?$_icmds_@$0CCK@@game@@SAXPAH@Z 0059bc80 f   client1.obj
+ 0001:0019acc0       ?run@?$_icmds_@$0CCJ@@game@@SAXPAH@Z 0059bcc0 f   client1.obj
+ 0001:0019ad00       ?run@?$_icmds_@$0CCI@@game@@SAXPAH@Z 0059bd00 f   client1.obj
+ 0001:0019ad40       ?run@?$_icmds_@$0CCH@@game@@SAXPAH@Z 0059bd40 f   client1.obj
+ 0001:0019ad80       ?run@?$_icmds_@$0CCG@@game@@SAXPAH@Z 0059bd80 f   client1.obj
+ 0001:0019adc0       ?run@?$_icmds_@$0CCF@@game@@SAXPAH@Z 0059bdc0 f   client1.obj
+ 0001:0019ae00       ?run@?$_icmd_timeremaining@$0CCE@@game@@SAXPAH@Z 0059be00 f   client1.obj
+ 0001:0019aee0       ?run@?$_icmd_getmode@$0CBK@@game@@SAXXZ 0059bee0 f   client1.obj
+ 0001:0019af00       ?run@?$_icmd_mode@$0CBJ@@game@@SAXPAH@Z 0059bf00 f   client1.obj
+ 0001:0019af10       ?setmode@game@@YAXH@Z      0059bf10 f   client1.obj
+ 0001:0019af90       ?changemapserv@game@@YAXPBDH@Z 0059bf90 f   client1.obj
+ 0001:0019b0c0       ?run@?$_icmd_checkmaps@$0BPF@@game@@SAXXZ 0059c0c0 f   client1.obj
+ 0001:0019b0d0       ?run@?$_icmd_spectator@$0BPD@@game@@SAXPAHPAD@Z 0059c0d0 f   client1.obj
+ 0001:0019b110       ?togglespectator@game@@YAXHPBD@Z 0059c110 f   client1.obj
+ 0001:0019b150       ?run@?$_icmd_dauth@$0BOM@@game@@SAXPAD@Z 0059c150 f   client1.obj
+ 0001:0019b180       ?run@?$_icmd_sauth@$0BOL@@game@@SAXXZ 0059c180 f   client1.obj
+ 0001:0019b1c0       ?run@?$_icmd_auth@$0BOK@@game@@SAXPAD@Z 0059c1c0 f   client1.obj
+ 0001:0019b1f0       ?tryauth@game@@YA_NPBD@Z   0059c1f0 f   client1.obj
+ 0001:0019b220       ?run@?$_icmd_mastermode@$0BOA@@game@@SAXPAH@Z 0059c220 f   client1.obj
+ 0001:0019b240       ?setmaster@game@@YAXPBD0@Z 0059c240 f   client1.obj
+ 0001:0019b310       ?hashpwd@game@@YAXPBD@Z    0059c310 f   client1.obj
+ 0001:0019b390       ?setteam@game@@YAXPBD0@Z   0059c390 f   client1.obj
+ 0001:0019b3c0       ?run@?$_icmd_isignored@$0BLL@@game@@SAXPAD@Z 0059c3c0 f   client1.obj
+ 0001:0019b410       ?run@?$_icmd_unignore@$0BLK@@game@@SAXPAD@Z 0059c410 f   client1.obj
+ 0001:0019b420       ?run@?$_icmd_ignore@$0BLJ@@game@@SAXPAD@Z 0059c420 f   client1.obj
+ 0001:0019b430       ?isignored@game@@YA_NH@Z   0059c430 f   client1.obj
+ 0001:0019b460       ?ignore@game@@YAXH@Z       0059c460 f   client1.obj
+ 0001:0019b510       ?run@?$_icmd_dauthkick@$0BKD@@game@@SAXPBD00@Z 0059c510 f   client1.obj
+ 0001:0019b570       ?run@?$_icmd_sauthkick@$0BKC@@game@@SAXPBD0@Z 0059c570 f   client1.obj
+ 0001:0019b5d0       ?run@?$_icmd_authkick@$0BKB@@game@@SAXPBD0@Z 0059c5d0 f   client1.obj
+ 0001:0019b630       ?authkick@game@@YAXPBD00@Z 0059c630 f   client1.obj
+ 0001:0019b680       ?kick@game@@YAXPBD0@Z      0059c680 f   client1.obj
+ 0001:0019b6b0       ?clearbans@game@@YAXXZ     0059c6b0 f   client1.obj
+ 0001:0019b6c0       ?run@?$_icmd_listclients@$0BII@@game@@SAXPAH0@Z 0059c6c0 f   client1.obj
+ 0001:0019b6e0       ?listclients@game@@YAX_N0@Z 0059c6e0 f   client1.obj
+ 0001:0019b950       ?run@?$_icmd_getclientnum@$0BHC@@game@@SAXPAD@Z 0059c950 f   client1.obj
+ 0001:0019b990       ?run@?$_icmd_isscf@$0BFJ@@game@@SAXPAH@Z 0059c990 f   client1.obj
+ 0001:0019b9e0       ?run@?$_icmd_isai@$0BFE@@game@@SAXPAH0@Z 0059c9e0 f   client1.obj
+ 0001:0019ba50       ?isai@game@@YA_NHH@Z       0059ca50 f   client1.obj
+ 0001:0019baa0       ?run@?$_icmd_isspectator@$0BEM@@game@@SAXPAH@Z 0059caa0 f   client1.obj
+ 0001:0019bb00       ?isspectator@game@@YA_NH@Z 0059cb00 f   client1.obj
+ 0001:0019bb40       ?run@?$_icmd_mastermodename@$0BEF@@game@@SAXPAH@Z 0059cb40 f   client1.obj
+ 0001:0019bbb0       ?run@?$_icmd_getmastermode@$0BEE@@game@@SAXXZ 0059cbb0 f   client1.obj
+ 0001:0019bbd0       ?run@?$_icmd_isadmin@$0BEC@@game@@SAXPAH@Z 0059cbd0 f   client1.obj
+ 0001:0019bc30       ?isadmin@game@@YA_NH@Z     0059cc30 f   client1.obj
+ 0001:0019bc70       ?run@?$_icmd_isauth@$0BDL@@game@@SAXPAH@Z 0059cc70 f   client1.obj
+ 0001:0019bcd0       ?isauth@game@@YA_NH@Z      0059ccd0 f   client1.obj
+ 0001:0019bd10       ?run@?$_icmd_ismaster@$0BDE@@game@@SAXPAH@Z 0059cd10 f   client1.obj
+ 0001:0019bd70       ?ismaster@game@@YA_NH@Z    0059cd70 f   client1.obj
+ 0001:0019bdb0       ?run@?$_icmd_getclienticon@$0BCN@@game@@SAXPAH@Z 0059cdb0 f   client1.obj
+ 0001:0019be10       ?getclienticon@game@@YAPBDH@Z 0059ce10 f   client1.obj
+ 0001:0019bed0       ?run@?$_icmd_getclientmodel@$0BCE@@game@@SAXPAH@Z 0059ced0 f   client1.obj
+ 0001:0019bf30       ?getclientmodel@game@@YAHH@Z 0059cf30 f   client1.obj
+ 0001:0019bf60       ?run@?$_icmd_getclientteam@$0BBN@@game@@SAXPAH@Z 0059cf60 f   client1.obj
+ 0001:0019bfe0       ?getclientteam@game@@YAPBDH@Z 0059cfe0 f   client1.obj
+ 0001:0019c020       ?run@?$_icmd_getclientname@$0BBG@@game@@SAXPAH@Z 0059d020 f   client1.obj
+ 0001:0019c0a0       ?getclientname@game@@YAPBDH@Z 0059d0a0 f   client1.obj
+ 0001:0019c0e0       ?saveauthkeys@game@@YAXXZ  0059d0e0 f   client1.obj
+ 0001:0019c190       ?genauthkey@game@@YAXPBD@Z 0059d190 f   client1.obj
+ 0001:0019c290       ?run@?$_icmd_hasauthkey@$0NF@@game@@SAXPAD0@Z 0059d290 f   client1.obj
+ 0001:0019c2c0       ?hasauthkey@game@@YA_NPBD0@Z 0059d2c0 f   client1.obj
+ 0001:0019c370       ?run@?$_icmd_authkey@$0MM@@game@@SAXPAD00@Z 0059d370 f   client1.obj
+ 0001:0019c390       ?addauthkey@game@@YAXPBD00@Z 0059d390 f   client1.obj
+ 0001:0019c500       ?findauthkey@game@@YAPAUauthkey@1@PBD@Z 0059d500 f   client1.obj
+ 0001:0019c5e0       ?run@?$_icmd_getteam@$0KC@@game@@SAXXZ 0059d5e0 f   client1.obj
+ 0001:0019c640       ?run@?$_icmd_team@$0KB@@game@@SAXPADPAH@Z 0059d640 f   client1.obj
+ 0001:0019c6c0       ?printteam@game@@YAXXZ     0059d6c0 f   client1.obj
+ 0001:0019c6e0       ?switchteam@game@@YAXPBD@Z 0059d6e0 f   client1.obj
+ 0001:0019c720       ?run@?$_icmd_getname@$0JB@@game@@SAXXZ 0059d720 f   client1.obj
+ 0001:0019c780       ?run@?$_icmd_name@$0JA@@game@@SAXPADPAH@Z 0059d780 f   client1.obj
+ 0001:0019c7e0       ?printname@game@@YAXXZ     0059d7e0 f   client1.obj
+ 0001:0019c810       ?switchname@game@@YAXPBD@Z 0059d810 f   client1.obj
+ 0001:0019c880       ?run@?$_icmd_dropflag@$0EKM@@game@@SAXXZ 0059d880 f   client1.obj
+ 0001:0019c890       ?run@?$_icmd_insidebases@$0DAJ@@game@@SAXXZ 0059d890 f   client1.obj
+ 0001:0019cae0       ?run@?$_icmd_repammo@$0CPJ@@game@@SAXXZ 0059dae0 f   client1.obj
+ 0001:0019caf0       ?drawteammates@game@@YAXPAUfpsent@@MMM@Z 0059daf0 f   client1.obj
+ 0001:0019ce10       ?drawteammate@game@@YAXPAUfpsent@@MMM0M@Z 0059de10 f   client1.obj
+ 0001:0019d0f0       ?drawradar@game@@YAXMMM@Z  0059e0f0 f   client1.obj
+ 0001:0019d200       ?drawminimap@game@@YAXPAUfpsent@@MMM@Z 0059e200 f   client1.obj
+ 0001:0019d470       ?calcradarscale@game@@YAMXZ 0059e470 f   client1.obj
+ 0001:0019d4c0       ?parseplayer@game@@YAHPBD@Z 0059e4c0 f   client1.obj
+ 0001:0019d5c0       ?c2sinfo@game@@YAX_N@Z     0059e5c0 f   client1.obj
+ 0001:0019d610       ?changemap@game@@YAXPBDH@Z 0059e610 f   client1.obj
+ 0001:0019d660       ?unignore@game@@YAXH@Z     0059e660 f   client1.obj
+ 0001:0019d6e0       ?setclientmode@game@@YAXXZ 0059e6e0 f   client1.obj
+ 0001:0019d740       ?switchplayermodel@game@@YAXH@Z 0059e740 f   client1.obj
+ 0001:0019d770       ?sendmapinfo@game@@YAXXZ   0059e770 f   client1.obj
+ 0001:0019d7b0       ?sendposition@game@@YAXPAUfpsent@@_N@Z 0059e7b0 f   client1.obj
+ 0001:0019d8d0       ?addmsg@game@@YAXHPBDZZ    0059e8d0 f   client1.obj
+ 0001:0019dc70       ?changemap@game@@YAXPBD@Z  0059ec70 f   client1.obj
+ 0001:0019dcd0       ?toserver@game@@YAXPAD@Z   0059ecd0 f   client1.obj
+ 0001:0019dd20       ?vartrigger@game@@YAXPAUident@@@Z 0059ed20 f   client1.obj
+ 0001:0019ddc0       ?writeclientinfo@game@@YAXPAUstream@@@Z 0059edc0 f   client1.obj
+ 0001:0019ddf0       ?allowmouselook@game@@YA_NXZ 0059edf0 f   client1.obj
+ 0001:0019de30       ?ispaused@game@@YA_NXZ     0059ee30 f   client1.obj
+ 0001:0019de40       ?connectfail@game@@YAXXZ   0059ee40 f   client1.obj
+ 0001:0019de60       ?connectattempt@game@@YAXPBD0ABU_ENetAddress@@@Z 0059ee60 f   client1.obj
+ 0001:0019dea0       ?gamedisconnect@game@@YAX_N@Z 0059eea0 f   client1.obj
+ 0001:0019dfb0       ?parsepacketclient@game@@YAXHAAUpacketbuf@@@Z 0059efb0 f   client1.obj
+ 0001:0019dff0       ?gameconnect@game@@YAX_N@Z 0059eff0 f   client1.obj
+ 0001:0019e000       ?newmap@game@@YAXH@Z       0059f000 f   client1.obj
+ 0001:0019e020       ?scaletime@game@@YAHH@Z    0059f020 f   client1.obj
+ 0001:0019e030       ?allowedittoggle@game@@YA_NXZ 0059f030 f   client1.obj
+ 0001:0019e0b0       ?edittoggled@game@@YAX_N@Z 0059f0b0 f   client1.obj
+ 0001:0019e140       ?edittrigger@game@@YAXABUselinfo@@HHHH@Z 0059f140 f   client1.obj
+ 0001:0019e310       ?forceedit@game@@YAXPBD@Z  0059f310 f   client1.obj
  0001:0019e8b0       ?changeteam@aiman@server@@YAXPAUclientinfo@2@@Z 0059f8b0 f   server1.obj
  0001:0019e8d0       ?addclient@aiman@server@@YAXPAUclientinfo@2@@Z 0059f8d0 f   server1.obj
  0001:0019e8f0       ?changemap@aiman@server@@YAXXZ 0059f8f0 f   server1.obj
@@ -4943,8 +4943,8 @@
  0001:001ad8fa       __CIfmod                   005ae8fa f   LIBCMT:87fmod.obj
  0001:001ad9e2       ?_CallCatchBlock2@@YAPAXPAUEHRegistrationNode@@PBU_s_FuncInfo@@PAXHK@Z 005ae9e2 f   LIBCMT:_trnsctrl_.obj
  0001:001ada42       ?_CallMemberFunction0@@YGXPAX0@Z 005aea42 f   LIBCMT:_trnsctrl_.obj
- 0001:001ada42       ?_CallMemberFunction2@@YGXPAX00H@Z 005aea42 f   LIBCMT:_trnsctrl_.obj
  0001:001ada42       ?_CallMemberFunction1@@YGXPAX00@Z 005aea42 f   LIBCMT:_trnsctrl_.obj
+ 0001:001ada42       ?_CallMemberFunction2@@YGXPAX00H@Z 005aea42 f   LIBCMT:_trnsctrl_.obj
  0001:001ada49       ?_CallSETranslator@@YAHPAUEHExceptionRecord@@PAUEHRegistrationNode@@PAX2PBU_s_FuncInfo@@H1@Z 005aea49 f   LIBCMT:_trnsctrl_.obj
  0001:001adb20       ?_GetRangeOfTrysToCheck@@YAPBU_s_TryBlockMapEntry@@PBU_s_FuncInfo@@HHPAI1@Z 005aeb20 f   LIBCMT:_trnsctrl_.obj
  0001:001adb9e       ?_JumpToContinuation@@YGXPAXPAUEHRegistrationNode@@@Z 005aeb9e f   LIBCMT:_trnsctrl_.obj
@@ -5019,8 +5019,8 @@
  0001:001b02dc       ___DestructExceptionObject 005b12dc f   LIBCMT:frame.obj
  0001:001b0367       ??0bad_exception@std@@QAE@ABV01@@Z 005b1367 f i LIBCMT:frame.obj
  0001:001b0382       ??1bad_exception@std@@UAE@XZ 005b1382 f i LIBCMT:frame.obj
- 0001:001b038d       ??_Ebad_exception@std@@UAEPAXI@Z 005b138d f i LIBCMT:frame.obj
  0001:001b038d       ??_Gbad_exception@std@@UAEPAXI@Z 005b138d f i LIBCMT:frame.obj
+ 0001:001b038d       ??_Ebad_exception@std@@UAEPAXI@Z 005b138d f i LIBCMT:frame.obj
  0001:001b0bc1       ___AdjustPointer           005b1bc1 f   LIBCMT:frame.obj
  0001:001b0be6       ___BuildCatchObject        005b1be6 f   LIBCMT:frame.obj
  0001:001b0c74       ___BuildCatchObjectHelper  005b1c74 f   LIBCMT:frame.obj
@@ -5057,8 +5057,8 @@
  0001:001b2774       __ceil_default             005b3774 f   LIBCMT:ceil.obj
  0001:001b284b       __87except                 005b384b f   LIBCMT:87except.obj
  0001:001b2954       ?_ValidateWrite@@YAHPAXI@Z 005b3954 f   LIBCMT:validate.obj
- 0001:001b2954       ?_ValidateExecute@@YAHP6GHXZ@Z 005b3954 f   LIBCMT:validate.obj
  0001:001b2954       ?_ValidateRead@@YAHPBXI@Z  005b3954 f   LIBCMT:validate.obj
+ 0001:001b2954       ?_ValidateExecute@@YAHP6GHXZ@Z 005b3954 f   LIBCMT:validate.obj
  0001:001b2963       ??0exception@std@@QAE@ABQBD@Z 005b3963 f   LIBCMT:stdexcpt.obj
  0001:001b2988       ??0exception@std@@QAE@ABV01@@Z 005b3988 f   LIBCMT:stdexcpt.obj
  0001:001b29ab       ??1exception@std@@UAE@XZ   005b39ab f   LIBCMT:stdexcpt.obj
@@ -6702,8 +6702,8 @@
  0002:0000bfd0       ??_C@_0L@NDFGAGCM@glarescale?$AA@ 005c6fd0     glare.obj
  0002:0000bfe0       ??_7glaretexture@@6B@      005c6fe0     glare.obj
  0002:0000c02c       ?depthfmts@?1??depthformats@rendertarget@@UBEPBIXZ@4QBIB 005c702c     glare.obj
- 0002:0000c040       ?colorfmts@?1??colorformats@rendertarget@@UBEPBIXZ@4QBIB 005c7040     glare.obj
  0002:0000c040       ?rgbfmts@?4??colorformats@shadowmaptexture@@UBEPBIXZ@4QBIB 005c7040     shadowmap.obj
+ 0002:0000c040       ?colorfmts@?1??colorformats@rendertarget@@UBEPBIXZ@4QBIB 005c7040     glare.obj
  0002:0000c050       ??_7rendertarget@@6B@      005c7050     glare.obj
  0002:0000c09c       ??_C@_08IDHKAOED@dbggrass?$AA@ 005c709c     grass.obj
  0002:0000c0a8       ??_C@_09IKBEHFNA@grassdist?$AA@ 005c70a8     grass.obj
@@ -9551,7 +9551,7 @@
  0002:0001988c       __real@3ffb53d1            005d488c     grass.obj
  0002:00019890       __real@40000000            005d4890     renderva.obj
  0002:00019898       __real@4000000000000000    005d4898     rendermodel.obj
- 0002:000198a0       __real@400921fb54442d18    005d48a0     rendermodel.obj
+ 0002:000198a0       __real@400921fb54442d18    005d48a0     renderparticles.obj
  0002:000198a8       __real@400921fb60000000    005d48a8     rendergl.obj
  0002:000198b0       __real@400a3ae6            005d48b0     renderparticles.obj
  0002:000198b4       __real@40100000            005d48b4     weapon.obj
@@ -9699,7 +9699,7 @@
  0002:00019b04       __real@80000000            005d4b04     blend.obj
  0002:00019b08       __real@b58637bd            005d4b08     physics.obj
  0002:00019b0c       __real@bc5a740e            005d4b0c     renderparticles.obj
- 0002:00019b10       __real@bc8efa35            005d4b10     rendermodel.obj
+ 0002:00019b10       __real@bc8efa35            005d4b10     shadowmap.obj
  0002:00019b14       __real@bc99999a            005d4b14     client1.obj
  0002:00019b18       __real@bd4ccccd            005d4b18     client1.obj
  0002:00019b1c       __real@bdcccccd            005d4b1c     material.obj
@@ -11876,75 +11876,75 @@
  0003:000bcd74       ?autorepammo@game@@3HA     006a2d74     client1.obj
  0003:000bcd78       ?basenumbers@game@@3HA     006a2d78     client1.obj
  0003:000bcd7c       ?init@?$_icmd_dropflag@$0EKM@@game@@2_NA 006a2d7c     client1.obj
- 0003:000bcd7d       ?init@?$_icmd_name@$0IP@@game@@2_NA 006a2d7d     client1.obj
- 0003:000bcd7e       ?init@?$_icmd_getname@$0JA@@game@@2_NA 006a2d7e     client1.obj
- 0003:000bcd7f       ?init@?$_icmd_team@$0KA@@game@@2_NA 006a2d7f     client1.obj
+ 0003:000bcd7d       ?init@?$_icmd_name@$0JA@@game@@2_NA 006a2d7d     client1.obj
+ 0003:000bcd7e       ?init@?$_icmd_getname@$0JB@@game@@2_NA 006a2d7e     client1.obj
+ 0003:000bcd7f       ?init@?$_icmd_team@$0KB@@game@@2_NA 006a2d7f     client1.obj
  0003:000bcd80       ?capturemode@game@@3Ucaptureclientmode@1@A 006a2d80     client1.obj
  0003:000bcda0       ?ctfmode@game@@3Uctfclientmode@1@A 006a2da0     client1.obj
  0003:000bcdc4       ?deadpush@game@@3HA        006a2dc4     client1.obj
- 0003:000bcdc8       ?init@?$_icmd_getteam@$0KB@@game@@2_NA 006a2dc8     client1.obj
- 0003:000bcdc9       ?init@?$_icmd_authkey@$0ML@@game@@2_NA 006a2dc9     client1.obj
- 0003:000bcdca       ?init@?$_icmd_hasauthkey@$0NE@@game@@2_NA 006a2dca     client1.obj
+ 0003:000bcdc8       ?init@?$_icmd_getteam@$0KC@@game@@2_NA 006a2dc8     client1.obj
+ 0003:000bcdc9       ?init@?$_icmd_authkey@$0MM@@game@@2_NA 006a2dc9     client1.obj
+ 0003:000bcdca       ?init@?$_icmd_hasauthkey@$0NF@@game@@2_NA 006a2dca     client1.obj
  0003:000bcdcc       ?autoauth@game@@3HA        006a2dcc     client1.obj
  0003:000bcdd0       ?collectmode@game@@3Ucollectclientmode@1@A 006a2dd0     client1.obj
  0003:000bcdf4       ?authkeys@game@@3U?$vector@PAUauthkey@game@@@@A 006a2df4     client1.obj
- 0003:000bce01       ?init@?$_icmd_getclientname@$0BBF@@game@@2_NA 006a2e01     client1.obj
- 0003:000bce02       ?init@?$_icmd_getclientteam@$0BBM@@game@@2_NA 006a2e02     client1.obj
- 0003:000bce03       ?init@?$_icmd_getclientmodel@$0BCD@@game@@2_NA 006a2e03     client1.obj
- 0003:000bce04       ?init@?$_icmd_getclienticon@$0BCM@@game@@2_NA 006a2e04     client1.obj
- 0003:000bce05       ?init@?$_icmd_ismaster@$0BDD@@game@@2_NA 006a2e05     client1.obj
- 0003:000bce06       ?init@?$_icmd_isauth@$0BDK@@game@@2_NA 006a2e06     client1.obj
- 0003:000bce07       ?init@?$_icmd_isadmin@$0BEB@@game@@2_NA 006a2e07     client1.obj
- 0003:000bce08       ?init@?$_icmd_getmastermode@$0BED@@game@@2_NA 006a2e08     client1.obj
- 0003:000bce09       ?init@?$_icmd_mastermodename@$0BEE@@game@@2_NA 006a2e09     client1.obj
- 0003:000bce0a       ?init@?$_icmd_isspectator@$0BEL@@game@@2_NA 006a2e0a     client1.obj
- 0003:000bce0b       ?init@?$_icmd_isai@$0BFD@@game@@2_NA 006a2e0b     client1.obj
- 0003:000bce0c       ?init@?$_icmd_isscf@$0BFI@@game@@2_NA 006a2e0c     client1.obj
- 0003:000bce0d       ?init@?$_icmd_getclientnum@$0BHB@@game@@2_NA 006a2e0d     client1.obj
- 0003:000bce0e       ?init@?$_icmd_listclients@$0BIH@@game@@2_NA 006a2e0e     client1.obj
- 0003:000bce11       ?init@?$_icmd_authkick@$0BKA@@game@@2_NA 006a2e11     client1.obj
- 0003:000bce12       ?init@?$_icmd_sauthkick@$0BKB@@game@@2_NA 006a2e12     client1.obj
- 0003:000bce13       ?init@?$_icmd_dauthkick@$0BKC@@game@@2_NA 006a2e13     client1.obj
+ 0003:000bce01       ?init@?$_icmd_getclientname@$0BBG@@game@@2_NA 006a2e01     client1.obj
+ 0003:000bce02       ?init@?$_icmd_getclientteam@$0BBN@@game@@2_NA 006a2e02     client1.obj
+ 0003:000bce03       ?init@?$_icmd_getclientmodel@$0BCE@@game@@2_NA 006a2e03     client1.obj
+ 0003:000bce04       ?init@?$_icmd_getclienticon@$0BCN@@game@@2_NA 006a2e04     client1.obj
+ 0003:000bce05       ?init@?$_icmd_ismaster@$0BDE@@game@@2_NA 006a2e05     client1.obj
+ 0003:000bce06       ?init@?$_icmd_isauth@$0BDL@@game@@2_NA 006a2e06     client1.obj
+ 0003:000bce07       ?init@?$_icmd_isadmin@$0BEC@@game@@2_NA 006a2e07     client1.obj
+ 0003:000bce08       ?init@?$_icmd_getmastermode@$0BEE@@game@@2_NA 006a2e08     client1.obj
+ 0003:000bce09       ?init@?$_icmd_mastermodename@$0BEF@@game@@2_NA 006a2e09     client1.obj
+ 0003:000bce0a       ?init@?$_icmd_isspectator@$0BEM@@game@@2_NA 006a2e0a     client1.obj
+ 0003:000bce0b       ?init@?$_icmd_isai@$0BFE@@game@@2_NA 006a2e0b     client1.obj
+ 0003:000bce0c       ?init@?$_icmd_isscf@$0BFJ@@game@@2_NA 006a2e0c     client1.obj
+ 0003:000bce0d       ?init@?$_icmd_getclientnum@$0BHC@@game@@2_NA 006a2e0d     client1.obj
+ 0003:000bce0e       ?init@?$_icmd_listclients@$0BII@@game@@2_NA 006a2e0e     client1.obj
+ 0003:000bce11       ?init@?$_icmd_authkick@$0BKB@@game@@2_NA 006a2e11     client1.obj
+ 0003:000bce12       ?init@?$_icmd_sauthkick@$0BKC@@game@@2_NA 006a2e12     client1.obj
+ 0003:000bce13       ?init@?$_icmd_dauthkick@$0BKD@@game@@2_NA 006a2e13     client1.obj
  0003:000bce14       ?ignores@game@@3U?$vector@H@@A 006a2e14     client1.obj
- 0003:000bce20       ?init@?$_icmd_ignore@$0BLI@@game@@2_NA 006a2e20     client1.obj
- 0003:000bce21       ?init@?$_icmd_unignore@$0BLJ@@game@@2_NA 006a2e21     client1.obj
- 0003:000bce22       ?init@?$_icmd_isignored@$0BLK@@game@@2_NA 006a2e22     client1.obj
- 0003:000bce26       ?init@?$_icmd_mastermode@$0BNP@@game@@2_NA 006a2e26     client1.obj
- 0003:000bce27       ?init@?$_icmd_auth@$0BOJ@@game@@2_NA 006a2e27     client1.obj
- 0003:000bce28       ?init@?$_icmd_sauth@$0BOK@@game@@2_NA 006a2e28     client1.obj
- 0003:000bce29       ?init@?$_icmd_dauth@$0BOL@@game@@2_NA 006a2e29     client1.obj
- 0003:000bce2a       ?init@?$_icmd_spectator@$0BPC@@game@@2_NA 006a2e2a     client1.obj
- 0003:000bce2b       ?init@?$_icmd_checkmaps@$0BPE@@game@@2_NA 006a2e2b     client1.obj
- 0003:000bce2c       ?init@?$_icmd_mode@$0CBI@@game@@2_NA 006a2e2c     client1.obj
- 0003:000bce2d       ?init@?$_icmd_getmode@$0CBJ@@game@@2_NA 006a2e2d     client1.obj
- 0003:000bce2e       ?init@?$_icmd_timeremaining@$0CCD@@game@@2_NA 006a2e2e     client1.obj
- 0003:000bce2f       ?init@?$_icmds_@$0CCE@@game@@2_NA 006a2e2f     client1.obj
- 0003:000bce30       ?init@?$_icmds_@$0CCF@@game@@2_NA 006a2e30     client1.obj
- 0003:000bce31       ?init@?$_icmds_@$0CCG@@game@@2_NA 006a2e31     client1.obj
- 0003:000bce32       ?init@?$_icmds_@$0CCH@@game@@2_NA 006a2e32     client1.obj
- 0003:000bce33       ?init@?$_icmds_@$0CCI@@game@@2_NA 006a2e33     client1.obj
- 0003:000bce34       ?init@?$_icmds_@$0CCJ@@game@@2_NA 006a2e34     client1.obj
- 0003:000bce35       ?init@?$_icmds_@$0CCK@@game@@2_NA 006a2e35     client1.obj
- 0003:000bce36       ?init@?$_icmds_@$0CCL@@game@@2_NA 006a2e36     client1.obj
- 0003:000bce37       ?init@?$_icmds_@$0CCM@@game@@2_NA 006a2e37     client1.obj
- 0003:000bce38       ?init@?$_icmds_@$0CCN@@game@@2_NA 006a2e38     client1.obj
- 0003:000bce39       ?init@?$_icmds_@$0CCO@@game@@2_NA 006a2e39     client1.obj
- 0003:000bce3a       ?init@?$_icmds_@$0CCP@@game@@2_NA 006a2e3a     client1.obj
- 0003:000bce3b       ?init@?$_icmds_@$0CDA@@game@@2_NA 006a2e3b     client1.obj
- 0003:000bce3c       ?init@?$_icmds_@$0CDB@@game@@2_NA 006a2e3c     client1.obj
- 0003:000bce3d       ?init@?$_icmds_@$0CDC@@game@@2_NA 006a2e3d     client1.obj
- 0003:000bce3e       ?init@?$_icmds_@$0CDD@@game@@2_NA 006a2e3e     client1.obj
- 0003:000bce3f       ?init@?$_icmds_@$0CDE@@game@@2_NA 006a2e3f     client1.obj
- 0003:000bce40       ?init@?$_icmds_@$0CDF@@game@@2_NA 006a2e40     client1.obj
- 0003:000bce41       ?init@?$_icmd_map@$0CEE@@game@@2_NA 006a2e41     client1.obj
- 0003:000bce42       ?init@?$_icmd_pausegame@$0CNE@@game@@2_NA 006a2e42     client1.obj
- 0003:000bce43       ?init@?$_icmd_paused@$0CNK@@game@@2_NA 006a2e43     client1.obj
- 0003:000bce44       ?init@?$_icmd_gamespeed@$0COL@@game@@2_NA 006a2e44     client1.obj
- 0003:000bce47       ?init@?$_icmd_servcmd@$0DGD@@game@@2_NA 006a2e47     client1.obj
+ 0003:000bce20       ?init@?$_icmd_ignore@$0BLJ@@game@@2_NA 006a2e20     client1.obj
+ 0003:000bce21       ?init@?$_icmd_unignore@$0BLK@@game@@2_NA 006a2e21     client1.obj
+ 0003:000bce22       ?init@?$_icmd_isignored@$0BLL@@game@@2_NA 006a2e22     client1.obj
+ 0003:000bce26       ?init@?$_icmd_mastermode@$0BOA@@game@@2_NA 006a2e26     client1.obj
+ 0003:000bce27       ?init@?$_icmd_auth@$0BOK@@game@@2_NA 006a2e27     client1.obj
+ 0003:000bce28       ?init@?$_icmd_sauth@$0BOL@@game@@2_NA 006a2e28     client1.obj
+ 0003:000bce29       ?init@?$_icmd_dauth@$0BOM@@game@@2_NA 006a2e29     client1.obj
+ 0003:000bce2a       ?init@?$_icmd_spectator@$0BPD@@game@@2_NA 006a2e2a     client1.obj
+ 0003:000bce2b       ?init@?$_icmd_checkmaps@$0BPF@@game@@2_NA 006a2e2b     client1.obj
+ 0003:000bce2c       ?init@?$_icmd_mode@$0CBJ@@game@@2_NA 006a2e2c     client1.obj
+ 0003:000bce2d       ?init@?$_icmd_getmode@$0CBK@@game@@2_NA 006a2e2d     client1.obj
+ 0003:000bce2e       ?init@?$_icmd_timeremaining@$0CCE@@game@@2_NA 006a2e2e     client1.obj
+ 0003:000bce2f       ?init@?$_icmds_@$0CCF@@game@@2_NA 006a2e2f     client1.obj
+ 0003:000bce30       ?init@?$_icmds_@$0CCG@@game@@2_NA 006a2e30     client1.obj
+ 0003:000bce31       ?init@?$_icmds_@$0CCH@@game@@2_NA 006a2e31     client1.obj
+ 0003:000bce32       ?init@?$_icmds_@$0CCI@@game@@2_NA 006a2e32     client1.obj
+ 0003:000bce33       ?init@?$_icmds_@$0CCJ@@game@@2_NA 006a2e33     client1.obj
+ 0003:000bce34       ?init@?$_icmds_@$0CCK@@game@@2_NA 006a2e34     client1.obj
+ 0003:000bce35       ?init@?$_icmds_@$0CCL@@game@@2_NA 006a2e35     client1.obj
+ 0003:000bce36       ?init@?$_icmds_@$0CCM@@game@@2_NA 006a2e36     client1.obj
+ 0003:000bce37       ?init@?$_icmds_@$0CCN@@game@@2_NA 006a2e37     client1.obj
+ 0003:000bce38       ?init@?$_icmds_@$0CCO@@game@@2_NA 006a2e38     client1.obj
+ 0003:000bce39       ?init@?$_icmds_@$0CCP@@game@@2_NA 006a2e39     client1.obj
+ 0003:000bce3a       ?init@?$_icmds_@$0CDA@@game@@2_NA 006a2e3a     client1.obj
+ 0003:000bce3b       ?init@?$_icmds_@$0CDB@@game@@2_NA 006a2e3b     client1.obj
+ 0003:000bce3c       ?init@?$_icmds_@$0CDC@@game@@2_NA 006a2e3c     client1.obj
+ 0003:000bce3d       ?init@?$_icmds_@$0CDD@@game@@2_NA 006a2e3d     client1.obj
+ 0003:000bce3e       ?init@?$_icmds_@$0CDE@@game@@2_NA 006a2e3e     client1.obj
+ 0003:000bce3f       ?init@?$_icmds_@$0CDF@@game@@2_NA 006a2e3f     client1.obj
+ 0003:000bce40       ?init@?$_icmds_@$0CDG@@game@@2_NA 006a2e40     client1.obj
+ 0003:000bce41       ?init@?$_icmd_map@$0CEF@@game@@2_NA 006a2e41     client1.obj
+ 0003:000bce42       ?init@?$_icmd_pausegame@$0CNF@@game@@2_NA 006a2e42     client1.obj
+ 0003:000bce43       ?init@?$_icmd_paused@$0CNL@@game@@2_NA 006a2e43     client1.obj
+ 0003:000bce44       ?init@?$_icmd_gamespeed@$0COM@@game@@2_NA 006a2e44     client1.obj
+ 0003:000bce47       ?init@?$_icmd_servcmd@$0DGE@@game@@2_NA 006a2e47     client1.obj
  0003:000bce48       ?messages@game@@3U?$vector@E@@A 006a2e48     client1.obj
- 0003:000bce56       ?init@?$_icmd_recorddemo@$0IDP@@game@@2_NA 006a2e56     client1.obj
- 0003:000bce57       ?init@?$_icmd_cleardemos@$0IEG@@game@@2_NA 006a2e57     client1.obj
- 0003:000bce58       ?init@?$_icmd_getdemo@$0IEO@@game@@2_NA 006a2e58     client1.obj
+ 0003:000bce56       ?init@?$_icmd_recorddemo@$0IEB@@game@@2_NA 006a2e56     client1.obj
+ 0003:000bce57       ?init@?$_icmd_cleardemos@$0IEI@@game@@2_NA 006a2e57     client1.obj
+ 0003:000bce58       ?init@?$_icmd_getdemo@$0IFA@@game@@2_NA 006a2e58     client1.obj
  0003:000bce60       ?allowedips@server@@3U?$vector@I@@A 006a2e60     server1.obj
  0003:000bce6c       ?bannedips@server@@3U?$vector@Uban@server@@@@A 006a2e6c     server1.obj
  0003:000bce78       ?connects@server@@3U?$vector@PAUclientinfo@server@@@@A 006a2e78     server1.obj
@@ -13735,82 +13735,82 @@
  0001:0001af30       ??__Ectfmode@game@@YAXXZ   0041bf30 f   client1.obj
  0001:0001af50       ??__Ecollectmode@game@@YAXXZ 0041bf50 f   client1.obj
  0001:0001af70       ??__Edeadpush@game@@YAXXZ  0041bf70 f   client1.obj
- 0001:0001afc0       ??__E?init@?$_icmd_name@$0IP@@game@@2_NA@@YAXXZ 0041bfc0 f   client1.obj
- 0001:0001afe0       ??__E?init@?$_icmd_getname@$0JA@@game@@2_NA@@YAXXZ 0041bfe0 f   client1.obj
- 0001:0001b000       ??__E?init@?$_icmd_team@$0KA@@game@@2_NA@@YAXXZ 0041c000 f   client1.obj
- 0001:0001b020       ??__E?init@?$_icmd_getteam@$0KB@@game@@2_NA@@YAXXZ 0041c020 f   client1.obj
+ 0001:0001afc0       ??__E?init@?$_icmd_name@$0JA@@game@@2_NA@@YAXXZ 0041bfc0 f   client1.obj
+ 0001:0001afe0       ??__E?init@?$_icmd_getname@$0JB@@game@@2_NA@@YAXXZ 0041bfe0 f   client1.obj
+ 0001:0001b000       ??__E?init@?$_icmd_team@$0KB@@game@@2_NA@@YAXXZ 0041c000 f   client1.obj
+ 0001:0001b020       ??__E?init@?$_icmd_getteam@$0KC@@game@@2_NA@@YAXXZ 0041c020 f   client1.obj
  0001:0001b040       ??__Eauthkeys@game@@YAXXZ  0041c040 f   client1.obj
  0001:0001b050       ??__Eautoauth@game@@YAXXZ  0041c050 f   client1.obj
- 0001:0001b0a0       ??__E?init@?$_icmd_authkey@$0ML@@game@@2_NA@@YAXXZ 0041c0a0 f   client1.obj
- 0001:0001b0c0       ??__E?init@?$_icmd_hasauthkey@$0NE@@game@@2_NA@@YAXXZ 0041c0c0 f   client1.obj
+ 0001:0001b0a0       ??__E?init@?$_icmd_authkey@$0MM@@game@@2_NA@@YAXXZ 0041c0a0 f   client1.obj
+ 0001:0001b0c0       ??__E?init@?$_icmd_hasauthkey@$0NF@@game@@2_NA@@YAXXZ 0041c0c0 f   client1.obj
  0001:0001b0e0       ??__E__dummy_genauthkey@game@@YAXXZ 0041c0e0 f   client1.obj
  0001:0001b100       ??__E__dummy_saveauthkeys@game@@YAXXZ 0041c100 f   client1.obj
- 0001:0001b120       ??__E?init@?$_icmd_getclientname@$0BBF@@game@@2_NA@@YAXXZ 0041c120 f   client1.obj
- 0001:0001b140       ??__E?init@?$_icmd_getclientteam@$0BBM@@game@@2_NA@@YAXXZ 0041c140 f   client1.obj
- 0001:0001b160       ??__E?init@?$_icmd_getclientmodel@$0BCD@@game@@2_NA@@YAXXZ 0041c160 f   client1.obj
- 0001:0001b180       ??__E?init@?$_icmd_getclienticon@$0BCM@@game@@2_NA@@YAXXZ 0041c180 f   client1.obj
- 0001:0001b1a0       ??__E?init@?$_icmd_ismaster@$0BDD@@game@@2_NA@@YAXXZ 0041c1a0 f   client1.obj
- 0001:0001b1c0       ??__E?init@?$_icmd_isauth@$0BDK@@game@@2_NA@@YAXXZ 0041c1c0 f   client1.obj
- 0001:0001b1e0       ??__E?init@?$_icmd_isadmin@$0BEB@@game@@2_NA@@YAXXZ 0041c1e0 f   client1.obj
- 0001:0001b200       ??__E?init@?$_icmd_getmastermode@$0BED@@game@@2_NA@@YAXXZ 0041c200 f   client1.obj
- 0001:0001b220       ??__E?init@?$_icmd_mastermodename@$0BEE@@game@@2_NA@@YAXXZ 0041c220 f   client1.obj
- 0001:0001b240       ??__E?init@?$_icmd_isspectator@$0BEL@@game@@2_NA@@YAXXZ 0041c240 f   client1.obj
- 0001:0001b260       ??__E?init@?$_icmd_isai@$0BFD@@game@@2_NA@@YAXXZ 0041c260 f   client1.obj
- 0001:0001b280       ??__E?init@?$_icmd_isscf@$0BFI@@game@@2_NA@@YAXXZ 0041c280 f   client1.obj
- 0001:0001b2a0       ??__E?init@?$_icmd_getclientnum@$0BHB@@game@@2_NA@@YAXXZ 0041c2a0 f   client1.obj
- 0001:0001b2c0       ??__E?init@?$_icmd_listclients@$0BIH@@game@@2_NA@@YAXXZ 0041c2c0 f   client1.obj
+ 0001:0001b120       ??__E?init@?$_icmd_getclientname@$0BBG@@game@@2_NA@@YAXXZ 0041c120 f   client1.obj
+ 0001:0001b140       ??__E?init@?$_icmd_getclientteam@$0BBN@@game@@2_NA@@YAXXZ 0041c140 f   client1.obj
+ 0001:0001b160       ??__E?init@?$_icmd_getclientmodel@$0BCE@@game@@2_NA@@YAXXZ 0041c160 f   client1.obj
+ 0001:0001b180       ??__E?init@?$_icmd_getclienticon@$0BCN@@game@@2_NA@@YAXXZ 0041c180 f   client1.obj
+ 0001:0001b1a0       ??__E?init@?$_icmd_ismaster@$0BDE@@game@@2_NA@@YAXXZ 0041c1a0 f   client1.obj
+ 0001:0001b1c0       ??__E?init@?$_icmd_isauth@$0BDL@@game@@2_NA@@YAXXZ 0041c1c0 f   client1.obj
+ 0001:0001b1e0       ??__E?init@?$_icmd_isadmin@$0BEC@@game@@2_NA@@YAXXZ 0041c1e0 f   client1.obj
+ 0001:0001b200       ??__E?init@?$_icmd_getmastermode@$0BEE@@game@@2_NA@@YAXXZ 0041c200 f   client1.obj
+ 0001:0001b220       ??__E?init@?$_icmd_mastermodename@$0BEF@@game@@2_NA@@YAXXZ 0041c220 f   client1.obj
+ 0001:0001b240       ??__E?init@?$_icmd_isspectator@$0BEM@@game@@2_NA@@YAXXZ 0041c240 f   client1.obj
+ 0001:0001b260       ??__E?init@?$_icmd_isai@$0BFE@@game@@2_NA@@YAXXZ 0041c260 f   client1.obj
+ 0001:0001b280       ??__E?init@?$_icmd_isscf@$0BFJ@@game@@2_NA@@YAXXZ 0041c280 f   client1.obj
+ 0001:0001b2a0       ??__E?init@?$_icmd_getclientnum@$0BHC@@game@@2_NA@@YAXXZ 0041c2a0 f   client1.obj
+ 0001:0001b2c0       ??__E?init@?$_icmd_listclients@$0BII@@game@@2_NA@@YAXXZ 0041c2c0 f   client1.obj
  0001:0001b2e0       ??__E__dummy_clearbans@game@@YAXXZ 0041c2e0 f   client1.obj
  0001:0001b300       ??__E__dummy_kick@game@@YAXXZ 0041c300 f   client1.obj
- 0001:0001b320       ??__E?init@?$_icmd_authkick@$0BKA@@game@@2_NA@@YAXXZ 0041c320 f   client1.obj
- 0001:0001b340       ??__E?init@?$_icmd_sauthkick@$0BKB@@game@@2_NA@@YAXXZ 0041c340 f   client1.obj
- 0001:0001b360       ??__E?init@?$_icmd_dauthkick@$0BKC@@game@@2_NA@@YAXXZ 0041c360 f   client1.obj
+ 0001:0001b320       ??__E?init@?$_icmd_authkick@$0BKB@@game@@2_NA@@YAXXZ 0041c320 f   client1.obj
+ 0001:0001b340       ??__E?init@?$_icmd_sauthkick@$0BKC@@game@@2_NA@@YAXXZ 0041c340 f   client1.obj
+ 0001:0001b360       ??__E?init@?$_icmd_dauthkick@$0BKD@@game@@2_NA@@YAXXZ 0041c360 f   client1.obj
  0001:0001b380       ??__Eignores@game@@YAXXZ   0041c380 f   client1.obj
- 0001:0001b390       ??__E?init@?$_icmd_ignore@$0BLI@@game@@2_NA@@YAXXZ 0041c390 f   client1.obj
- 0001:0001b3b0       ??__E?init@?$_icmd_unignore@$0BLJ@@game@@2_NA@@YAXXZ 0041c3b0 f   client1.obj
- 0001:0001b3d0       ??__E?init@?$_icmd_isignored@$0BLK@@game@@2_NA@@YAXXZ 0041c3d0 f   client1.obj
+ 0001:0001b390       ??__E?init@?$_icmd_ignore@$0BLJ@@game@@2_NA@@YAXXZ 0041c390 f   client1.obj
+ 0001:0001b3b0       ??__E?init@?$_icmd_unignore@$0BLK@@game@@2_NA@@YAXXZ 0041c3b0 f   client1.obj
+ 0001:0001b3d0       ??__E?init@?$_icmd_isignored@$0BLL@@game@@2_NA@@YAXXZ 0041c3d0 f   client1.obj
  0001:0001b3f0       ??__E__dummy_setteam@game@@YAXXZ 0041c3f0 f   client1.obj
  0001:0001b410       ??__E__dummy_hashpwd@game@@YAXXZ 0041c410 f   client1.obj
  0001:0001b430       ??__E__dummy_setmaster@game@@YAXXZ 0041c430 f   client1.obj
- 0001:0001b450       ??__E?init@?$_icmd_mastermode@$0BNP@@game@@2_NA@@YAXXZ 0041c450 f   client1.obj
- 0001:0001b470       ??__E?init@?$_icmd_auth@$0BOJ@@game@@2_NA@@YAXXZ 0041c470 f   client1.obj
- 0001:0001b490       ??__E?init@?$_icmd_sauth@$0BOK@@game@@2_NA@@YAXXZ 0041c490 f   client1.obj
- 0001:0001b4b0       ??__E?init@?$_icmd_dauth@$0BOL@@game@@2_NA@@YAXXZ 0041c4b0 f   client1.obj
- 0001:0001b4d0       ??__E?init@?$_icmd_spectator@$0BPC@@game@@2_NA@@YAXXZ 0041c4d0 f   client1.obj
- 0001:0001b4f0       ??__E?init@?$_icmd_checkmaps@$0BPE@@game@@2_NA@@YAXXZ 0041c4f0 f   client1.obj
- 0001:0001b510       ??__E?init@?$_icmd_mode@$0CBI@@game@@2_NA@@YAXXZ 0041c510 f   client1.obj
- 0001:0001b530       ??__E?init@?$_icmd_getmode@$0CBJ@@game@@2_NA@@YAXXZ 0041c530 f   client1.obj
- 0001:0001b550       ??__E?init@?$_icmd_timeremaining@$0CCD@@game@@2_NA@@YAXXZ 0041c550 f   client1.obj
- 0001:0001b570       ??__E?init@?$_icmds_@$0CCE@@game@@2_NA@@YAXXZ 0041c570 f   client1.obj
- 0001:0001b590       ??__E?init@?$_icmds_@$0CCF@@game@@2_NA@@YAXXZ 0041c590 f   client1.obj
- 0001:0001b5b0       ??__E?init@?$_icmds_@$0CCG@@game@@2_NA@@YAXXZ 0041c5b0 f   client1.obj
- 0001:0001b5d0       ??__E?init@?$_icmds_@$0CCH@@game@@2_NA@@YAXXZ 0041c5d0 f   client1.obj
- 0001:0001b5f0       ??__E?init@?$_icmds_@$0CCI@@game@@2_NA@@YAXXZ 0041c5f0 f   client1.obj
- 0001:0001b610       ??__E?init@?$_icmds_@$0CCJ@@game@@2_NA@@YAXXZ 0041c610 f   client1.obj
- 0001:0001b630       ??__E?init@?$_icmds_@$0CCK@@game@@2_NA@@YAXXZ 0041c630 f   client1.obj
- 0001:0001b650       ??__E?init@?$_icmds_@$0CCL@@game@@2_NA@@YAXXZ 0041c650 f   client1.obj
- 0001:0001b670       ??__E?init@?$_icmds_@$0CCM@@game@@2_NA@@YAXXZ 0041c670 f   client1.obj
- 0001:0001b690       ??__E?init@?$_icmds_@$0CCN@@game@@2_NA@@YAXXZ 0041c690 f   client1.obj
- 0001:0001b6b0       ??__E?init@?$_icmds_@$0CCO@@game@@2_NA@@YAXXZ 0041c6b0 f   client1.obj
- 0001:0001b6d0       ??__E?init@?$_icmds_@$0CCP@@game@@2_NA@@YAXXZ 0041c6d0 f   client1.obj
- 0001:0001b6f0       ??__E?init@?$_icmds_@$0CDA@@game@@2_NA@@YAXXZ 0041c6f0 f   client1.obj
- 0001:0001b710       ??__E?init@?$_icmds_@$0CDB@@game@@2_NA@@YAXXZ 0041c710 f   client1.obj
- 0001:0001b730       ??__E?init@?$_icmds_@$0CDC@@game@@2_NA@@YAXXZ 0041c730 f   client1.obj
- 0001:0001b750       ??__E?init@?$_icmds_@$0CDD@@game@@2_NA@@YAXXZ 0041c750 f   client1.obj
- 0001:0001b770       ??__E?init@?$_icmds_@$0CDE@@game@@2_NA@@YAXXZ 0041c770 f   client1.obj
- 0001:0001b790       ??__E?init@?$_icmds_@$0CDF@@game@@2_NA@@YAXXZ 0041c790 f   client1.obj
- 0001:0001b7b0       ??__E?init@?$_icmd_map@$0CEE@@game@@2_NA@@YAXXZ 0041c7b0 f   client1.obj
- 0001:0001b7d0       ??__E?init@?$_icmd_pausegame@$0CNE@@game@@2_NA@@YAXXZ 0041c7d0 f   client1.obj
- 0001:0001b7f0       ??__E?init@?$_icmd_paused@$0CNK@@game@@2_NA@@YAXXZ 0041c7f0 f   client1.obj
- 0001:0001b810       ??__E?init@?$_icmd_gamespeed@$0COL@@game@@2_NA@@YAXXZ 0041c810 f   client1.obj
+ 0001:0001b450       ??__E?init@?$_icmd_mastermode@$0BOA@@game@@2_NA@@YAXXZ 0041c450 f   client1.obj
+ 0001:0001b470       ??__E?init@?$_icmd_auth@$0BOK@@game@@2_NA@@YAXXZ 0041c470 f   client1.obj
+ 0001:0001b490       ??__E?init@?$_icmd_sauth@$0BOL@@game@@2_NA@@YAXXZ 0041c490 f   client1.obj
+ 0001:0001b4b0       ??__E?init@?$_icmd_dauth@$0BOM@@game@@2_NA@@YAXXZ 0041c4b0 f   client1.obj
+ 0001:0001b4d0       ??__E?init@?$_icmd_spectator@$0BPD@@game@@2_NA@@YAXXZ 0041c4d0 f   client1.obj
+ 0001:0001b4f0       ??__E?init@?$_icmd_checkmaps@$0BPF@@game@@2_NA@@YAXXZ 0041c4f0 f   client1.obj
+ 0001:0001b510       ??__E?init@?$_icmd_mode@$0CBJ@@game@@2_NA@@YAXXZ 0041c510 f   client1.obj
+ 0001:0001b530       ??__E?init@?$_icmd_getmode@$0CBK@@game@@2_NA@@YAXXZ 0041c530 f   client1.obj
+ 0001:0001b550       ??__E?init@?$_icmd_timeremaining@$0CCE@@game@@2_NA@@YAXXZ 0041c550 f   client1.obj
+ 0001:0001b570       ??__E?init@?$_icmds_@$0CCF@@game@@2_NA@@YAXXZ 0041c570 f   client1.obj
+ 0001:0001b590       ??__E?init@?$_icmds_@$0CCG@@game@@2_NA@@YAXXZ 0041c590 f   client1.obj
+ 0001:0001b5b0       ??__E?init@?$_icmds_@$0CCH@@game@@2_NA@@YAXXZ 0041c5b0 f   client1.obj
+ 0001:0001b5d0       ??__E?init@?$_icmds_@$0CCI@@game@@2_NA@@YAXXZ 0041c5d0 f   client1.obj
+ 0001:0001b5f0       ??__E?init@?$_icmds_@$0CCJ@@game@@2_NA@@YAXXZ 0041c5f0 f   client1.obj
+ 0001:0001b610       ??__E?init@?$_icmds_@$0CCK@@game@@2_NA@@YAXXZ 0041c610 f   client1.obj
+ 0001:0001b630       ??__E?init@?$_icmds_@$0CCL@@game@@2_NA@@YAXXZ 0041c630 f   client1.obj
+ 0001:0001b650       ??__E?init@?$_icmds_@$0CCM@@game@@2_NA@@YAXXZ 0041c650 f   client1.obj
+ 0001:0001b670       ??__E?init@?$_icmds_@$0CCN@@game@@2_NA@@YAXXZ 0041c670 f   client1.obj
+ 0001:0001b690       ??__E?init@?$_icmds_@$0CCO@@game@@2_NA@@YAXXZ 0041c690 f   client1.obj
+ 0001:0001b6b0       ??__E?init@?$_icmds_@$0CCP@@game@@2_NA@@YAXXZ 0041c6b0 f   client1.obj
+ 0001:0001b6d0       ??__E?init@?$_icmds_@$0CDA@@game@@2_NA@@YAXXZ 0041c6d0 f   client1.obj
+ 0001:0001b6f0       ??__E?init@?$_icmds_@$0CDB@@game@@2_NA@@YAXXZ 0041c6f0 f   client1.obj
+ 0001:0001b710       ??__E?init@?$_icmds_@$0CDC@@game@@2_NA@@YAXXZ 0041c710 f   client1.obj
+ 0001:0001b730       ??__E?init@?$_icmds_@$0CDD@@game@@2_NA@@YAXXZ 0041c730 f   client1.obj
+ 0001:0001b750       ??__E?init@?$_icmds_@$0CDE@@game@@2_NA@@YAXXZ 0041c750 f   client1.obj
+ 0001:0001b770       ??__E?init@?$_icmds_@$0CDF@@game@@2_NA@@YAXXZ 0041c770 f   client1.obj
+ 0001:0001b790       ??__E?init@?$_icmds_@$0CDG@@game@@2_NA@@YAXXZ 0041c790 f   client1.obj
+ 0001:0001b7b0       ??__E?init@?$_icmd_map@$0CEF@@game@@2_NA@@YAXXZ 0041c7b0 f   client1.obj
+ 0001:0001b7d0       ??__E?init@?$_icmd_pausegame@$0CNF@@game@@2_NA@@YAXXZ 0041c7d0 f   client1.obj
+ 0001:0001b7f0       ??__E?init@?$_icmd_paused@$0CNL@@game@@2_NA@@YAXXZ 0041c7f0 f   client1.obj
+ 0001:0001b810       ??__E?init@?$_icmd_gamespeed@$0COM@@game@@2_NA@@YAXXZ 0041c810 f   client1.obj
  0001:0001b830       ??__Emessages@game@@YAXXZ  0041c830 f   client1.obj
  0001:0001b840       ??__E__dummy_toserver@game@@YAXXZ 0041c840 f   client1.obj
  0001:0001b860       ??__E__dummy_sayteam@game@@YAXXZ 0041c860 f   client1.obj
- 0001:0001b880       ??__E?init@?$_icmd_servcmd@$0DGD@@game@@2_NA@@YAXXZ 0041c880 f   client1.obj
+ 0001:0001b880       ??__E?init@?$_icmd_servcmd@$0DGE@@game@@2_NA@@YAXXZ 0041c880 f   client1.obj
  0001:0001b8a0       ??__E__dummy_getmap@game@@YAXXZ 0041c8a0 f   client1.obj
  0001:0001b8c0       ??__E__dummy_stopdemo@game@@YAXXZ 0041c8c0 f   client1.obj
- 0001:0001b8e0       ??__E?init@?$_icmd_recorddemo@$0IDP@@game@@2_NA@@YAXXZ 0041c8e0 f   client1.obj
- 0001:0001b900       ??__E?init@?$_icmd_cleardemos@$0IEG@@game@@2_NA@@YAXXZ 0041c900 f   client1.obj
- 0001:0001b920       ??__E?init@?$_icmd_getdemo@$0IEO@@game@@2_NA@@YAXXZ 0041c920 f   client1.obj
+ 0001:0001b8e0       ??__E?init@?$_icmd_recorddemo@$0IEB@@game@@2_NA@@YAXXZ 0041c8e0 f   client1.obj
+ 0001:0001b900       ??__E?init@?$_icmd_cleardemos@$0IEI@@game@@2_NA@@YAXXZ 0041c900 f   client1.obj
+ 0001:0001b920       ??__E?init@?$_icmd_getdemo@$0IFA@@game@@2_NA@@YAXXZ 0041c920 f   client1.obj
  0001:0001b940       ??__E__dummy_listdemos@game@@YAXXZ 0041c940 f   client1.obj
  0001:0001b960       ??__E__dummy_sendmap@game@@YAXXZ 0041c960 f   client1.obj
  0001:0001b980       ??__E__dummy_gotoplayer@game@@YAXXZ 0041c980 f   client1.obj
@@ -15250,17 +15250,17 @@
  0001:001951d0       ??$swap@H@@YAXAAH0@Z       005961d0 f   client1.obj
  0001:00195c20       $LN80                      00596c20     client1.obj
  0001:00195c38       $LN75                      00596c38     client1.obj
- 0001:001985f0       $LN897                     005995f0     client1.obj
- 0001:00198724       $LN808                     00599724     client1.obj
- 0001:001987a0       $LN898                     005997a0     client1.obj
- 0001:0019928c       $LN256                     0059a28c     client1.obj
- 0001:001992a0       $LN244                     0059a2a0     client1.obj
- 0001:0019970c       $LN14                      0059a70c     client1.obj
- 0001:00199b50       ?sendposition@game@@YAXPAUfpsent@@AAUpacketbuf@@@Z 0059ab50 f   client1.obj
- 0001:0019c860       ??0dropent@?1??movetoken@collectclientmode@game@@QAE?AUvec@@ABU4@H@Z@QAE@XZ 0059d860 f   client1.obj
- 0001:0019dc30       $LN132                     0059ec30     client1.obj
- 0001:0019dc4c       $LN125                     0059ec4c     client1.obj
- 0001:0019e2d4       $LN23                      0059f2d4     client1.obj
+ 0001:00198600       $LN897                     00599600     client1.obj
+ 0001:00198734       $LN808                     00599734     client1.obj
+ 0001:001987b0       $LN898                     005997b0     client1.obj
+ 0001:0019929c       $LN256                     0059a29c     client1.obj
+ 0001:001992b0       $LN244                     0059a2b0     client1.obj
+ 0001:0019971c       $LN14                      0059a71c     client1.obj
+ 0001:00199b60       ?sendposition@game@@YAXPAUfpsent@@AAUpacketbuf@@@Z 0059ab60 f   client1.obj
+ 0001:0019c870       ??0dropent@?1??movetoken@collectclientmode@game@@QAE?AUvec@@ABU4@H@Z@QAE@XZ 0059d870 f   client1.obj
+ 0001:0019dc40       $LN132                     0059ec40     client1.obj
+ 0001:0019dc5c       $LN125                     0059ec5c     client1.obj
+ 0001:0019e2e4       $LN23                      0059f2e4     client1.obj
  0001:0019e380       ??$max@H@@YAHHH@Z          0059f380 f   server1.obj
  0001:0019e390       ??$min@H@@YAHHH@Z          0059f390 f   server1.obj
  0001:0019e3a0       ??$max@M@@YAMMM@Z          0059f3a0 f   server1.obj
@@ -18586,82 +18586,82 @@
  0002:000018f0       _ctfmode$initializer$      005bc8f0     client1.obj
  0002:000018f4       _collectmode$initializer$  005bc8f4     client1.obj
  0002:000018f8       _deadpush$initializer$     005bc8f8     client1.obj
- 0002:000018fc       ?init$initializer$@?$_icmd_name@$0IP@@game@@2P6AXXZA 005bc8fc     client1.obj
- 0002:00001900       ?init$initializer$@?$_icmd_getname@$0JA@@game@@2P6AXXZA 005bc900     client1.obj
- 0002:00001904       ?init$initializer$@?$_icmd_team@$0KA@@game@@2P6AXXZA 005bc904     client1.obj
- 0002:00001908       ?init$initializer$@?$_icmd_getteam@$0KB@@game@@2P6AXXZA 005bc908     client1.obj
+ 0002:000018fc       ?init$initializer$@?$_icmd_name@$0JA@@game@@2P6AXXZA 005bc8fc     client1.obj
+ 0002:00001900       ?init$initializer$@?$_icmd_getname@$0JB@@game@@2P6AXXZA 005bc900     client1.obj
+ 0002:00001904       ?init$initializer$@?$_icmd_team@$0KB@@game@@2P6AXXZA 005bc904     client1.obj
+ 0002:00001908       ?init$initializer$@?$_icmd_getteam@$0KC@@game@@2P6AXXZA 005bc908     client1.obj
  0002:0000190c       _authkeys$initializer$     005bc90c     client1.obj
  0002:00001910       _autoauth$initializer$     005bc910     client1.obj
- 0002:00001914       ?init$initializer$@?$_icmd_authkey@$0ML@@game@@2P6AXXZA 005bc914     client1.obj
- 0002:00001918       ?init$initializer$@?$_icmd_hasauthkey@$0NE@@game@@2P6AXXZA 005bc918     client1.obj
+ 0002:00001914       ?init$initializer$@?$_icmd_authkey@$0MM@@game@@2P6AXXZA 005bc914     client1.obj
+ 0002:00001918       ?init$initializer$@?$_icmd_hasauthkey@$0NF@@game@@2P6AXXZA 005bc918     client1.obj
  0002:0000191c       ___dummy_genauthkey$initializer$ 005bc91c     client1.obj
  0002:00001920       ___dummy_saveauthkeys$initializer$ 005bc920     client1.obj
- 0002:00001924       ?init$initializer$@?$_icmd_getclientname@$0BBF@@game@@2P6AXXZA 005bc924     client1.obj
- 0002:00001928       ?init$initializer$@?$_icmd_getclientteam@$0BBM@@game@@2P6AXXZA 005bc928     client1.obj
- 0002:0000192c       ?init$initializer$@?$_icmd_getclientmodel@$0BCD@@game@@2P6AXXZA 005bc92c     client1.obj
- 0002:00001930       ?init$initializer$@?$_icmd_getclienticon@$0BCM@@game@@2P6AXXZA 005bc930     client1.obj
- 0002:00001934       ?init$initializer$@?$_icmd_ismaster@$0BDD@@game@@2P6AXXZA 005bc934     client1.obj
- 0002:00001938       ?init$initializer$@?$_icmd_isauth@$0BDK@@game@@2P6AXXZA 005bc938     client1.obj
- 0002:0000193c       ?init$initializer$@?$_icmd_isadmin@$0BEB@@game@@2P6AXXZA 005bc93c     client1.obj
- 0002:00001940       ?init$initializer$@?$_icmd_getmastermode@$0BED@@game@@2P6AXXZA 005bc940     client1.obj
- 0002:00001944       ?init$initializer$@?$_icmd_mastermodename@$0BEE@@game@@2P6AXXZA 005bc944     client1.obj
- 0002:00001948       ?init$initializer$@?$_icmd_isspectator@$0BEL@@game@@2P6AXXZA 005bc948     client1.obj
- 0002:0000194c       ?init$initializer$@?$_icmd_isai@$0BFD@@game@@2P6AXXZA 005bc94c     client1.obj
- 0002:00001950       ?init$initializer$@?$_icmd_isscf@$0BFI@@game@@2P6AXXZA 005bc950     client1.obj
- 0002:00001954       ?init$initializer$@?$_icmd_getclientnum@$0BHB@@game@@2P6AXXZA 005bc954     client1.obj
- 0002:00001958       ?init$initializer$@?$_icmd_listclients@$0BIH@@game@@2P6AXXZA 005bc958     client1.obj
+ 0002:00001924       ?init$initializer$@?$_icmd_getclientname@$0BBG@@game@@2P6AXXZA 005bc924     client1.obj
+ 0002:00001928       ?init$initializer$@?$_icmd_getclientteam@$0BBN@@game@@2P6AXXZA 005bc928     client1.obj
+ 0002:0000192c       ?init$initializer$@?$_icmd_getclientmodel@$0BCE@@game@@2P6AXXZA 005bc92c     client1.obj
+ 0002:00001930       ?init$initializer$@?$_icmd_getclienticon@$0BCN@@game@@2P6AXXZA 005bc930     client1.obj
+ 0002:00001934       ?init$initializer$@?$_icmd_ismaster@$0BDE@@game@@2P6AXXZA 005bc934     client1.obj
+ 0002:00001938       ?init$initializer$@?$_icmd_isauth@$0BDL@@game@@2P6AXXZA 005bc938     client1.obj
+ 0002:0000193c       ?init$initializer$@?$_icmd_isadmin@$0BEC@@game@@2P6AXXZA 005bc93c     client1.obj
+ 0002:00001940       ?init$initializer$@?$_icmd_getmastermode@$0BEE@@game@@2P6AXXZA 005bc940     client1.obj
+ 0002:00001944       ?init$initializer$@?$_icmd_mastermodename@$0BEF@@game@@2P6AXXZA 005bc944     client1.obj
+ 0002:00001948       ?init$initializer$@?$_icmd_isspectator@$0BEM@@game@@2P6AXXZA 005bc948     client1.obj
+ 0002:0000194c       ?init$initializer$@?$_icmd_isai@$0BFE@@game@@2P6AXXZA 005bc94c     client1.obj
+ 0002:00001950       ?init$initializer$@?$_icmd_isscf@$0BFJ@@game@@2P6AXXZA 005bc950     client1.obj
+ 0002:00001954       ?init$initializer$@?$_icmd_getclientnum@$0BHC@@game@@2P6AXXZA 005bc954     client1.obj
+ 0002:00001958       ?init$initializer$@?$_icmd_listclients@$0BII@@game@@2P6AXXZA 005bc958     client1.obj
  0002:0000195c       ___dummy_clearbans$initializer$ 005bc95c     client1.obj
  0002:00001960       ___dummy_kick$initializer$ 005bc960     client1.obj
- 0002:00001964       ?init$initializer$@?$_icmd_authkick@$0BKA@@game@@2P6AXXZA 005bc964     client1.obj
- 0002:00001968       ?init$initializer$@?$_icmd_sauthkick@$0BKB@@game@@2P6AXXZA 005bc968     client1.obj
- 0002:0000196c       ?init$initializer$@?$_icmd_dauthkick@$0BKC@@game@@2P6AXXZA 005bc96c     client1.obj
+ 0002:00001964       ?init$initializer$@?$_icmd_authkick@$0BKB@@game@@2P6AXXZA 005bc964     client1.obj
+ 0002:00001968       ?init$initializer$@?$_icmd_sauthkick@$0BKC@@game@@2P6AXXZA 005bc968     client1.obj
+ 0002:0000196c       ?init$initializer$@?$_icmd_dauthkick@$0BKD@@game@@2P6AXXZA 005bc96c     client1.obj
  0002:00001970       _ignores$initializer$      005bc970     client1.obj
- 0002:00001974       ?init$initializer$@?$_icmd_ignore@$0BLI@@game@@2P6AXXZA 005bc974     client1.obj
- 0002:00001978       ?init$initializer$@?$_icmd_unignore@$0BLJ@@game@@2P6AXXZA 005bc978     client1.obj
- 0002:0000197c       ?init$initializer$@?$_icmd_isignored@$0BLK@@game@@2P6AXXZA 005bc97c     client1.obj
+ 0002:00001974       ?init$initializer$@?$_icmd_ignore@$0BLJ@@game@@2P6AXXZA 005bc974     client1.obj
+ 0002:00001978       ?init$initializer$@?$_icmd_unignore@$0BLK@@game@@2P6AXXZA 005bc978     client1.obj
+ 0002:0000197c       ?init$initializer$@?$_icmd_isignored@$0BLL@@game@@2P6AXXZA 005bc97c     client1.obj
  0002:00001980       ___dummy_setteam$initializer$ 005bc980     client1.obj
  0002:00001984       ___dummy_hashpwd$initializer$ 005bc984     client1.obj
  0002:00001988       ___dummy_setmaster$initializer$ 005bc988     client1.obj
- 0002:0000198c       ?init$initializer$@?$_icmd_mastermode@$0BNP@@game@@2P6AXXZA 005bc98c     client1.obj
- 0002:00001990       ?init$initializer$@?$_icmd_auth@$0BOJ@@game@@2P6AXXZA 005bc990     client1.obj
- 0002:00001994       ?init$initializer$@?$_icmd_sauth@$0BOK@@game@@2P6AXXZA 005bc994     client1.obj
- 0002:00001998       ?init$initializer$@?$_icmd_dauth@$0BOL@@game@@2P6AXXZA 005bc998     client1.obj
- 0002:0000199c       ?init$initializer$@?$_icmd_spectator@$0BPC@@game@@2P6AXXZA 005bc99c     client1.obj
- 0002:000019a0       ?init$initializer$@?$_icmd_checkmaps@$0BPE@@game@@2P6AXXZA 005bc9a0     client1.obj
- 0002:000019a4       ?init$initializer$@?$_icmd_mode@$0CBI@@game@@2P6AXXZA 005bc9a4     client1.obj
- 0002:000019a8       ?init$initializer$@?$_icmd_getmode@$0CBJ@@game@@2P6AXXZA 005bc9a8     client1.obj
- 0002:000019ac       ?init$initializer$@?$_icmd_timeremaining@$0CCD@@game@@2P6AXXZA 005bc9ac     client1.obj
- 0002:000019b0       ?init$initializer$@?$_icmds_@$0CCE@@game@@2P6AXXZA 005bc9b0     client1.obj
- 0002:000019b4       ?init$initializer$@?$_icmds_@$0CCF@@game@@2P6AXXZA 005bc9b4     client1.obj
- 0002:000019b8       ?init$initializer$@?$_icmds_@$0CCG@@game@@2P6AXXZA 005bc9b8     client1.obj
- 0002:000019bc       ?init$initializer$@?$_icmds_@$0CCH@@game@@2P6AXXZA 005bc9bc     client1.obj
- 0002:000019c0       ?init$initializer$@?$_icmds_@$0CCI@@game@@2P6AXXZA 005bc9c0     client1.obj
- 0002:000019c4       ?init$initializer$@?$_icmds_@$0CCJ@@game@@2P6AXXZA 005bc9c4     client1.obj
- 0002:000019c8       ?init$initializer$@?$_icmds_@$0CCK@@game@@2P6AXXZA 005bc9c8     client1.obj
- 0002:000019cc       ?init$initializer$@?$_icmds_@$0CCL@@game@@2P6AXXZA 005bc9cc     client1.obj
- 0002:000019d0       ?init$initializer$@?$_icmds_@$0CCM@@game@@2P6AXXZA 005bc9d0     client1.obj
- 0002:000019d4       ?init$initializer$@?$_icmds_@$0CCN@@game@@2P6AXXZA 005bc9d4     client1.obj
- 0002:000019d8       ?init$initializer$@?$_icmds_@$0CCO@@game@@2P6AXXZA 005bc9d8     client1.obj
- 0002:000019dc       ?init$initializer$@?$_icmds_@$0CCP@@game@@2P6AXXZA 005bc9dc     client1.obj
- 0002:000019e0       ?init$initializer$@?$_icmds_@$0CDA@@game@@2P6AXXZA 005bc9e0     client1.obj
- 0002:000019e4       ?init$initializer$@?$_icmds_@$0CDB@@game@@2P6AXXZA 005bc9e4     client1.obj
- 0002:000019e8       ?init$initializer$@?$_icmds_@$0CDC@@game@@2P6AXXZA 005bc9e8     client1.obj
- 0002:000019ec       ?init$initializer$@?$_icmds_@$0CDD@@game@@2P6AXXZA 005bc9ec     client1.obj
- 0002:000019f0       ?init$initializer$@?$_icmds_@$0CDE@@game@@2P6AXXZA 005bc9f0     client1.obj
- 0002:000019f4       ?init$initializer$@?$_icmds_@$0CDF@@game@@2P6AXXZA 005bc9f4     client1.obj
- 0002:000019f8       ?init$initializer$@?$_icmd_map@$0CEE@@game@@2P6AXXZA 005bc9f8     client1.obj
- 0002:000019fc       ?init$initializer$@?$_icmd_pausegame@$0CNE@@game@@2P6AXXZA 005bc9fc     client1.obj
- 0002:00001a00       ?init$initializer$@?$_icmd_paused@$0CNK@@game@@2P6AXXZA 005bca00     client1.obj
- 0002:00001a04       ?init$initializer$@?$_icmd_gamespeed@$0COL@@game@@2P6AXXZA 005bca04     client1.obj
+ 0002:0000198c       ?init$initializer$@?$_icmd_mastermode@$0BOA@@game@@2P6AXXZA 005bc98c     client1.obj
+ 0002:00001990       ?init$initializer$@?$_icmd_auth@$0BOK@@game@@2P6AXXZA 005bc990     client1.obj
+ 0002:00001994       ?init$initializer$@?$_icmd_sauth@$0BOL@@game@@2P6AXXZA 005bc994     client1.obj
+ 0002:00001998       ?init$initializer$@?$_icmd_dauth@$0BOM@@game@@2P6AXXZA 005bc998     client1.obj
+ 0002:0000199c       ?init$initializer$@?$_icmd_spectator@$0BPD@@game@@2P6AXXZA 005bc99c     client1.obj
+ 0002:000019a0       ?init$initializer$@?$_icmd_checkmaps@$0BPF@@game@@2P6AXXZA 005bc9a0     client1.obj
+ 0002:000019a4       ?init$initializer$@?$_icmd_mode@$0CBJ@@game@@2P6AXXZA 005bc9a4     client1.obj
+ 0002:000019a8       ?init$initializer$@?$_icmd_getmode@$0CBK@@game@@2P6AXXZA 005bc9a8     client1.obj
+ 0002:000019ac       ?init$initializer$@?$_icmd_timeremaining@$0CCE@@game@@2P6AXXZA 005bc9ac     client1.obj
+ 0002:000019b0       ?init$initializer$@?$_icmds_@$0CCF@@game@@2P6AXXZA 005bc9b0     client1.obj
+ 0002:000019b4       ?init$initializer$@?$_icmds_@$0CCG@@game@@2P6AXXZA 005bc9b4     client1.obj
+ 0002:000019b8       ?init$initializer$@?$_icmds_@$0CCH@@game@@2P6AXXZA 005bc9b8     client1.obj
+ 0002:000019bc       ?init$initializer$@?$_icmds_@$0CCI@@game@@2P6AXXZA 005bc9bc     client1.obj
+ 0002:000019c0       ?init$initializer$@?$_icmds_@$0CCJ@@game@@2P6AXXZA 005bc9c0     client1.obj
+ 0002:000019c4       ?init$initializer$@?$_icmds_@$0CCK@@game@@2P6AXXZA 005bc9c4     client1.obj
+ 0002:000019c8       ?init$initializer$@?$_icmds_@$0CCL@@game@@2P6AXXZA 005bc9c8     client1.obj
+ 0002:000019cc       ?init$initializer$@?$_icmds_@$0CCM@@game@@2P6AXXZA 005bc9cc     client1.obj
+ 0002:000019d0       ?init$initializer$@?$_icmds_@$0CCN@@game@@2P6AXXZA 005bc9d0     client1.obj
+ 0002:000019d4       ?init$initializer$@?$_icmds_@$0CCO@@game@@2P6AXXZA 005bc9d4     client1.obj
+ 0002:000019d8       ?init$initializer$@?$_icmds_@$0CCP@@game@@2P6AXXZA 005bc9d8     client1.obj
+ 0002:000019dc       ?init$initializer$@?$_icmds_@$0CDA@@game@@2P6AXXZA 005bc9dc     client1.obj
+ 0002:000019e0       ?init$initializer$@?$_icmds_@$0CDB@@game@@2P6AXXZA 005bc9e0     client1.obj
+ 0002:000019e4       ?init$initializer$@?$_icmds_@$0CDC@@game@@2P6AXXZA 005bc9e4     client1.obj
+ 0002:000019e8       ?init$initializer$@?$_icmds_@$0CDD@@game@@2P6AXXZA 005bc9e8     client1.obj
+ 0002:000019ec       ?init$initializer$@?$_icmds_@$0CDE@@game@@2P6AXXZA 005bc9ec     client1.obj
+ 0002:000019f0       ?init$initializer$@?$_icmds_@$0CDF@@game@@2P6AXXZA 005bc9f0     client1.obj
+ 0002:000019f4       ?init$initializer$@?$_icmds_@$0CDG@@game@@2P6AXXZA 005bc9f4     client1.obj
+ 0002:000019f8       ?init$initializer$@?$_icmd_map@$0CEF@@game@@2P6AXXZA 005bc9f8     client1.obj
+ 0002:000019fc       ?init$initializer$@?$_icmd_pausegame@$0CNF@@game@@2P6AXXZA 005bc9fc     client1.obj
+ 0002:00001a00       ?init$initializer$@?$_icmd_paused@$0CNL@@game@@2P6AXXZA 005bca00     client1.obj
+ 0002:00001a04       ?init$initializer$@?$_icmd_gamespeed@$0COM@@game@@2P6AXXZA 005bca04     client1.obj
  0002:00001a08       _messages$initializer$     005bca08     client1.obj
  0002:00001a0c       ___dummy_toserver$initializer$ 005bca0c     client1.obj
  0002:00001a10       ___dummy_sayteam$initializer$ 005bca10     client1.obj
- 0002:00001a14       ?init$initializer$@?$_icmd_servcmd@$0DGD@@game@@2P6AXXZA 005bca14     client1.obj
+ 0002:00001a14       ?init$initializer$@?$_icmd_servcmd@$0DGE@@game@@2P6AXXZA 005bca14     client1.obj
  0002:00001a18       ___dummy_getmap$initializer$ 005bca18     client1.obj
  0002:00001a1c       ___dummy_stopdemo$initializer$ 005bca1c     client1.obj
- 0002:00001a20       ?init$initializer$@?$_icmd_recorddemo@$0IDP@@game@@2P6AXXZA 005bca20     client1.obj
- 0002:00001a24       ?init$initializer$@?$_icmd_cleardemos@$0IEG@@game@@2P6AXXZA 005bca24     client1.obj
- 0002:00001a28       ?init$initializer$@?$_icmd_getdemo@$0IEO@@game@@2P6AXXZA 005bca28     client1.obj
+ 0002:00001a20       ?init$initializer$@?$_icmd_recorddemo@$0IEB@@game@@2P6AXXZA 005bca20     client1.obj
+ 0002:00001a24       ?init$initializer$@?$_icmd_cleardemos@$0IEI@@game@@2P6AXXZA 005bca24     client1.obj
+ 0002:00001a28       ?init$initializer$@?$_icmd_getdemo@$0IFA@@game@@2P6AXXZA 005bca28     client1.obj
  0002:00001a2c       ___dummy_listdemos$initializer$ 005bca2c     client1.obj
  0002:00001a30       ___dummy_sendmap$initializer$ 005bca30     client1.obj
  0002:00001a34       ___dummy_gotoplayer$initializer$ 005bca34     client1.obj
