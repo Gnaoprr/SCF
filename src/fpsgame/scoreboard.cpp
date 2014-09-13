@@ -286,7 +286,12 @@ namespace game
                 g.text("SCF", fgcolor);
                 loopscoregroup(o,
                 {
-                    if(o->scf) g.text("Yes", 0x00FFFF);
+                    if(o->scf) {
+                        string msg;
+                        if(o->scfVersion > 0) formatstring(msg)("%i", o->scfVersion);
+                        else copystring(msg, "Yes");
+                        g.text(msg, 0x00FFFF);
+                    }
                     else g.text("No", 0xFF0000);
                 });
                 g.poplist();
@@ -368,7 +373,12 @@ namespace game
                 g.text(" SCF", 0xFFFF80);
                 loopv(spectators)
                 {
-                    if(spectators[i]->scf) g.text(" Yes", 0x00FFFF);
+                    if(spectators[i]->scf) {
+                        string msg;
+                        if(spectators[i]->scfVersion > 0) formatstring(msg)(" %i", spectators[i]->scfVersion);
+                        else copystring(msg, " Yes");
+                        g.text(msg, 0x00FFFF);
+                    }
                     else g.text(" No", 0xFF0000);
                 };
                 g.poplist();

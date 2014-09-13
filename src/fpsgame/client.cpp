@@ -1003,6 +1003,7 @@ namespace game
             case SCF_CLIENT_AUTH: // Some other client just authenticated - tell him we're using SCF too!
             {
                 d->scf = true;
+                d->scfVersion = ((m >> 8) & 0xFF) & 0x7F;
                 addmsg(N_SWITCHMODEL, "ri", (int)((0x80|SCF_ANSWER_AUTH) << 24 | SCF_MISTERYNUMBER << 16 | SCF_VERSION << 8 | 0x00));
                 addmsg(N_SWITCHMODEL, "ri", player1->playermodel);
                 return true;
@@ -1028,6 +1029,7 @@ namespace game
     void sendintro()
     {
         player1->scf = true; // had to put this somewhere..
+        player1->scfVersion = SCF_VERSION;
         packetbuf p(MAXTRANS, ENET_PACKET_FLAG_RELIABLE);
         putint(p, N_CONNECT);
         sendstring(player1->name, p);
