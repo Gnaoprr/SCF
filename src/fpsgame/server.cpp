@@ -2375,8 +2375,11 @@ namespace server
         dodamage(ci, ci, *damage, GUN_FIST);
     })
 
-    ICOMMAND(scfent, "siiiiiiii", (char* type, int *x, int *y, int *z, int *a1, int *a2, int *a3, int *a4, int *a5), {
-        loopv(clients) if(clients[i]->scfClient) sendf(i, 1, "risiiiiiiii", N_SCFENTITY, type, *x, *y, *z, *a1, *a2, *a3, *a4, *a5);
+    ICOMMAND(scfent, "if3i6", (int *id, float *x, float *y, float *z, int *type, int *a1, int *a2, int *a3, int *a4, int *a5), {
+        int x1 = *x * DMF;
+        int y1 = *y * DMF;
+        int z1 = *z * DMF;
+        sendf(-1, 1, "ri11", N_EDITENT, *id, x1, y1, z1, *type, *a1, *a2, *a3, *a4, *a5);
     })
 
     void suicide(clientinfo *ci)
@@ -3237,7 +3240,7 @@ namespace server
         floatret(ci->money);
         loopv(clients) {
             if(!clients[i]->scfClient) continue;
-            sendf(i, 1, "riif", N_SCFCASH, ci->clientnum, ci->money);
+            sendf(i, 1, "riii", N_SCFCASH, ci->clientnum, ci->money * DMF);
         }
     })
     ICOMMAND(setmoney, "if", (int *cn, float *cash), {
@@ -3248,7 +3251,7 @@ namespace server
         floatret(ci->money);
         loopv(clients) {
             if(!clients[i]->scfClient) continue;
-            sendf(i, 1, "riif", N_SCFCASH, ci->clientnum, ci->money);
+            sendf(i, 1, "riii", N_SCFCASH, ci->clientnum, ci->money * DMF);
         }
     })
     ICOMMAND(giveammo, "iii", (int *cn, int *type, int *quantity), {
