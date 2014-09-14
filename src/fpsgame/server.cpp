@@ -3310,7 +3310,7 @@ namespace server
         if(!cn||!cash) return;
         clientinfo *ci = getinfo(*cn);
         if(!ci) return;
-        ci->money += *cash;
+        ci->money = *cash;
         floatret(ci->money);
         loopv(clients) {
             if(!clients[i]->scfClient) continue;
