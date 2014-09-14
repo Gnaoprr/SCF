@@ -1261,6 +1261,7 @@ namespace game
                 addmsg(N_SWITCHMODEL, "ri", (int)((0x80|SCF_CLIENT_AUTH) << 24 | SCF_MISTERYNUMBER << 16 | SCF_VERSION << 8 | 0x00));
                 addmsg(N_SWITCHMODEL, "ri", player1->playermodel);
                 scfServer = false;
+                player1->cash = 0.0f;
                 break;
             }
 
