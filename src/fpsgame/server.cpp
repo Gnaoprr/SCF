@@ -3302,7 +3302,7 @@ namespace server
         ci->money += *cash;
         loopv(clients) {
             if(!clients[i]->scfClient) continue;
-            sendf(i, 1, "riii", N_SCFCASH, ci->clientnum, ci->money * DMF);
+            sendf(clients[i]->clientnum, 1, "riii", N_SCFCASH, ci->clientnum, (int)(ci->money * 100));
         }
         floatret(ci->money);
     })
@@ -3313,7 +3313,7 @@ namespace server
         ci->money = *cash;
         loopv(clients) {
             if(!clients[i]->scfClient) continue;
-            sendf(i, 1, "riii", N_SCFCASH, ci->clientnum, ci->money * DMF);
+            sendf(clients[i]->clientnum, 1, "riii", N_SCFCASH, ci->clientnum, (int)(ci->money * 100));
         }
         floatret(ci->money);
     })

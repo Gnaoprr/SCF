@@ -1963,7 +1963,7 @@ namespace game
                 int cash = getint(p);
                 fpsent *d = getclient(cn);
                 if(!d) return;
-                d->cash = (float)cash / DMF;
+                d->cash = (float)cash / 100.0f;
                 break;
             }
 
