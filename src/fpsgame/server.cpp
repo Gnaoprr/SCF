@@ -3300,22 +3300,22 @@ namespace server
         clientinfo *ci = getinfo(*cn);
         if(!ci) return;
         ci->money += *cash;
-        floatret(ci->money);
         loopv(clients) {
             if(!clients[i]->scfClient) continue;
             sendf(i, 1, "riii", N_SCFCASH, ci->clientnum, ci->money * DMF);
         }
+        floatret(ci->money);
     })
     ICOMMAND(setmoney, "if", (int *cn, float *cash), {
         if(!cn||!cash) return;
         clientinfo *ci = getinfo(*cn);
         if(!ci) return;
         ci->money = *cash;
-        floatret(ci->money);
         loopv(clients) {
             if(!clients[i]->scfClient) continue;
             sendf(i, 1, "riii", N_SCFCASH, ci->clientnum, ci->money * DMF);
         }
+        floatret(ci->money);
     })
     ICOMMAND(giveammo, "iii", (int *cn, int *type, int *quantity), {
         if(!cn||!type||!quantity) return;

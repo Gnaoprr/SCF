@@ -1949,25 +1949,21 @@ namespace game
 
             #if 0
             case N_SCFCLIENTGEOIP: {
-				conoutf(CON_DEBUG, "Oy, I got an N_SCFCLIENTGEOIP!");
                 int cn = getint(p);
-				conoutf(CON_DEBUG, "Oy, cn: %i", cn);
                 fpsent *d = getclient(cn);
                 if(!d) return;
                 getstring(d->country, p);
-				conoutf(CON_DEBUG, "Oy, country: %s", d->country);
                 getstring(d->city, p);
-				conoutf(CON_DEBUG, "Oy, city: %s", d->city);
                 break;
             }
             #endif
 
             case N_SCFCASH: {
                 int cn = getint(p);
-                float cash = getint(p) / DMF;
+                int cash = getint(p);
                 fpsent *d = getclient(cn);
                 if(!d) return;
-                d->cash = cash;
+                d->cash = (float)cash / DMF;
                 break;
             }
 

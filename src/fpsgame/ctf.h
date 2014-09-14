@@ -345,7 +345,7 @@ struct ctfclientmode : clientmode
         int team = ctfteamflag(ci->team), score = addscore(team, 1);
         if(m_hold) spawnflag(goal);
         if(ci->flagtime && !m_hold && !m_protect) {
-            defformatstring(cmd)("scf_flag_cn = %i; scf_flag_time = %i; scf_flag_map = %s", ci->clientnum, gamemillis - ci->flagtime, smapname);
+            defformatstring(cmd)("scf_flag_cn = %i; scf_flag_time = %i; scf_flag_map = %s; scf_flag_mode = %i", ci->clientnum, gamemillis - ci->flagtime, smapname, gamemode);
             execute(cmd);
 
             loopv(onscoreflag) {
