@@ -1,7 +1,6 @@
 #include "game.h"
 
 extern const char *getclienthostname(int);
-extern int findtype(char *);
 
 namespace game
 {
@@ -243,8 +242,9 @@ namespace server
         bool scfClient;
         bool wasfalling;
         int startfalling;
+        int flagtime;
 
-        clientinfo() : getdemo(NULL), getmap(NULL), clipboard(NULL), authchallenge(NULL), authkickreason(NULL), money(0.0f), scfClient(false), wasfalling(false), startfalling(totalmillis) { reset(); }
+        clientinfo() : getdemo(NULL), getmap(NULL), clipboard(NULL), authchallenge(NULL), authkickreason(NULL), money(0.0f), scfClient(false), wasfalling(false), startfalling(0), flagtime(0) { reset(); }
         ~clientinfo() { events.deletecontents(); cleanclipboard(); cleanauth(); }
 
         void addevent(gameevent *e)
@@ -817,6 +817,7 @@ namespace server
         if(!_gidb_co_) return "Unknown";
         const char *country = 0;
         country = GeoIP_country_name_by_addr(_gidb_co_, addr);
+        if(!country || !country[0]) return "Unknown";
         return country;
     }
 
@@ -832,8 +833,9 @@ namespace server
         GeoIPRecord* _gire_ci_ = GeoIP_record_by_addr(_gidb_ci_, addr);
         if(!_gire_ci_) return "Unknown";
         const char *city = 0;
-        if(!_gire_ci_->city) return "Unknown";
+        if(!_gire_ci_->city || !_gire_ci_->city[0]) return "Unknown";
         city = _gire_ci_->city;
+        if(!city || !city[0]) return "Unknown";
         return city;
     }
 
@@ -860,6 +862,38 @@ namespace server
         resetitems();
     }
 
+    ICOMMAND(clearvar, "s", (char *file), {
+        stream *f = openutf8file(path(file), "w");
+        if(f) {
+            f->printf("\n");
+            delete f;
+        }
+    })
+
+    ICOMMAND(savevar, "ss", (char *file, char *var), {
+        stream *f = openutf8file(path(file), "a");
+        if(f) {
+            f->printf("%s", var);
+            delete f;
+        }
+    })
+
+    struct on_shutdown {
+        string command;
+    };
+    vector<on_shutdown> onshutdown;
+    ICOMMAND(flush_onshutdown, "", (), {
+        loopvrev(onshutdown) {
+            onshutdown.remove(i);
+        }
+    })
+    ICOMMAND(onshutdown, "s", (const char *command), {
+        if(!command) return;
+        on_shutdown *cur = &onshutdown.add();
+        if(!cur) return;
+        copystring(cur->command, command);
+    })
+
     bool quit = false;
 
     void close() {
@@ -877,10 +911,15 @@ namespace server
         }
         # endif
 		#endif
-        execute("savevars");
+
+        loopv(onshutdown) {
+            execute(onshutdown[i].command);
+        }
     }
 
-    ICOMMAND(halt, "", (), quit = true;)
+    ICOMMAND(halt, "", (), {
+        quit = true;
+    })
 
     int numclients(int exclude = -1, bool nospec = true, bool noai = true, bool priv = false)
     {
@@ -940,6 +979,22 @@ namespace server
         virtual void getteamscores(vector<teamscore> &scores) {}
         virtual bool extinfoteam(const char *team, ucharbuf &p) { return false; }
     };
+
+    struct on_scoreflag {
+        string command;
+    };
+    vector<on_scoreflag> onscoreflag;
+    ICOMMAND(flush_onscoreflag, "", (), {
+        loopvrev(onscoreflag) {
+            onscoreflag.remove(i);
+        }
+    })
+    ICOMMAND(onscoreflag, "s", (const char *command), {
+        if(!command) return;
+        on_scoreflag *cur = &onscoreflag.add();
+        if(!cur) return;
+        copystring(cur->command, command);
+    })
 
     #define SERVMODE 1
     #include "capture.h"
@@ -2382,12 +2437,12 @@ namespace server
         dodamage(ci, ci, *damage, GUN_FIST);
     })
 
-    ICOMMAND(scfent, "ifffiiiiii", (int *id, float *x, float *y, float *z, char *type, int *a1, int *a2, int *a3, int *a4, int *a5), {
+    ICOMMAND(scfent, "ifffiiiiii", (int *id, float *x, float *y, float *z, int *type, int *a1, int *a2, int *a3, int *a4, int *a5), {
         if(!id || !x || !y || !z || !type || !a1 || !a2 || !a3 || !a4 || !a5) return;
         int x1 = *x * DMF;
         int y1 = *y * DMF;
         int z1 = *z * DMF;
-        sendf(-1, 1, "riiiiiiiiiii", N_EDITENT, *id, x1, y1, z1, findtype(type), *a1, *a2, *a3, *a4, *a5);
+        sendf(-1, 1, "riiiiiiiiiii", N_EDITENT, *id, x1, y1, z1, *type, *a1, *a2, *a3, *a4, *a5);
     })
 
     void suicide(clientinfo *ci)

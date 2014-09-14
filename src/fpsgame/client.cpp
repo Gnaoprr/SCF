@@ -3,6 +3,7 @@
 namespace game
 {
     bool scfServer = false;
+    int scfVersion = 0;
     VARP(minradarscale, 0, 384, 10000);
     VARP(maxradarscale, 1, 1024, 10000);
     VARP(radarteammates, 0, 1, 1);
@@ -1184,6 +1185,15 @@ namespace game
         }
     }
 
+    ICOMMAND(getcash, "", (), {
+        intret(player1->cash);
+    })
+    ICOMMAND(getclientcash, "i", (int *cn), {
+        fpsent *d = cn ? getclient(*cn) : player1;
+        if(d) intret(d->cash);
+        else intret(player1->cash);
+    })
+
     void parsestate(fpsent *d, ucharbuf &p, bool resume = false)
     {
         if(!d) { static fpsent dummy; d = &dummy; }
@@ -1896,6 +1906,7 @@ namespace game
                     conoutf(CON_WARN, "\f0[SCF-Client]\f7: Server is running on a higher version than the client. (\f1Server version: \f0%i\f7, \f1client version: \f0%i\f7", version, SCF_VERSION);
                 }
 				scfServer = true;
+                scfVersion = version;
 				break;
 			}
 

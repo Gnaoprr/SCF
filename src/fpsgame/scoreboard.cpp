@@ -4,6 +4,7 @@
 namespace game
 {
     extern bool scfServer;
+    extern int scfVersion;
     VARP(scoreboard2d, 0, 1, 1);
     VARP(showservinfo, 0, 1, 1);
     VARP(showclientnum, 0, 0, 1);
@@ -142,8 +143,13 @@ namespace game
             string hostname;
             if(enet_address_get_host_ip(address, hostname, sizeof(hostname)) >= 0)
             {
-                if(servinfo[0]) g.titlef("%.25s", 0xFFFF80, NULL, servinfo);
-                else g.titlef("%s:%d", 0xFFFF80, NULL, hostname, address->port);
+                if(scfServer && scfVersion > 0) {
+                    if(servinfo[0]) g.titlef("%.25s\fs\f7 - SCF Version: \f0%i\fr", 0xFFFF80, NULL, servinfo, scfVersion);
+                    else g.titlef("%s:%d\fs\f7 - SCF Version: \f0%i\fr", 0xFFFF80, NULL, hostname, address->port, scfVersion);
+                } else {
+                    if(servinfo[0]) g.titlef("%.25s", 0xFFFF80, NULL, servinfo);
+					else g.titlef("%s:%d", 0xFFFF80, NULL, hostname, address->port);
+                }
             }
         }
      

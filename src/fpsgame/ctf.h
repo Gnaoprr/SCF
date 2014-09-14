@@ -344,6 +344,16 @@ struct ctfclientmode : clientmode
         ci->state.flags++;
         int team = ctfteamflag(ci->team), score = addscore(team, 1);
         if(m_hold) spawnflag(goal);
+        if(ci->flagtime && !m_hold && !m_protect) {
+            defformatstring(cmd)("scf_flag_cn = %i; scf_flag_time = %i; scf_flag_map = %s", ci->clientnum, gamemillis - ci->flagtime, smapname);
+            execute(cmd);
+
+            loopv(onscoreflag) {
+                execute(onscoreflag[i].command);
+            }
+            
+            ci->flagtime = 0;
+        }
         sendf(-1, 1, "rii9", N_SCOREFLAG, ci->clientnum, relay, relay >= 0 ? ++flags[relay].version : -1, goal, ++flags[goal].version, flags[goal].spawnindex, team, score, ci->state.flags);
         if(score >= FLAGLIMIT) startintermission();
     }
@@ -358,6 +368,8 @@ struct ctfclientmode : clientmode
         {
             loopvj(flags) if(flags[j].owner==ci->clientnum) return;
             ownflag(i, ci->clientnum, lastmillis);
+            if(!f.droptime && !m_protect && !m_hold) ci->flagtime = gamemillis;
+            else ci->flagtime = 0;
             sendf(-1, 1, "ri4", N_TAKEFLAG, ci->clientnum, i, ++f.version);
         }
         else if(m_protect)
