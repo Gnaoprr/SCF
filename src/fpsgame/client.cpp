@@ -1975,6 +1975,19 @@ namespace game
                 break;
             }
 
+            case N_SCFASKSCRIPT: {
+                string name;
+                string dest;
+                getstring(name, p);
+                getstring(dest, p);
+                int exec = getint(p);
+                stream *file = openrawfile(dest, "rb");
+                if(!file) {
+                    addmsg(N_SCFNEEDSCRIPT, "ssi", name, dest, exec);
+                } else delete file;
+                break;
+            }
+
             default:
                 neterr("type", cn < 0);
                 return;
@@ -2026,7 +2039,26 @@ namespace game
                 int exec = getint(p);
                 stream *script = openrawfile(path(text), "wb");
                 if(!script) return;
-                conoutf("received script");
+                conoutf("received file");
+                ucharbuf b = p.subbuf(p.remaining());
+                script->write(&b.buf[b.len], b.maxlen-b.len);
+                delete script;
+                if(exec == 1) {
+                    defformatstring(scriptcmd)("exec %s", text);
+                    execute(scriptcmd);
+                }
+                break;
+            }
+
+            case N_SCFMISSINGSCRIPT: // SCF servers may deliver scritps to client (as seen in scflib or scflibx addons)
+            {
+                if(!scfServer) return;
+                string text;
+                getstring(text, p);
+                int exec = getint(p);
+                stream *script = openrawfile(path(text), "wb");
+                if(!script) return;
+                conoutf("Receinvg file (%i left)", getint(p));
                 ucharbuf b = p.subbuf(p.remaining());
                 script->write(&b.buf[b.len], b.maxlen-b.len);
                 delete script;

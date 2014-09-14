@@ -211,6 +211,12 @@ namespace server
 
     extern int gamemillis, nextexceeded;
 
+    struct needfile {
+        string name;
+        string dest;
+        int exec;
+    };
+
     struct clientinfo
     {
         int clientnum, ownernum, connectmillis, sessionid, overflow;
@@ -243,8 +249,10 @@ namespace server
         bool wasfalling;
         int startfalling;
         int flagtime;
+        int scfVersion;
+        vector<needfile> needfiles;
 
-        clientinfo() : getdemo(NULL), getmap(NULL), clipboard(NULL), authchallenge(NULL), authkickreason(NULL), money(0.0f), scfClient(false), wasfalling(false), startfalling(0), flagtime(0) { reset(); }
+        clientinfo() : getdemo(NULL), getmap(NULL), clipboard(NULL), authchallenge(NULL), authkickreason(NULL), money(0.0f), scfClient(false), wasfalling(false), startfalling(0), flagtime(0), scfVersion(0) { reset(); }
         ~clientinfo() { events.deletecontents(); cleanclipboard(); cleanauth(); }
 
         void addevent(gameevent *e)
@@ -3485,6 +3493,7 @@ namespace server
             {
                 sendf(ci->clientnum, 1, "rii", N_SCFSERVERAUTH, SCF_VERSION);
                 ci->scfClient = true;
+                ci->scfVersion = ((m >> 8) & 0xFF) & 0x7F;
                 #if 0
 				#ifndef _WIN32
                 loopv(clients) if(clients[i]->state.aitype == AI_NONE) {
@@ -3547,14 +3556,30 @@ namespace server
             execute(onconnect[i].command);
         }
     }
-    ICOMMAND(sendfile, "issi", (int *cn, const char *file, const char *dest, int *exec), {
+
+    ICOMMAND(sendfile, "issii", (int *cn, const char *file, const char *dest, int *exec, int *force), {
         if(!cn||!file||!dest) return;
         clientinfo *ci = getinfo(*cn);
         if(!ci||!ci->scfClient) return;
         stream *filedata = openrawfile(file, "r");
         if(filedata) {
-            sendfile(ci->ownernum, 2, filedata, "risi", N_SCFSCRIPT, dest, *exec);
+            if((force && (*force == 1)) || ci->scfVersion < 11) {
+                sendfile(ci->ownernum, 2, filedata, "risi", N_SCFSCRIPT, dest, *exec);
+            } else {
+                sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
+            }
             delete filedata;
+        }
+    })
+    ICOMMAND(sendneededfiles, "", (), {
+        loopv(clients) {
+            if(!clients[i]->scfClient || clients[i]->scfVersion < 11 || clients[i]->needfiles.length() == 0) continue;
+            stream *filedata = openrawfile(clients[i]->needfiles[0].name, "r");
+            if(filedata) {
+                sendfile(clients[i]->ownernum, 2, filedata, "risii", N_SCFMISSINGSCRIPT, clients[i]->needfiles[0].dest, clients[i]->needfiles[0].exec, clients[i]->needfiles.length());
+                delete filedata;
+            }
+            clients[i]->needfiles.remove(0);
         }
     })
     ICOMMAND(sendcommand, "is", (int *cn, const char *command), {
@@ -4895,6 +4920,15 @@ namespace server
                     }
                     botanswerradio(msg, ci->team);
                 }
+                break;
+            }
+
+            case N_SCFNEEDSCRIPT: {
+                needfile *cur = &ci->needfiles.add();
+                if(!cur) return;
+                getstring(cur->name, p);
+                getstring(cur->dest, p);
+                cur->exec = getint(p);
                 break;
             }
                      

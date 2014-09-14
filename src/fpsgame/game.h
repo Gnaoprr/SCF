@@ -250,6 +250,7 @@ enum
     N_SCFCASH,
     N_SCFRADIO,
     N_SCFMAP,
+    N_SCFASKSCRIPT, N_SCFNEEDSCRIPT, N_SCFMISSINGSCRIPT,
     NUMMSG
 };
 
@@ -288,6 +289,7 @@ static const int msgsizes[] =               // size inclusive message token, 0 f
     N_SCFCASH, 0,
     N_SCFRADIO, 0,
     N_SCFMAP, 0,
+    N_SCFASKSCRIPT, 0, N_SCFNEEDSCRIPT, 0, N_SCFMISSINGSCRIPT, 0,
     -1
 };
 
@@ -488,7 +490,7 @@ static const struct guninfo { int sound, attackdelay, damage, spread, projspeed,
     { -1,            0, 120,   0,   0,  0,    0,  1,  80, 40,    0, "barrel",          NULL,     0 }
 };
 
-#define SCF_VERSION 10
+#define SCF_VERSION 11
 #define SCF_MISTERYNUMBER 0x52
 
 enum {
