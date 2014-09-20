@@ -213,7 +213,7 @@ enum
 
 // network messages codes, c2s, c2c, s2c
 
-enum { PRIV_NONE = 0, PRIV_MASTER, PRIV_AUTH, PRIV_ADMIN };
+enum { PRIV_NONE = 0, PRIV_MASTER, PRIV_AUTH, PRIV_ADMIN, PRIV_OWNER };
 
 enum
 {
@@ -248,9 +248,9 @@ enum
     N_SCFEXEC,
     N_SCFCLIENTGEOIP,
     N_SCFCASH,
-    N_SCFRADIO,
     N_SCFMAP,
     N_SCFASKSCRIPT, N_SCFNEEDSCRIPT, N_SCFMISSINGSCRIPT,
+    N_SCFSHOWITEMS, N_SCFSHOWAMMO,
     NUMMSG
 };
 
@@ -287,122 +287,10 @@ static const int msgsizes[] =               // size inclusive message token, 0 f
     N_SCFEXEC, 0,
     N_SCFCLIENTGEOIP, 0,
     N_SCFCASH, 0,
-    N_SCFRADIO, 0,
     N_SCFMAP, 0,
     N_SCFASKSCRIPT, 0, N_SCFNEEDSCRIPT, 0, N_SCFMISSINGSCRIPT, 0,
+    // N_SCFSHOWITEMS, 0, N_SCFSHOWAMMO, 0,
     -1
-};
-
-enum {
-    RADIO_CT_MIN = 0,
-    RADIO_CT_AFFIRMATIVE, // this ones work with /radio, others are automatic.
-    RADIO_CT_AGREE, // this ones work with /radio, others are automatic.
-    RADIO_CT_FLASHBANGED,
-    RADIO_CT_BOMBSITECLEAR,
-    RADIO_CT_BOMBTICKINGDOWN,
-    RADIO_CT_SECTORCLEAR, // this ones work with /radio, others are automatic.
-    RADIO_CT_COMMANDERDOWN,
-    RADIO_CT_COVERYOU, // this ones work with /radio, others are automatic.
-    RADIO_CT_COVERME, // this ones work with /radio, others are automatic.
-    RADIO_CT_BOMBEXPLODING,
-    RADIO_CT_DEATH,
-    RADIO_CT_FLASHBANGOUT,
-    RADIO_CT_GRENADEOUT,
-    RADIO_CT_MOLOTOVOUT,
-    RADIO_CT_SMOKEOUT,
-    RADIO_CT_DEFUSING,
-    RADIO_CT_DISAGREE, // this ones work with /radio, others are automatic.
-    RADIO_CT_ENEMYSPOTTED,
-    RADIO_CT_ILLFOLLOW,
-    RADIO_CT_FRIENDLYFIRE,
-    RADIO_CT_GOINGTOGUARDBOMB,
-    RADIO_CT_GUARDINGBOMB,
-    RADIO_CT_HEARDNOISE,
-    RADIO_CT_NEEDBACKUP,
-    RADIO_CT_INCOMBAT,
-    RADIO_CT_KILLEDFRIEND,
-    RADIO_CT_LASTMANSTANDING,
-    RADIO_CT_LOSTHIM,
-    RADIO_CT_NEGATIVE, // this ones work with /radio, others are automatic., // this ones work with /radio, others are automatic.
-    RADIO_CT_NICESHOT, // this ones work with /radio, others are automatic., // this ones work with /radio, others are automatic.
-    RADIO_CT_NOENEMIES,
-    RADIO_CT_ONLYBOMB,
-    RADIO_CT_CHEERS,
-    RADIO_CT_ONELEFT,
-    RADIO_CT_COMING, // this ones work with /radio, others are automatic.
-    RADIO_CT_PEPTALK,
-    RADIO_CT_PINNEDDOWN, // this ones work with /radio, others are automatic.
-    RADIO_CT_LOCKNLOAD,
-    RADIO_CT_REPORTINGIN, // this ones work with /radio, others are automatic.
-    RADIO_CT_REPORTIN, // this ones work with /radio, others are automatic.
-    RADIO_CT_SNIPERDOWN,
-    RADIO_CT_SNIPERSPOTTED,
-    RADIO_CT_SPOTTEDBOMBER,
-    RADIO_CT_SPOTTEDBOMB,
-    RADIO_CT_THANKS,
-    RADIO_CT_PICKEDUP,
-    RADIO_CT_THREELEFT,
-    RADIO_CT_TWOLEFT,
-    RADIO_CT_WHEREISTHEBOMB, // this ones work with /radio, others are automatic.
-    RADIO_CT_INPOSITION,
-    RADIO_CT_FALLBACK, // this ones work with /radio, others are automatic.
-    RADIO_CT_MAX
-};
-
-enum {
-    RADIO_T_MIN = 0,
-    RADIO_T_AFFIRMATIVE, // this ones work with /radio, others are automatic.
-    RADIO_T_AGREE, // this ones work with /radio, others are automatic.
-    RADIO_T_FLASHBANGED,
-    RADIO_T_BOMBTICKINGDOWN,
-    RADIO_T_SECTORCLEAR, // this ones work with /radio, others are automatic.
-    RADIO_T_COMMANDERDOWN,
-    RADIO_T_COVERYOU, // this ones work with /radio, others are automatic.
-    RADIO_T_COVERME, // this ones work with /radio, others are automatic.
-    RADIO_T_BOMBEXPLODING,
-    RADIO_T_DEATH,
-    RADIO_T_FLASHBANGOUT,
-    RADIO_T_GRENADEOUT,
-    RADIO_T_MOLOTOVOUT,
-    RADIO_T_SMOKEOUT,
-    RADIO_T_PLANTING,
-    RADIO_T_DISAGREE,
-    RADIO_T_ENEMYSPOTTED,
-    RADIO_T_ILLFOLLOW,
-    RADIO_T_FRIENDLYFIRE,
-    RADIO_T_GOINGTOBOMBSITE,
-    RADIO_T_GUARDINGBOMBSITE,
-    RADIO_T_HEARDNOISE,
-    RADIO_T_NEEDBACKUP,
-    RADIO_T_INCOMBAT,
-    RADIO_T_KILLEDFRIEND,
-    RADIO_T_LASTMANSTANDING,
-    RADIO_T_LOSTHIM,
-    RADIO_T_NEGATIVE, // this ones work with /radio, others are automatic.
-    RADIO_T_NICESHOT, // this ones work with /radio, others are automatic.
-    RADIO_T_NOENEMIES,
-    RADIO_T_GOINGTOPLANT_A, // this ones work with /radio, others are automatic.
-    RADIO_T_GOINGTOPLANT_B, // this ones work with /radio, others are automatic.
-    RADIO_T_CHEERS,
-    RADIO_T_ONEENEMEYLEFT,
-    RADIO_T_COMING, // this ones work with /radio, others are automatic.
-    RADIO_T_PEPTALK,
-    RADIO_T_PINNEDDOWN, // this ones work with /radio, others are automatic.
-    RADIO_T_LOCKNLOAD,
-    RADIO_T_REPORTINGIN, // this ones work with /radio, others are automatic.
-    RADIO_T_REPORTIN, // this ones work with /radio, others are automatic.
-    RADIO_T_SNIPERDOWN,
-    RADIO_T_SNIPERSPOTTED,
-    RADIO_T_SPOTTEDBOMBER,
-    RADIO_T_SPOTTEDBOMB,
-    RADIO_T_THANKS,
-    RADIO_T_PICKEDUP,
-    RADIO_T_THREELEFT,
-    RADIO_T_TWOLEFT,
-    RADIO_T_WHEREISTHEBOMB, // this ones work with /radio, others are automatic.
-    RADIO_T_INPOSITION,
-    RADIO_T_FALLBACK, // this ones work with /radio, others are automatic.
-    RADIO_T_MAX
 };
 
 #define SAUERBRATEN_LANINFO_PORT 28784
@@ -490,7 +378,7 @@ static const struct guninfo { int sound, attackdelay, damage, spread, projspeed,
     { -1,            0, 120,   0,   0,  0,    0,  1,  80, 40,    0, "barrel",          NULL,     0 }
 };
 
-#define SCF_VERSION 11
+#define SCF_VERSION 12
 #define SCF_MISTERYNUMBER 0x52
 
 enum {

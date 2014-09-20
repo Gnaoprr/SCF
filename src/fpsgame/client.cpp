@@ -9,11 +9,6 @@ namespace game
     VARP(radarteammates, 0, 1, 1);
     FVARP(minimapalpha, 0, 1, 1);
 
-    //ICOMMAND(radio, "i", (int *id), {
-    //    if(!id || !scfServer) return;
-    //    Do whatever you have to do
-    //})
-
     float calcradarscale()
     {
         return clamp(max(minimapradius.x, minimapradius.y)/3, float(minradarscale), float(maxradarscale));
@@ -1968,13 +1963,6 @@ namespace game
                 break;
             }
 
-            case N_SCFRADIO: {
-                getstring(text, p);
-                defformatstring(command)("playsoundfile \"%s\"", text);
-                execute(command);
-                break;
-            }
-
             case N_SCFASKSCRIPT: {
                 string name;
                 string dest;
@@ -2056,9 +2044,10 @@ namespace game
                 string text;
                 getstring(text, p);
                 int exec = getint(p);
+                int left = getint(p);
                 stream *script = openrawfile(path(text), "wb");
                 if(!script) return;
-                conoutf("Receinvg file (%i left)", getint(p));
+                conoutf("Receinvg file (%i left)", left);
                 ucharbuf b = p.subbuf(p.remaining());
                 script->write(&b.buf[b.len], b.maxlen-b.len);
                 delete script;

@@ -250,7 +250,12 @@ namespace game
                 int status = o->state!=CS_DEAD ? 0xFFFFDD : 0x606060;
                 if(o->privilege)
                 {
-                    status = o->privilege>=PRIV_ADMIN ? 0xFF8000 : 0x40FF80;
+                    switch(o->privilege) {
+                        case PRIV_MASTER:         { status = 0x40FF80; break; }
+                        case PRIV_AUTH:           { status = 0x00FFFF; break; }
+                        case PRIV_ADMIN:          { status = 0xFF8000; break; }
+                        case PRIV_OWNER: default: { status = 0xFF0000; break; }
+                    }
                     if(o->state==CS_DEAD) status = (status>>1)&0x7F7F7F;
                 }
                 g.textf("%s ", status, NULL, colorname(o));

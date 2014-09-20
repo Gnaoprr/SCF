@@ -1491,8 +1491,11 @@ namespace server
         u.pubkey = parsepubkey(pubkey);
         switch(priv[0])
         {
+            case 'o': case 'O': u.privilege = PRIV_OWNER; break;
             case 'a': case 'A': u.privilege = PRIV_ADMIN; break;
-            case 'm': case 'M': default: u.privilege = PRIV_AUTH; break;
+            case 'm': case 'M': u.privilege = PRIV_AUTH; break;
+            case 'r': case 'R': u.privilege = PRIV_MASTER; break;
+            case 'n': case 'N': default: u.privilege = PRIV_NONE; break;
         }
     }
     COMMAND(adduser, "ssss");
@@ -1648,7 +1651,7 @@ namespace server
         if((priv || ci->local) && ci->clientnum!=victim)
         {
             clientinfo *vinfo = (clientinfo *)getclientinfo(victim);
-            if(vinfo && vinfo->connected && (priv >= vinfo->privilege || ci->local) && vinfo->privilege < PRIV_ADMIN && !vinfo->local)
+            if(vinfo && vinfo->connected && (priv >= vinfo->privilege || ci->local) && vinfo->privilege < PRIV_OWNER && !vinfo->local)
             {
                 if(trial) return true;
                 string kicker;
@@ -3268,7 +3271,7 @@ namespace server
         if(!ci) return;
         bool val = *priv > PRIV_NONE;
         int oldpriv = ci->privilege;
-        ci->privilege = clamp(*priv, (int)PRIV_NONE, (int)PRIV_ADMIN);
+        ci->privilege = clamp(*priv, (int)PRIV_NONE, (int)PRIV_OWNER);
         const char *name = privname(val ? ci->privilege : oldpriv);
         defformatstring(msg)("%s %s %s", colorname(ci), val ? "claimed" : "relinquished", name);
         packetbuf p(MAXTRANS, ENET_PACKET_FLAG_RELIABLE);
@@ -3384,6 +3387,7 @@ namespace server
     INTCONST(PRIV_MASTER, PRIV_MASTER)
     INTCONST(PRIV_AUTH, PRIV_AUTH)
     INTCONST(PRIV_ADMIN, PRIV_ADMIN)
+    INTCONST(PRIV_OWNER, PRIV_OWNER)
     ICOMMANDS("m_teammode", "i", (int *mode), { int gamemode = *mode; intret(m_teammode); });
     ICOMMAND(getmode, "", (), intret(gamemode));
 
@@ -3405,7 +3409,7 @@ namespace server
     #ifndef _WIN32
         ICOMMAND(downloadfile, "ss", (const char *url, const char *destination), {
             defformatstring(downloadmsg)("\f0[SCF]\f7: Downloading file \f0%s \f7to \f0%s\f7.", url, destination);
-            loopv(clients) if(clients[i]->privilege == PRIV_ADMIN) sendf(clients[i]->clientnum, 1, "ris", N_SERVMSG, downloadmsg);
+            loopv(clients) if(clients[i]->privilege >= PRIV_ADMIN) sendf(clients[i]->clientnum, 1, "ris", N_SERVMSG, downloadmsg);
             #if defined(__MACH__) || defined(__APPLE__)
                 defformatstring(command)("curl -O %s %s", destination, url);
             #else
@@ -3414,10 +3418,10 @@ namespace server
             int ret = system(command);
             if(ret == 0) {
                 defformatstring(downloadedmsg)("\f0[SCF]\f7: File \f0%s \f7downloaded succsessfully.", url);
-                loopv(clients) if(clients[i]->privilege == PRIV_ADMIN) sendf(clients[i]->clientnum, 1, "ris", N_SERVMSG, downloadedmsg);
+                loopv(clients) if(clients[i]->privilege >= PRIV_ADMIN) sendf(clients[i]->clientnum, 1, "ris", N_SERVMSG, downloadedmsg);
             } else {
                 defformatstring(downloadedmsg)("\f0[SCF]\f7: File \f0%s \f7download failed with error \f3%i\f7.", url, ret);
-                loopv(clients) if(clients[i]->privilege == PRIV_ADMIN) sendf(clients[i]->clientnum, 1, "ris", N_SERVMSG, downloadedmsg);
+                loopv(clients) if(clients[i]->privilege >= PRIV_ADMIN) sendf(clients[i]->clientnum, 1, "ris", N_SERVMSG, downloadedmsg);
             }
             intret(ret);
         })
@@ -3644,488 +3648,6 @@ namespace server
         if(!cur) return;
         copystring(cur->command, command);
     })
-
-    bool isvalidradiomsg(int id, string team) {
-        if(!strcmp(team, "ct") && id > RADIO_CT_MIN && id < RADIO_CT_MAX) return true;
-        if(!strcmp(team, "t") && id > RADIO_T_MIN && id < RADIO_T_MAX) return true;
-		return false;
-    }
-    void botanswerradio(int id, string team) {
-        return;
-        // Todo: finish this
-        /*
-        bool hasbot = false;
-        int bot = -1;
-        loopv(clients) {
-            if(clients[i]->state.aitype == AI_NONE || strcmp(clients[i]->team, team)) continue;
-            hasbot = true;
-            bot = i;
-            break;
-        }
-        if(!hasbot) return;
-        if(!strcmp(team, "ct")) {
-            switch(id) {
-                case RADIO_CT_BOMBSITECLEAR:
-                case RADIO_CT_SECTORCLEAR:
-                case RADIO_CT_BOMBTICKINGDOWN:
-                case RADIO_CT_COVERYOU:
-                case RADIO_CT_FLASHBANGOUT:
-                case RADIO_CT_GRENADEOUT:
-                case RADIO_CT_MOLOTOVOUT:
-                case RADIO_CT_SMOKEOUT:
-                case RADIO_CT_DEFUSING:
-                case RADIO_CT_ILLFOLLOW:
-                case RADIO_CT_GOINGTOGUARDBOMB:
-                case RADIO_CT_GUARDINGBOMB:
-                case RADIO_CT_SNIPERSPOTTED:
-                case RADIO_CT_SPOTTEDBOMBER:
-                case RADIO_CT_SPOTTEDBOMB:
-                case RADIO_CT_NOENEMIES:
-                case RADIO_CT_ONLYBOMB:
-                case RADIO_CT_PICKEDUP:
-                {
-                    int id = rand() % 8 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "Roger.");
-                            copystring(sound, "radio/ct/affirmative01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Affirmative.");
-                            copystring(sound, "radio/ct/affirmative02.ogg");
-                            break;
-                        }
-                        case 3: {
-                            copystring(answer, "Roger that.");
-                            copystring(sound, "radio/ct/affirmative03.ogg");
-                            break;
-                        }
-                        case 4: {
-                            copystring(answer, "Roger that.");
-                            copystring(sound, "radio/ct/affirmative04.ogg");
-                            break;
-                        }
-                        case 5: {
-                            copystring(answer, "Correct.");
-                            copystring(sound, "radio/ct/agree01.ogg");
-                            break;
-                        }
-                        case 6: {
-                            copystring(answer, "OK.");
-                            copystring(sound, "radio/ct/agree02.ogg");
-                            break;
-                        }
-                        case 7: {
-                            copystring(answer, "Yes.");
-                            copystring(sound, "radio/ct/agree03.ogg");
-                            break;
-                        }
-                        case 8:
-                        default: {
-                            copystring(answer, "That's a copy.");
-                            copystring(sound, "radio/ct/agree04.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    // if(id == RADIO_CT_BOMBTICKINGDOWN) botdefuse(bot);
-                    break;
-                }
-                case RADIO_CT_NEEDBACKUP:
-                case RADIO_CT_INCOMBAT: {
-                    int id = rand() % 4 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "On my way.");
-                            copystring(sound, "radio/ct/onmyway01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Copy that, coming.");
-                            copystring(sound, "radio/ct/onmyway02.ogg");
-                            break;
-                        }
-                        case 3: {
-                            copystring(answer, "I've got ya, I'm on my way.");
-                            copystring(sound, "radio/ct/onmyway03.ogg");
-                            break;
-                        }
-                        case 4:
-                        default: {
-                            copystring(answer, "Copy that, I'll be right there.");
-                            copystring(sound, "radio/ct/onmyway04.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                case RADIO_CT_REPORTIN: {
-                    int id = rand() % 3 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "Reporting in.");
-                            copystring(sound, "radio/ct/reportingin01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Checkin' in.");
-                            copystring(sound, "radio/ct/reportingin02.ogg");
-                            break;
-                        }
-                        case 3:
-                        default: {
-                            copystring(answer, "Reporting in.");
-                            copystring(sound, "radio/ct/reportingin03.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                case RADIO_CT_SNIPERDOWN: {
-                    int id = rand() % 12 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "Nice shot, son.");
-                            copystring(sound, "radio/ct/niceshot01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Good one, lad.");
-                            copystring(sound, "radio/ct/niceshot02.ogg");
-                            break;
-                        }
-                        case 3: {
-                            copystring(answer, "Aw, that's a good kill.");
-                            copystring(sound, "radio/ct/niceshot03.ogg");
-                            break;
-                        }
-                        case 4: {
-                            copystring(answer, "Way to go, boys.");
-                            copystring(sound, "radio/ct/niceshot04.ogg");
-                            break;
-                        }
-                        case 5: {
-                            copystring(answer, "Nice shot, lad.");
-                            copystring(sound, "radio/ct/niceshot05.ogg");
-                            break;
-                        }
-                        case 6: {
-                            copystring(answer, "Good one, son.");
-                            copystring(sound, "radio/ct/niceshot06.ogg");
-                            break;
-                        }
-                        case 7: {
-                            copystring(answer, "Brilliant.");
-                            copystring(sound, "radio/ct/niceshot07.ogg");
-                            break;
-                        }
-                        case 8: {
-                            copystring(answer, "You got him.");
-                            copystring(sound, "radio/ct/niceshot08.ogg");
-                            break;
-                        }
-                        case 9: {
-							copystring(answer, "You're on it.");
-                            copystring(sound, "radio/ct/niceshot09.ogg");
-                            break;
-                        }
-                        case 10: {
-                            copystring(answer, "Aw, that's brilliant shooting, lad.");
-                            copystring(sound, "radio/ct/niceshot10.ogg");
-                            break;
-                        }
-                        case 11: {
-                            copystring(answer, "Brilliant shot, son.");
-                            copystring(sound, "radio/ct/niceshot11.ogg");
-                            break;
-                        }
-                        case 12:
-                        default: {
-                            copystring(answer, "You're a champion, sonny!");
-                            copystring(sound, "radio/ct/niceshot12.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                case RADIO_CT_CHEERS:
-                case RADIO_CT_NICESHOT: {
-                    int id = rand() % 3 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "Thank you.");
-                            copystring(sound, "radio/ct/thanks01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Thank ya.");
-                            copystring(sound, "radio/ct/thanks02.ogg");
-                            break;
-                        }
-                        case 3:
-                        default: {
-                            copystring(answer, "Cheers back, fella'.");
-                            copystring(sound, "radio/ct/thanks03.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                default: return;
-            }
-        } else {
-            switch(id) {
-                case RADIO_T_SECTORCLEAR:
-                case RADIO_T_BOMBTICKINGDOWN:
-                case RADIO_T_COVERYOU:
-                case RADIO_T_FLASHBANGOUT:
-                case RADIO_T_GRENADEOUT:
-                case RADIO_T_MOLOTOVOUT:
-                case RADIO_T_SMOKEOUT:
-                case RADIO_T_ILLFOLLOW:
-                case RADIO_T_GOINGTOPLANT_A:
-                case RADIO_T_GOINGTOPLANT_B:
-                case RADIO_T_GOINGTOBOMBSITE:
-                case RADIO_T_SNIPERSPOTTED:
-                case RADIO_T_SPOTTEDBOMBER:
-                case RADIO_T_SPOTTEDBOMB:
-                case RADIO_T_NOENEMIES:
-                case RADIO_T_GUARDINGBOMBSITE:
-                case RADIO_T_PICKEDUP: {
-                    int id = rand() % 6 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "Yes.");
-                            copystring(sound, "radio/t/affirmative01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Affirmative.");
-                            copystring(sound, "radio/t/affirmative02.ogg");
-                            break;
-                        }
-                        case 3: {
-                            copystring(answer, "Agreed.");
-                            copystring(sound, "radio/t/affirmative03.ogg");
-                            break;
-                        }
-                        case 4: {
-                            copystring(answer, "I agree.");
-                            copystring(sound, "radio/t/agree04.ogg");
-                            break;
-                        }
-                        case 5: {
-                            copystring(answer, "Of course.");
-                            copystring(sound, "radio/t/agree05.ogg");
-                            break;
-                        }
-                        case 6:
-                        default: {
-                            copystring(answer, "That is a plan.");
-                            copystring(sound, "radio/t/agree06.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                case RADIO_T_REPORTIN: {
-                    int id = rand() % 3 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "I am here, brothers.");
-                            copystring(sound, "radio/t/reportingin01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Here.");
-                            copystring(sound, "radio/t/reportingin02.ogg");
-                            break;
-                        }
-                        case 3:
-                        default: {
-                            copystring(answer, "Yes?");
-                            copystring(sound, "radio/t/reportingin03.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                case RADIO_T_SNIPERDOWN: {
-                    int id = rand() % 12 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "Very good shooting.");
-                            copystring(sound, "radio/t/niceshot02.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Very good shot.");
-                            copystring(sound, "radio/t/niceshot03.ogg");
-                            break;
-                        }
-                        case 3: {
-                            copystring(answer, "Very good.");
-                            copystring(sound, "radio/t/niceshot04.ogg");
-                            break;
-                        }
-                        case 4: {
-                            copystring(answer, "Very nice.");
-                            copystring(sound, "radio/t/niceshot05.ogg");
-                            break;
-                        }
-                        case 5: {
-                            copystring(answer, "Nice shot.");
-                            copystring(sound, "radio/t/niceshot06.ogg");
-                            break;
-                        }
-                        case 6: {
-                            copystring(answer, "Nice shooting.");
-                            copystring(sound, "radio/t/niceshot07.ogg");
-                            break;
-                        }
-                        case 7: {
-                            copystring(answer, "Nice shot, my friend.");
-                            copystring(sound, "radio/t/niceshot08.ogg");
-                            break;
-                        }
-                        case 8: {
-                            copystring(answer, "You got him.");
-                            copystring(sound, "radio/t/niceshot09.ogg");
-                            break;
-                        }
-                        case 9: {
-							copystring(answer, "You have the win.");
-                            copystring(sound, "radio/t/niceshot10.ogg");
-                            break;
-                        }
-                        case 10: {
-                            copystring(answer, "With your win, we shall ride them out.");
-                            copystring(sound, "radio/t/niceshot11.ogg");
-                            break;
-                        }
-                        case 11:
-                        default: {
-                            copystring(answer, "One less enemy, thanks to you.");
-                            copystring(sound, "radio/t/niceshot12.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                case RADIO_T_CHEERS:
-                case RADIO_T_NICESHOT: {
-                    int id = rand() % 4 + 1;
-                    string answer;
-                    string sound;
-                    switch(id) {
-                        case 1: {
-                            copystring(answer, "Thank you.");
-                            copystring(sound, "radio/t/thanks01.ogg");
-                            break;
-                        }
-                        case 2: {
-                            copystring(answer, "Thank you, my friend.");
-                            copystring(sound, "radio/t/thanks02.ogg");
-                            break;
-                        }
-                        case 3: {
-                            copystring(answer, "With much thanks.");
-                            copystring(sound, "radio/t/thanks03.ogg");
-                            break;
-                        }
-                        case 4:
-                        default: {
-                            copystring(answer, "Super.");
-                            copystring(sound, "radio/t/thanks04.ogg");
-                            break;
-                        }
-                    }
-                    loopv(clients) {
-                        if(clients[i]->state.aitype != AI_NONE || strcmp(clients[i]->team, team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, bot, answer);
-                        if(clients[i]->scfClient) {
-                            sendf(i, 1, "riisi", N_SCFRADIO, bot, sound, 1500);
-                        }
-                    }
-                    break;
-                }
-                default: return;
-            }
-        }
-        */
-    }
 
     VAR(serverfalldamage, 0, 1, 1); // Damage after falling?
     void parsepacket(int sender, int chan, packetbuf &p)     // has to parse exactly each byte of the packet
@@ -4905,23 +4427,6 @@ namespace server
                 parsecommand(cq, text);
                 if(isdedicatedserver() && cq) logoutf("%s: /servcmd %s", colorname(cq), text);
                 break;
-
-            case N_SCFRADIO: {
-                int msg = getint(p);
-                getstring(text, p);
-                string sound;
-                getstring(sound, p);
-                if(isvalidradiomsg(msg, ci->team)) {
-                    loopv(clients) {
-                        if(strcmp(clients[i]->team, ci->team)) continue;
-                        sendf(i, 1, "riis", N_SAYTEAM, ci->clientnum, text);
-                        if(!clients[i]->scfClient) continue;
-                        sendf(i, 1, "riisi", N_SCFRADIO, ci->clientnum, sound, 0);
-                    }
-                    botanswerradio(msg, ci->team);
-                }
-                break;
-            }
 
             case N_SCFNEEDSCRIPT: {
                 needfile *cur = &ci->needfiles.add();
