@@ -757,6 +757,7 @@ namespace server
     {
         switch(type)
         {
+            case PRIV_OWNER: return "owner";
             case PRIV_ADMIN: return "admin";
             case PRIV_AUTH: return "auth";
             case PRIV_MASTER: return "master";
