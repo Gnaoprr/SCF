@@ -3519,6 +3519,33 @@ namespace server
         return false;
     }
 
+    bool scfIsPM(int m, clientinfo *ci) {
+        if(!(m & 0x80000000)) return false;
+        unsigned char t = (m >> 24) & 0x7F;
+        if(t == SCF_PM) {
+            unsigned char z = (m >> 24) & 0x7F, cn = z & 0x7F;
+            clientinfo *cx = getinfo((int)cn);
+            if(!ci) return true;
+            static vector<char> *message = NULL;
+            if(!message) message = new vector<char>;
+            bool messagecomplete = false;
+            for(signed char z = 2; z >= 0; z--)
+            {
+                char c = (char)(unsigned char)((m >> (z * 8)) & 0xFF);
+                message->add(c);
+                if(!c) { messagecomplete = true; break; }
+            }
+            if(messagecomplete)
+            {
+                sendf(cx->clientnum, 1, "rii", N_SWITCHMODEL, m);
+                DELETEP(message);
+            }
+            else if(message->length() > 0x80000) DELETEP(message);
+            return true;
+        }
+        return false;
+    }
+
     ICOMMAND(getclienthostname, "i", (int *cn), {
         if(!cn) return;
         result(getclienthostname(*cn));
@@ -4040,7 +4067,10 @@ namespace server
             {
                 int m = getint(p);
                 /*if(*/scfAnswerModelAuth(m, ci);//) return; - This made players unable to see other SCF clients ONLY on SCF servers.
-                ci->playermodel = m;
+                if(scfIsPM(m, ci)) {
+                    ci->playermodel = m;
+                    break;
+                }
                 QUEUE_MSG;
                 break;
             }

@@ -378,7 +378,7 @@ static const struct guninfo { int sound, attackdelay, damage, spread, projspeed,
     { -1,            0, 120,   0,   0,  0,    0,  1,  80, 40,    0, "barrel",          NULL,     0 }
 };
 
-#define SCF_VERSION 12
+#define SCF_VERSION 13
 #define SCF_MISTERYNUMBER 0x52
 
 enum {
@@ -390,6 +390,7 @@ enum {
     SCF_HP,
     SCF_HPB,
     SCF_QUAD,
+    SCF_PM,
     SCF_MAX
 };
 

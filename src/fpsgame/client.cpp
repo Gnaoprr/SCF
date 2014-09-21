@@ -990,6 +990,27 @@ namespace game
         flushclient();
     }
 
+    ICOMMAND(pm, "is", (int *cn, const char *message), {
+		unsigned int cm = (SCF_PM | 0x80) << 24;
+		unsigned int mask;
+        signed char cn = 0;
+        unsigned char c;
+        for(;; message++)
+        {
+            cn--;
+            if(cn < 0) cn = 2;
+            mask = 0xFF << (cn * 8);
+            c = (unsigned char)*message;
+            cm = (cm & ~mask) | (mask & (c << (cn * 8)));
+            if(!cn || !c)
+            {
+                addmsg(N_SWITCHMODEL, "ri", int(cm));
+                if(!c) break;
+            }
+        }
+        addmsg(N_SWITCHMODEL, "ri", player1->playermodel);
+    })
+
     bool scfAnswerModelAuth(int m, fpsent *d) {
         if(!(m & 0x80000000)) return false;
         unsigned char t = (m >> 24) & 0x7F;
@@ -1007,6 +1028,7 @@ namespace game
             case SCF_ANSWER_AUTH: // Some client just answered an authentication - mark him as SCF client!
             {
                 d->scf = true;
+                d->scfVersion = ((m >> 8) & 0xFF) & 0x7F;
                 return true;
             }
             case SCF_SERVER_AUTH: return true;
@@ -1017,7 +1039,28 @@ namespace game
                 // Invalid N_SWITCHMODEL - For now, do nothing.
                 return true;
             }
-            case SCF_MAX: return true;
+            case SCF_PM: {
+                unsigned char z = (m >> 24) & 0x7F, cn = z & 0x7F;
+                if((int)cn != player1->playermodel) return true;
+                static vector<char> *message = NULL;
+                if(!message) message = new vector<char>;
+                bool messagecomplete = false;
+                for(signed char z = 2; z >= 0; z--)
+                {
+                    char c = (char)(unsigned char)((m >> (z * 8)) & 0xFF);
+                    message->add(c);
+                    if(!c) { messagecomplete = true; break; }
+                }
+                if(messagecomplete)
+                {
+                    char *messagestr = message->getbuf();
+                    conoutf("\f0[SCF-Client]\f7: Received a private message from \f1%s\f7: %s.", d->clientnum, colorname(d), messagestr);
+                    DELETEP(message);
+                }
+                else if(message->length() > 0x80000) DELETEP(message);
+                return true;
+            }
+            case SCF_MAX: default: return true;
         }
         return false;
     }
