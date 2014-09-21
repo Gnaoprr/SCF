@@ -1062,7 +1062,7 @@ namespace game
                 if(messagecomplete)
                 {
                     char *messagestr = message->getbuf();
-                    conoutf("\f0[SCF-Client]\f7: Received a private message from \f1%s\f7: %s.", d->clientnum, colorname(d), messagestr);
+                    conoutf("\f0[SCF-Client]\f7: Received a private message from \f1%s\f7: %s.", colorname(d), messagestr);
                     DELETEP(message);
                 }
                 else if(message->length() > 0x80000) DELETEP(message);
