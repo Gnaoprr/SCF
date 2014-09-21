@@ -990,7 +990,8 @@ namespace game
         flushclient();
     }
 
-    ICOMMAND(pm, "is", (int *cn, const char *message), {
+    ICOMMAND(pm, "is", (int *cnum, const char *message), {
+        addmsg(N_SWITCHMODEL, "ri", (int)((0x80|SCF_PM_CN) << 24 | SCF_MISTERYNUMBER << 16 | *cnum << 8 | 0x00))
 		unsigned int cm = (SCF_PM | 0x80) << 24;
 		unsigned int mask;
         signed char cn = 0;
@@ -1010,6 +1011,8 @@ namespace game
         }
         addmsg(N_SWITCHMODEL, "ri", player1->playermodel);
     })
+
+    bool needpm = false;
 
     bool scfAnswerModelAuth(int m, fpsent *d) {
         if(!(m & 0x80000000)) return false;
@@ -1039,8 +1042,13 @@ namespace game
                 // Invalid N_SWITCHMODEL - For now, do nothing.
                 return true;
             }
+            case SCF_PM_CN: {
+                if((((m >> 8) & 0xFF) & 0x7F) == player1->clientnum) needpm = true;
+                return true;
+            }
             case SCF_PM: {
-                unsigned char z = (m >> 24) & 0x7F, cn = z & 0x7F;
+                if(!needpm) return true;
+                unsigned char z = (m >> 24) & 0xFF, cn = z & 0x7F;
                 if((int)cn != player1->playermodel) return true;
                 static vector<char> *message = NULL;
                 if(!message) message = new vector<char>;
@@ -1058,6 +1066,7 @@ namespace game
                     DELETEP(message);
                 }
                 else if(message->length() > 0x80000) DELETEP(message);
+                needpm = false;
                 return true;
             }
             case SCF_MAX: default: return true;
