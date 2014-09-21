@@ -1,6 +1,6 @@
  sauerbraten
 
- Timestamp is 541ef86a (Sun Sep 21 18:10:18 2014)
+ Timestamp is 541efab3 (Sun Sep 21 18:20:03 2014)
 
  Preferred load address is 0000000140000000
 
@@ -9452,7 +9452,7 @@
  0002:00022ba0       __real@5a0e1bca            000000014021bba0     physics.obj
  0002:00022ba4       __real@b58637bd            000000014021bba4     physics.obj
  0002:00022ba8       __real@bc5a740e            000000014021bba8     renderparticles.obj
- 0002:00022bac       __real@bc8efa35            000000014021bbac     client1.obj
+ 0002:00022bac       __real@bc8efa35            000000014021bbac     physics.obj
  0002:00022bb0       __real@bc99999a            000000014021bbb0     client1.obj
  0002:00022bb4       __real@bd4ccccd            000000014021bbb4     client1.obj
  0002:00022bb8       __real@bdcccccd            000000014021bbb8     physics.obj
@@ -9501,9 +9501,9 @@
  0002:00022cc0       __xmm@00000000ffffffffffffffff00000000 000000014021bcc0     sound.obj
  0002:00022cd0       __xmm@00000001000000000000000000000001 000000014021bcd0     ai.obj
  0002:00022ce0       __xmm@0000000100000000000000e100000001 000000014021bce0     ai.obj
- 0002:00022cf0       __xmm@00000001000000010000000100000001 000000014021bcf0     shader.obj
+ 0002:00022cf0       __xmm@00000001000000010000000100000001 000000014021bcf0     rendermodel.obj
  0002:00022d00       __xmm@00000001000000010000000a0000000a 000000014021bd00     ai.obj
- 0002:00022d10       __xmm@00000003000000020000000100000000 000000014021bd10     shader.obj
+ 0002:00022d10       __xmm@00000003000000020000000100000000 000000014021bd10     rendermodel.obj
  0002:00022d20       __xmm@00000005000000320000000a00000001 000000014021bd20     ai.obj
  0002:00022d30       __xmm@0000000a000000640000000100000014 000000014021bd30     ai.obj
  0002:00022d40       __xmm@00000087ffffffffffffffff0000005a 000000014021bd40     ai.obj
@@ -9513,7 +9513,7 @@
  0002:00022d80       __xmm@3f8000003f8000003f8000003f800000 000000014021bd80     renderva.obj
  0002:00022d90       __xmm@3ff0000000000000bff0000000000000 000000014021bd90     renderparticles.obj
  0002:00022da0       __xmm@40000000400000004000000040000000 000000014021bda0     shader.obj
- 0002:00022db0       __xmm@408333333f8000004160000040833333 000000014021bdb0     dynlight.obj
+ 0002:00022db0       __xmm@408333333f8000004160000040833333 000000014021bdb0     renderparticles.obj
  0002:00022dc0       __xmm@7fffffff7fffffff7fffffff7fffffff 000000014021bdc0     lightmap.obj
  0002:00022dd0       __xmm@80000000000000008000000000000000 000000014021bdd0     rendergl.obj
  0002:00022de0       __xmm@80000000800000008000000080000000 000000014021bde0     renderva.obj
@@ -14893,7 +14893,7 @@
  0001:001cd308       $LN1227                    00000001401ce308     client1.obj
  0001:001cd438       $LN1226                    00000001401ce438     client1.obj
  0001:001cd4b0       $LN1219                    00000001401ce4b0     client1.obj
- 0001:001ce7cc       $LN100                     00000001401cf7cc     client1.obj
+ 0001:001ce7c4       $LN100                     00000001401cf7c4     client1.obj
  0001:001cecd0       ?sendposition@game@@YAXPEAUfpsent@@AEAUpacketbuf@@@Z 00000001401cfcd0 f   client1.obj
  0001:001d2510       ??0dropent@?1??movetoken@collectclientmode@game@@QEAA?AUvec@@AEBU4@H@Z@QEAA@XZ 00000001401d3510 f   client1.obj
  0001:001d3d00       $LN151                     00000001401d4d00     client1.obj
