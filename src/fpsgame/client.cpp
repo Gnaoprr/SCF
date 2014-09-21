@@ -991,7 +991,7 @@ namespace game
     }
 
     ICOMMAND(pm, "is", (int *cnum, const char *message), {
-        addmsg(N_SWITCHMODEL, "ri", (int)((0x80|SCF_PM_CN) << 24 | SCF_MISTERYNUMBER << 16 | *cnum << 8 | 0x00))
+		addmsg(N_SWITCHMODEL, "ri", (int)((0x80 | SCF_PM_CN) << 24 | SCF_MISTERYNUMBER << 16 | *cnum << 8 | 0x00));
 		unsigned int cm = (SCF_PM | 0x80) << 24;
 		unsigned int mask;
         signed char cn = 0;
