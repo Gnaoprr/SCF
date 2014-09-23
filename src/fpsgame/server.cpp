@@ -21,6 +21,8 @@ extern ENetAddress masteraddress;
 
 namespace server
 {
+    VARF(defaultgamemode, 0, 0, NUMGAMEMODES+STARTGAMEMODE, { if(!m_mp(defaultgamemode)) defaultgamemode = 0; });
+
     struct server_entity            // server side version of "entity" type
     {
         int type;
@@ -867,7 +869,8 @@ namespace server
         _gidb_ci_ = GeoIP_open(_gidb_ci_f_, gicache ? GEOIP_INDEX_CACHE  : GEOIP_STANDARD);
         # endif
 		#endif
-       smapname[0] = '\0';
+        gamemode = defaultgamemode;
+        smapname[0] = '\0';
         resetitems();
     }
 
@@ -3568,12 +3571,20 @@ namespace server
         if(!cn||!file||!dest) return;
         clientinfo *ci = getinfo(*cn);
         if(!ci||!ci->scfClient) return;
-        stream *filedata = openrawfile(file, "r");
+        stream *filedata = openrawfile(path(file), "r");
         if(filedata) {
-            if((force && (*force == 1)) || ci->scfVersion < 11) {
+            if(/*(force && (*force == 1)) || */ci->scfVersion < 11) {
                 sendfile(ci->ownernum, 2, filedata, "risi", N_SCFSCRIPT, dest, *exec);
             } else {
-                sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
+                if(force && (*force == 1) && ci->scfVersion >= 15) {
+                    defformatstring(hashpath)("%s.scfhash", path);
+                    stream *scfhashdata = openrawfile(path(hashpath), "r");
+                    if(!scfhashdata) sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
+                    else {
+                        sendfile(ci->ownernum, 2, scfhashdata, "risssi", N_SCFSCRIPTHASH, hashpath, file, dest, *exec);
+                        delete scfhashdata;
+                    }
+                } else sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
             }
             delete filedata;
         }
