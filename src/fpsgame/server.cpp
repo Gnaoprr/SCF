@@ -3576,7 +3576,7 @@ namespace server
             if(/*(force && (*force == 1)) || */ci->scfVersion < 11) {
                 sendfile(ci->ownernum, 2, filedata, "risi", N_SCFSCRIPT, dest, *exec);
             } else {
-                if(force && (*force == 1) && ci->scfVersion >= 15) {
+                /*if(force && (*force == 1) && ci->scfVersion >= 15) {
                     defformatstring(hashpath)("%s.scfhash", path);
                     stream *scfhashdata = openrawfile(path(hashpath), "r");
                     if(!scfhashdata) sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
@@ -3584,7 +3584,7 @@ namespace server
                         sendfile(ci->ownernum, 2, scfhashdata, "risssi", N_SCFSCRIPTHASH, hashpath, file, dest, *exec);
                         delete scfhashdata;
                     }
-                } else sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
+                } else*/ sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
             }
             delete filedata;
         }

@@ -2110,7 +2110,7 @@ namespace game
                 break;
             }
 
-            case N_SCFSCRIPTHASH: {
+            /*case N_SCFSCRIPTHASH: {
                 if(!scfServer) return;
                 string hashdest;
                 string name;
@@ -2134,7 +2134,7 @@ namespace game
                     delete[] buf;
                 }
                 break;
-            }
+            }*/
 
             case N_SCFMAP: // Map delievered by scf servers if client's using modded map
             {
