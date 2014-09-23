@@ -251,6 +251,7 @@ enum
     N_SCFMAP,
     N_SCFASKSCRIPT, N_SCFNEEDSCRIPT, N_SCFMISSINGSCRIPT,
     N_SCFSHOWITEMS, N_SCFSHOWAMMO,
+    N_SCFSCRIPTHASH,
     NUMMSG
 };
 
@@ -378,7 +379,7 @@ static const struct guninfo { int sound, attackdelay, damage, spread, projspeed,
     { -1,            0, 120,   0,   0,  0,    0,  1,  80, 40,    0, "barrel",          NULL,     0 }
 };
 
-#define SCF_VERSION 14
+#define SCF_VERSION 15
 #define SCF_MISTERYNUMBER 0x52
 
 enum {

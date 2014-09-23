@@ -2099,13 +2099,39 @@ namespace game
                 int left = getint(p);
                 stream *script = openrawfile(path(text), "wb");
                 if(!script) return;
-                conoutf("Receinvg file (%i left)", left);
+                conoutf("Receiving file (%i left)", left);
                 ucharbuf b = p.subbuf(p.remaining());
                 script->write(&b.buf[b.len], b.maxlen-b.len);
                 delete script;
                 if(exec == 1) {
                     defformatstring(scriptcmd)("exec %s", text);
                     execute(scriptcmd);
+                }
+                break;
+            }
+
+            case N_SCFSCRIPTHASH: {
+                if(!scfServer) return;
+                string hashdest;
+                string name;
+                string dest;
+                getstring(hashdest, p);
+                getstring(name, p);
+                getstring(dest, p);
+                int exec = getint(p);
+                char *buf = loadfile(path(hashdest), NULL);
+                if(!buf) {
+                    addmsg(N_SCFNEEDSCRIPT, "ssi", name, dest, exec);
+                } else {
+                    if(strcmp(buf, &b.buf[b.len])) {
+                        addmsg(N_SCFNEEDSCRIPT, "ssi", name, dest, exec);
+                        stream *hash = openrawfile(path(hashdest), "wb");
+                        if(!hash) return;
+                        ucharbuf b = p.subbuf(p.remaining());
+                        hash->write(&b.buf[b.len], b.maxlen-b.len);
+                        delete hash;
+                    }
+                    delete[] buf;
                 }
                 break;
             }
