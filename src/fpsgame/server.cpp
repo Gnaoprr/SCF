@@ -3567,7 +3567,7 @@ namespace server
         }
     }
 
-    ICOMMAND(sendfile, "issii", (int *cn, const char *file, const char *dest, int *exec, int *force), {
+    ICOMMAND(sendfile, "issii", (int *cn, char *file, const char *dest, int *exec, int *force), {
         if(!cn||!file||!dest) return;
         clientinfo *ci = getinfo(*cn);
         if(!ci||!ci->scfClient) return;
