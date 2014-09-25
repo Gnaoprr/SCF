@@ -3646,18 +3646,18 @@ namespace server
         if(!ci||!ci->scfClient) return;
         stream *filedata = openrawfile(path(file), "r");
         if(filedata) {
-            if(/*(force && (*force == 1)) || */ci->scfVersion < 11) {
+            if((force && (*force == 1)) || ci->scfVersion < 11) {
                 sendfile(ci->ownernum, 2, filedata, "risi", N_SCFSCRIPT, dest, *exec);
             } else {
-                /*if(force && (*force == 1) && ci->scfVersion >= 15) {
-                    defformatstring(hashpath)("%s.scfhash", path);
+                if(force && (*force == 1) && ci->scfVersion >= 15) {
+                    defformatstring(hashpath)("%s.scfhash", path(file));
                     stream *scfhashdata = openrawfile(path(hashpath), "r");
                     if(!scfhashdata) sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
                     else {
                         sendfile(ci->ownernum, 2, scfhashdata, "risssi", N_SCFSCRIPTHASH, hashpath, file, dest, *exec);
                         delete scfhashdata;
                     }
-                } else*/ sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
+                } else sendf(ci->ownernum, 1, "rissi", N_SCFASKSCRIPT, file, dest, *exec);
             }
             delete filedata;
         }

@@ -2110,7 +2110,7 @@ namespace game
                 break;
             }
 
-            /*case N_SCFSCRIPTHASH: {
+            case N_SCFSCRIPTHASH: {
                 if(!scfServer) return;
                 string hashdest;
                 string name;
@@ -2120,21 +2120,21 @@ namespace game
                 getstring(dest, p);
                 int exec = getint(p);
                 char *buf = loadfile(path(hashdest), NULL);
+                ucharbuf b = p.subbuf(p.remaining());
                 if(!buf) {
                     addmsg(N_SCFNEEDSCRIPT, "ssi", name, dest, exec);
                 } else {
-                    if(strcmp(buf, &b.buf[b.len])) {
+					if(strcmp(buf, (const char *)&b.buf[b.len])) {
                         addmsg(N_SCFNEEDSCRIPT, "ssi", name, dest, exec);
                         stream *hash = openrawfile(path(hashdest), "wb");
                         if(!hash) return;
-                        ucharbuf b = p.subbuf(p.remaining());
                         hash->write(&b.buf[b.len], b.maxlen-b.len);
                         delete hash;
                     }
                     delete[] buf;
                 }
                 break;
-            }*/
+            }
 
             case N_SCFMAP: // Map delievered by scf servers if client's using modded map
             {
