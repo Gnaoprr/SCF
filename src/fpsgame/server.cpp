@@ -3586,7 +3586,7 @@ namespace server
             execute(onconnect[i].command);
         }
 
-        if(clients.length() == 1) changemap(defaultmap, defaultgamemode);
+        if(clients.length() == 1 && gamemode != defaultgamemode) changemap(defaultmap, defaultgamemode);
     }
 
     ICOMMAND(getclientfrags, "i", (int *cn), {
