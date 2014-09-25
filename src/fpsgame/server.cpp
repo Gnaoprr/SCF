@@ -21,7 +21,7 @@ extern ENetAddress masteraddress;
 
 namespace server
 {
-    VARF(defaultgamemode, 0, 0, NUMGAMEMODES+STARTGAMEMODE, { if(!m_mp(defaultgamemode)) defaultgamemode = 0; });
+    VARF(defaultgamemode, 0, 0, NUMGAMEMODES+STARTGAMEMODE, { if(!m_mp(defaultgamemode)) defaultgamemode = 0; gamemode = defaultgamemode; });
 
     struct server_entity            // server side version of "entity" type
     {
@@ -2257,6 +2257,7 @@ namespace server
             execute(onchangemap[i].command);
         }
     }
+    COMMAND(changemap, "si");
 
     void rotatemap(bool next)
     {
