@@ -22,6 +22,7 @@ extern ENetAddress masteraddress;
 namespace server
 {
     VARF(defaultgamemode, 0, 0, NUMGAMEMODES+STARTGAMEMODE, { if(!m_mp(defaultgamemode)) defaultgamemode = 0; });
+    SVAR(defaultmap, "turbine");
 
     struct server_entity            // server side version of "entity" type
     {
@@ -3584,6 +3585,8 @@ namespace server
         loopv(onconnect) {
             execute(onconnect[i].command);
         }
+
+        if(clients.length() == 1) changemap(defaultmap, defaultgamemode);
     }
 
     ICOMMAND(getclientfrags, "i", (int *cn), {
