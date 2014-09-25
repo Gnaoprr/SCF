@@ -125,7 +125,7 @@ namespace server
         int lastdeath, deadflush, lastspawn, lifesequence;
         int lastshot;
         projectilestate<8> rockets, grenades;
-        int frags, flags, deaths, teamkills, shotdamage, damage, tokens;
+        int frags, flags, deaths, teamkills, shotdamage, damage, tokens, suicides, returned, stolen;
         int lasttimeplayed, timeplayed;
         float effectiveness;
 
@@ -150,7 +150,7 @@ namespace server
 
             timeplayed = 0;
             effectiveness = 0;
-            frags = flags = deaths = teamkills = shotdamage = damage = tokens = 0;
+            frags = flags = deaths = teamkills = shotdamage = damage = tokens = suicides = returned = stolen = 0;
 
             lastdeath = 0;
 
@@ -2437,7 +2437,7 @@ namespace server
             {
                 actor->state.teamkills++;
                 addteamkill(actor, target, 1);
-            }
+            } else if(actor==target) actor->state.suicides++;
             ts.deadflush = ts.lastdeath + DEATHMILLIS;
             // don't issue respawn yet until DEATHMILLIS has elapsed
             // ts.respawn();
@@ -2481,6 +2481,7 @@ namespace server
         gs.state = CS_DEAD;
         gs.lastdeath = gamemillis;
         gs.respawn();
+        gs.suicides++;
     }
 
     void suicideevent::process(clientinfo *ci)
@@ -3392,7 +3393,24 @@ namespace server
     INTCONST(PRIV_AUTH, PRIV_AUTH)
     INTCONST(PRIV_ADMIN, PRIV_ADMIN)
     INTCONST(PRIV_OWNER, PRIV_OWNER)
+    ICOMMANDS("m_noitems", "i", (int *mode), { int gamemode = *mode; intret(m_noitems); });
+    ICOMMANDS("m_noammo", "i", (int *mode), { int gamemode = *mode; intret(m_noammo); });
+    ICOMMANDS("m_insta", "i", (int *mode), { int gamemode = *mode; intret(m_insta); });
+    ICOMMANDS("m_tactics", "i", (int *mode), { int gamemode = *mode; intret(m_tactics); });
+    ICOMMANDS("m_efficiency", "i", (int *mode), { int gamemode = *mode; intret(m_efficiency); });
+    ICOMMANDS("m_capture", "i", (int *mode), { int gamemode = *mode; intret(m_capture); });
+    ICOMMANDS("m_regencapture", "i", (int *mode), { int gamemode = *mode; intret(m_regencapture); });
+    ICOMMANDS("m_ctf", "i", (int *mode), { int gamemode = *mode; intret(m_ctf); });
+    ICOMMANDS("m_protect", "i", (int *mode), { int gamemode = *mode; intret(m_protect); });
+    ICOMMANDS("m_hold", "i", (int *mode), { int gamemode = *mode; intret(m_hold); });
+    ICOMMANDS("m_collect", "i", (int *mode), { int gamemode = *mode; intret(m_collect); });
     ICOMMANDS("m_teammode", "i", (int *mode), { int gamemode = *mode; intret(m_teammode); });
+    ICOMMANDS("m_demo", "i", (int *mode), { int gamemode = *mode; intret(m_demo); });
+    ICOMMANDS("m_edit", "i", (int *mode), { int gamemode = *mode; intret(m_edit); });
+    ICOMMANDS("m_lobby", "i", (int *mode), { int gamemode = *mode; intret(m_lobby); });
+    ICOMMANDS("m_sp", "i", (int *mode), { int gamemode = *mode; intret(m_sp); });
+    ICOMMANDS("m_dmsp", "i", (int *mode), { int gamemode = *mode; intret(m_dmsp); });
+    ICOMMANDS("m_classicsp", "i", (int *mode), { int gamemode = *mode; intret(m_classicsp); });
     ICOMMAND(getmode, "", (), intret(gamemode));
 
 	/* Windows gives compilation errors with this - ugly workaround required
@@ -3566,6 +3584,57 @@ namespace server
             execute(onconnect[i].command);
         }
     }
+
+    ICOMMAND(getclientfrags, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        intret(ci->state.frags);
+    })
+    ICOMMAND(getclientdeaths, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        intret(ci->state.deaths);
+    })
+    ICOMMAND(getclientsuicides, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        intret(ci->state.suicides);
+    })
+    ICOMMAND(getactualfrags, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        intret(ci->state.frags + ci->state.suicides + ci->state.teamkills);
+    })
+    ICOMMAND(getclientkpd, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        floatret((float)ci->state.frags/max(ci->state.deaths, 1));
+    })
+    ICOMMAND(getclientacc, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        floatret((float)(ci->state.damage*100/max(ci->state.shotdamage, 1)));
+    })
+    ICOMMAND(getclienttk, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci || !m_teammode) return;
+        intret(ci->state.teamkills);
+    })
+    ICOMMAND(getclientscored, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci || !(m_ctf || m_collect)) return;
+        intret(ci->state.flags);
+    })
+    ICOMMAND(getclientstolen, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci || !(m_ctf || m_collect)) return;
+        intret(ci->state.stolen);
+    })
+    ICOMMAND(getclientreturned, "i", (int *cn), {
+        clientinfo *ci = getinfo(*cn);
+        if(!ci || !m_ctf) return;
+        intret(ci->state.returned);
+    })
 
     ICOMMAND(sendfile, "issii", (int *cn, char *file, const char *dest, int *exec, int *force), {
         if(!cn||!file||!dest) return;

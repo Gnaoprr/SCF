@@ -371,6 +371,7 @@ struct ctfclientmode : clientmode
             if(!f.droptime && !m_protect && !m_hold) ci->flagtime = gamemillis;
             else ci->flagtime = 0;
             sendf(-1, 1, "ri4", N_TAKEFLAG, ci->clientnum, i, ++f.version);
+            ci->state.stolen++;
         }
         else if(m_protect)
         {
@@ -380,6 +381,7 @@ struct ctfclientmode : clientmode
         {
             returnflag(i);
             sendf(-1, 1, "ri4", N_RETURNFLAG, ci->clientnum, i, ++f.version);
+            ci->state.returned++;
         }
         else
         {
