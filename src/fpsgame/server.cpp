@@ -2366,6 +2366,22 @@ namespace server
         }
     }
 
+    struct on_intermission {
+        string command;
+    };
+    vector<on_intermission> onintermission;
+    ICOMMAND(flush_onintermission, "", (), {
+        loopvrev(onintermission) {
+            onintermission.remove(i);
+        }
+    })
+    ICOMMAND(onintermission, "s", (const char *command), {
+        if(!command) return;
+        on_intermission *cur = &onintermission.add();
+        if(!cur) return;
+        copystring(cur->command, command);
+    })
+
     void checkintermission()
     {
         if(gamemillis >= gamelimit && !interm)
@@ -2374,6 +2390,7 @@ namespace server
             if(smode) smode->intermission();
             changegamespeed(100);
             interm = gamemillis + 10000;
+            loopv(onintermission) execute(onintermission[i].command);
         }
     }
 
