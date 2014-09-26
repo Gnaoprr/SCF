@@ -2937,6 +2937,22 @@ namespace server
             if(checkgban(getclientip(ci->clientnum))) disconnect_client(ci->clientnum, DISC_IPBAN);
         }
     }
+    
+    struct pban {
+    	string ip;
+    	string reason;
+    	string banner;
+    };
+    vector<pban> pbans;
+    
+    ICOMMAND(addpban, "sss", (const char *ip, const char *reason, const char *banner), {
+    	if(ip[0] == '\0' || reason[0] == '\0' || banner[0] == '\0') return;
+    	loopv(pbans) if(!strcmp(pbans[i].ip, ip)) return;
+    	pban *cur = &pbans.add();
+    	copystring(cur->ip, ip);
+    	copystring(cur->reason, reason);
+    	copystring(cur->banner, banner);
+    })
        
     int allowconnect(clientinfo *ci, const char *pwd = "")
     {
@@ -2951,6 +2967,7 @@ namespace server
         if(numclients(-1, false, true)>=maxclients) return DISC_MAXCLIENTS;
         uint ip = getclientip(ci->clientnum);
         loopv(bannedips) if(bannedips[i].ip==ip) return DISC_IPBAN;
+        loopv(pbans) if(!strcmp(pbans[i].ip, getclienthostname(ci->clientnum))) return DISC_IPBAN;
         if(checkgban(ip)) return DISC_IPBAN;
         if(mastermode>=MM_PRIVATE && allowedips.find(ip)<0) return DISC_PRIVATE;
         return DISC_NONE;
