@@ -119,6 +119,8 @@ namespace server
         }
     };
 
+	void sendNoKevlarHelmet();
+
     struct gamestate : fpsstate
     {
         vec o;
@@ -130,8 +132,9 @@ namespace server
         int lasttimeplayed, timeplayed;
         float effectiveness;
         bool kevlar, helmet;
+        bool needToSendNoKevlarHelmet;
 
-        gamestate() : state(CS_DEAD), editstate(CS_DEAD), lifesequence(0), kevlar(false), helmet(false) {}
+        gamestate() : state(CS_DEAD), editstate(CS_DEAD), lifesequence(0), kevlar(false), helmet(false), needToSendNoKevlarHelmet(false) {}
 
         bool isalive(int gamemillis)
         {
@@ -157,6 +160,10 @@ namespace server
             helmet = false;
             kevlar = false;
 
+            needToSendNoKevlarHelmet = true;
+
+            sendNoKevlarHelmet();
+
             lastdeath = 0;
 
             respawn();
@@ -170,8 +177,13 @@ namespace server
             lastspawn = -1;
             lastshot = 0;
             tokens = 0;
+
             helmet = false;
             kevlar = false;
+
+            needToSendNoKevlarHelmet = true;
+
+            sendNoKevlarHelmet();
         }
 
         void reassign()
@@ -228,7 +240,7 @@ namespace server
 
     struct clientinfo
     {
-        int clientnum, ownernum, connectmillis, sessionid, overflow;
+		int clientnum, ownernum, connectmillis, sessionid, overflow;
         string name, team, mapvote;
         int playermodel;
         int modevote;
@@ -383,6 +395,21 @@ namespace server
         }
     };
 
+    vector<clientinfo *> connects, clients, bots;
+
+    void sendNoKevlarHelmet() {
+        loopv(clients) {
+            if(clients[i]->state.needToSendNoKevlarHelmet) {
+                loopvj(clients) {
+                    if(!clients[j]->scfClient || clients[j]->scfVersion < 16) continue;
+                    sendf(clients[j]->clientnum, 1, "riiii", N_SCFITEM, clients[i]->clientnum, SCF_KEVLAR, 0);
+                    sendf(clients[j]->clientnum, 1, "riiii", N_SCFITEM, clients[i]->clientnum, SCF_HELMET, 0);
+                }
+                clients[i]->state.needToSendNoKevlarHelmet = false;
+            }
+        }
+    }
+
     struct ban
     {
         int time, expire;
@@ -433,8 +460,6 @@ namespace server
         loopv(bannedips) if(bannedips[i].expire - b.expire > 0) { bannedips.insert(i, b); return; }
         bannedips.add(b);
     }
-
-    vector<clientinfo *> connects, clients, bots;
 
     void kickclients(uint ip, clientinfo *actor = NULL, int priv = PRIV_NONE)
     {
@@ -2583,13 +2608,7 @@ namespace server
                     if(totalrays>maxrays) continue;
                     int damage = h.rays*guns[gun].damage;
                     if(gs.quadmillis) damage *= 4;
-                    sendservmsgf("Shot from %i hit client %i on %f %f %f", ci->clientnum, target->clientnum, target->state.o.x - to.x, target->state.o.y - to.y, target->state.o.z - to.z);
-                    if(
-                        (
-                            ((target->state.o.z - to.z - 14.5) >= 0) ?
-                            target->state.o.z - to.z - 14.5 :
-                            (target->state.o.z - to.z - 14.5) * -1
-                        ) < 2.0f
+                    if((((target->state.o.z - to.z - 14.5) >= 0) ? target->state.o.z - to.z - 14.5 : (target->state.o.z - to.z - 14.5) * -1) < 2.0f
                     ) {
                         damage *= 3.5f;
                         if(target->state.helmet) {
@@ -2599,8 +2618,8 @@ namespace server
                                 if(ci->scfClient && ci->scfVersion >= 16) {
                                     loopv(clients) {
                                         if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
-                                        sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_KEVLAR, 0);
-                                        sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_HELMET, 0);
+                                        sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, target->clientnum, SCF_KEVLAR, 0);
+                                        sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, target->clientnum, SCF_HELMET, 0);
                                     }
                                 }
                             }
@@ -2623,8 +2642,8 @@ namespace server
                                 if(ci->scfClient && ci->scfVersion >= 16) {
                                     loopv(clients) {
                                         if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
-										sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_KEVLAR, 0);
-										sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_HELMET, 0);
+										sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, target->clientnum, SCF_KEVLAR, 0);
+                                        sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, target->clientnum, SCF_HELMET, 0);
                                     }
                                 }
                             }
@@ -3503,7 +3522,7 @@ namespace server
         if(ci->scfClient) {
             loopv(clients) {
                 if(!clients[i]->scfClient) continue;
-                sendf(i, 1, "riiii", N_SCFAMMO, *cn, *type, *quantity);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFAMMO, *cn, *type, *quantity);
             }
         } else sendspawn(ci);
     })
@@ -3515,7 +3534,7 @@ namespace server
         if(ci->scfClient) {
             loopv(clients) {
                 if(!clients[i]->scfClient) continue;
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_HP, *quantity);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_HP, *quantity);
             }
         } else sendspawn(ci);
     })
@@ -3527,7 +3546,7 @@ namespace server
         if(ci->scfClient) {
             loopv(clients) {
                 if(!clients[i]->scfClient) continue;
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_HPB, *quantity);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_HPB, *quantity);
             }
         } else sendspawn(ci);
     })
@@ -3539,7 +3558,7 @@ namespace server
         if(ci->scfClient) {
             loopv(clients) {
                 if(!clients[i]->scfClient) continue;
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_QUAD, *secs);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_QUAD, *secs);
             }
         } else sendspawn(ci);
     })
@@ -3558,8 +3577,8 @@ namespace server
         if(ci->scfClient && ci->scfVersion >= 16) {
             loopv(clients) {
                 if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_KEVLAR, 1);
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_KEVLAR, 1);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
             }
         } else sendspawn(ci);
     })
@@ -3572,8 +3591,8 @@ namespace server
         if(ci->scfClient && ci->scfVersion >= 16) {
             loopv(clients) {
                 if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_HELMET, 1);
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_HELMET, 1);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
             }
         } else sendspawn(ci);
     })
@@ -3585,7 +3604,7 @@ namespace server
         if(ci->scfClient && ci->scfVersion >= 16) {
             loopv(clients) {
                 if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
-                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
+                sendf(clients[i]->clientnum, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
             }
         } else sendspawn(ci);
     })
