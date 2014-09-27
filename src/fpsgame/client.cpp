@@ -2013,7 +2013,7 @@ namespace game
                         d->helmet = getint(p) == 1;
                         break;
                     case SCF_ARMOUR:
-                        d->armour += getint(p);
+                        d->armour = getint(p);
                         break;
                     default:
                         conoutf("Unknown N_SCFITEM attribute (server using newer version?)");

@@ -3558,7 +3558,7 @@ namespace server
         if(ci->scfClient && ci->scfVersion >= 16) {
             loopv(clients) {
                 if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
-                sendf(i, 1, "riii", N_SCFITEM, *cn, SCF_KEVLAR);
+                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_KEVLAR, 1);
                 sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
             }
         } else sendspawn(ci);
@@ -3572,7 +3572,7 @@ namespace server
         if(ci->scfClient && ci->scfVersion >= 16) {
             loopv(clients) {
                 if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
-                sendf(i, 1, "riii", N_SCFITEM, *cn, SCF_HELMET);
+                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_HELMET, 1);
                 sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
             }
         } else sendspawn(ci);
