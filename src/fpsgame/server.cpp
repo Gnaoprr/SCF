@@ -129,8 +129,9 @@ namespace server
         int frags, flags, deaths, teamkills, shotdamage, damage, tokens, suicides, returned, stolen;
         int lasttimeplayed, timeplayed;
         float effectiveness;
+        bool kevlar, helmet;
 
-        gamestate() : state(CS_DEAD), editstate(CS_DEAD), lifesequence(0) {}
+        gamestate() : state(CS_DEAD), editstate(CS_DEAD), lifesequence(0), kevlar(false), helmet(false) {}
 
         bool isalive(int gamemillis)
         {
@@ -153,6 +154,9 @@ namespace server
             effectiveness = 0;
             frags = flags = deaths = teamkills = shotdamage = damage = tokens = suicides = returned = stolen = 0;
 
+            helmet = false;
+            kevlar = false;
+
             lastdeath = 0;
 
             respawn();
@@ -166,6 +170,8 @@ namespace server
             lastspawn = -1;
             lastshot = 0;
             tokens = 0;
+            helmet = false;
+            kevlar = false;
         }
 
         void reassign()
@@ -634,13 +640,13 @@ namespace server
     SVAR(serverpass, "");
     SVAR(adminpass, "");
     VARF(publicserver, 0, 0, 2, {
-		switch(publicserver)
-		{
-			case 0: default: mastermask = MM_PRIVSERV; break;
-			case 1: mastermask = MM_PUBSERV; break;
-			case 2: mastermask = MM_COOPSERV; break;
-		}
-	});
+        switch(publicserver)
+        {
+            case 0: default: mastermask = MM_PRIVSERV; break;
+            case 1: mastermask = MM_PUBSERV; break;
+            case 2: mastermask = MM_COOPSERV; break;
+        }
+    });
     SVAR(servermotd, "");
 
     struct teamkillkick
@@ -796,7 +802,7 @@ namespace server
     }
 
     // geoip
-	#ifndef _WIN32
+    #ifndef _WIN32
     # ifdef STANDALONE
     #  include <GeoIP.h>
     #  include <GeoIPCity.h>
@@ -860,16 +866,16 @@ namespace server
         result(getGeoIpCity(ip));
     })
     # endif
-	#endif
+    #endif
 
     void serverinit()
     {
-		#ifndef _WIN32
+        #ifndef _WIN32
         # ifdef STANDALONE
         _gidb_co_ = GeoIP_open(_gidb_co_f_, gicache ? GEOIP_MEMORY_CACHE : GEOIP_STANDARD);
         _gidb_ci_ = GeoIP_open(_gidb_ci_f_, gicache ? GEOIP_INDEX_CACHE  : GEOIP_STANDARD);
         # endif
-		#endif
+        #endif
         gamemode = defaultgamemode;
         smapname[0] = '\0';
         resetitems();
@@ -910,7 +916,7 @@ namespace server
     bool quit = false;
 
     void close() {
-		#ifndef _WIN32
+        #ifndef _WIN32
         # ifdef STANDALONE
         if(_gidb_co_)
         {
@@ -923,7 +929,7 @@ namespace server
             _gidb_ci_ = 0;
         }
         # endif
-		#endif
+        #endif
 
         loopv(onshutdown) {
             execute(onshutdown[i].command);
@@ -2189,13 +2195,13 @@ namespace server
         on_changemap *cur = &onchangemap.add();
         if(!cur) return;
         copystring(cur->command, command);
-	})
+    })
 
-	bool serverhasmap = false;
+    bool serverhasmap = false;
         
     void changemap(const char *s, int mode)
     {
-		serverhasmap = false;
+        serverhasmap = false;
 
         stopdemo();
         pausegame(false);
@@ -2573,11 +2579,58 @@ namespace server
                     hitinfo &h = hits[i];
                     clientinfo *target = getinfo(h.target);
                     if(!target || target->state.state!=CS_ALIVE || h.lifesequence!=target->state.lifesequence || h.rays<1 || h.dist > guns[gun].range + 1) continue;
-
                     totalrays += h.rays;
                     if(totalrays>maxrays) continue;
                     int damage = h.rays*guns[gun].damage;
                     if(gs.quadmillis) damage *= 4;
+                    sendservmsgf("Shot from %i hit client %i on %f %f %f", ci->clientnum, target->clientnum, target->state.o.x - to.x, target->state.o.y - to.y, target->state.o.z - to.z);
+                    if(
+                        (
+                            ((target->state.o.z - to.z - 14.5) >= 0) ?
+                            target->state.o.z - to.z - 14.5 :
+                            (target->state.o.z - to.z - 14.5) * -1
+                        ) < 2.0f
+                    ) {
+                        damage *= 3.5f;
+                        if(target->state.helmet) {
+                            ci->state.armour = clamp(ci->state.armour - damage / 2.5f, 0, 200);
+                            if(ci->state.armour == 0) {
+                                ci->state.helmet = ci->state.kevlar = false;
+                                if(ci->scfClient && ci->scfVersion >= 16) {
+                                    loopv(clients) {
+                                        if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
+                                        sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_KEVLAR, 0);
+                                        sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_HELMET, 0);
+                                    }
+                                }
+                            }
+                            damage /= 2.5f;
+                        }
+                    }
+                    else if(
+                        (
+                            ((target->state.o.z - to.z) >= 0) ?
+                            target->state.o.z - to.z :
+                            (target->state.o.z - to.z) * -1
+                        ) < 7.5f
+                    ) {
+                        damage /= 2.5f;
+                    } else {
+                        if(target->state.kevlar) {
+                            ci->state.armour = clamp(ci->state.armour - damage / 2.5f, 0, 200);
+                            if(ci->state.armour == 0) {
+                                ci->state.helmet = ci->state.kevlar = false;
+                                if(ci->scfClient && ci->scfVersion >= 16) {
+                                    loopv(clients) {
+                                        if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
+										sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_KEVLAR, 0);
+										sendf(i, 1, "riIii", N_SCFITEM, target->clientnum, SCF_HELMET, 0);
+                                    }
+                                }
+                            }
+                            damage /= 1.25f;
+                        }
+                    }
                     dodamage(target, ci, damage, gun, h.dir);
                 }
                 break;
@@ -2748,8 +2801,8 @@ namespace server
         if(!nmapdata) return;
         DELETEP(mapdata);
         mapdata = nmapdata;
-		serverhasmap = true;
-		sendfile(ci->clientnum, 2, mapdata, "ri", N_SCFMAP);
+        serverhasmap = true;
+        sendfile(ci->clientnum, 2, mapdata, "ri", N_SCFMAP);
     }
 
     void checkmaps(int req = -1)
@@ -2937,21 +2990,126 @@ namespace server
             if(checkgban(getclientip(ci->clientnum))) disconnect_client(ci->clientnum, DISC_IPBAN);
         }
     }
+
+    int explodestr(char *string, char *array [], char separator = ' ', int count = 32) {
+        char *pch;
+        for(int i = 0; i < count; i++) array[i] = NULL;
+        if(!string || !*string) return 0;
+        array[0] = string;
+        int output = 1;
+        for(int i = 1; i < count; i++) {
+            pch = strchr(array[i-1], separator);
+            if(!pch) break;
+            *pch=0;
+            pch++;
+            while (*pch == separator) pch++;
+            array[i] = pch;
+            output++;
+        }
+        return output;
+    }
+
+    int explodestr(const char *string, char *array [], char separator = ' ', int count = 32) {
+        return explodestr((char *)string, array, separator, count);
+    }
+
+    ICOMMAND(explode, "ssii", (char *string, char *separator, int *count, int *which), {
+        if(!string || !separator || !count || !which) return;
+        char *array[32];
+        int x = explodestr(string, array, separator[0], *count);
+        int y = *which;
+        if(*which >= x) y = x - 1;
+        result((const char *)array[y]);
+    });
+    ICOMMAND(explode_count, "ss", (char *string, char *separator), {
+        if(!string || !separator) return;
+        char *array[32];
+        int x = explodestr(string, array, separator[0], 32);
+        intret(x);
+    });
     
     struct pban {
-    	string ip;
-    	string reason;
-    	string banner;
+        uint min, max;
+        string reason;
+        string banner;
     };
     vector<pban> pbans;
     
-    ICOMMAND(addpban, "sss", (const char *ip, const char *reason, const char *banner), {
-    	if(ip[0] == '\0' || reason[0] == '\0' || banner[0] == '\0') return;
-    	loopv(pbans) if(!strcmp(pbans[i].ip, ip)) return;
-    	pban *cur = &pbans.add();
-    	copystring(cur->ip, ip);
-    	copystring(cur->reason, reason);
-    	copystring(cur->banner, banner);
+#ifndef _WIN32 // wont compile on windows :/
+
+    ICOMMAND(pban, "sss", (const char *ip, const char *reason, const char *banner), {
+        if(ip[0] == '\0' || reason[0] == '\0' || banner[0] == '\0') return;
+        bool slash = false;
+        for(int i = 0; ip[i] != '\0'; i++) {
+            if(ip[i] == '/') {
+                slash = true;
+                break;
+            }
+        }
+        int type;
+        char *array2[4];
+        int x;
+        if(!slash) {
+            int dots = 0;
+            for(int i = 0; ip[i] != '\0'; i++) {
+                if(ip[i] == '.') dots++;
+            }
+            if(dots > 3) return; // Malformatted IP.
+            type = (dots + 1) * 3;
+            x = explodestr(ip, array2, '.', 4);
+        } else {
+            int slashes = 0;
+            for(int i = 0; ip[i] != '\0'; i++) {
+                if(ip[i] == '/') slashes++;
+            }
+            if(slashes != 1) return; // Malformatted IP.
+            char *array[2];
+            int y = explodestr(ip, array, '/', 2);
+            if(y != 2) return;
+            x = explodestr(array[0], array2, '.', 4);
+            type = y;
+        }
+        pban *cur = &pbans.add();
+        switch(x) {
+            case 4: {
+                cur->min = (256 * 256 * 256 * atoi(array2[0])) + (256 * 256 * atoi(array2[1])) + (256 * atoi(array2[2]))  + atoi(array2[3]);
+                cur->max = (256 * 256 * 256 * atoi(array2[0])) + (256 * 256 * atoi(array2[1])) + (256 * atoi(array2[2]))  + atoi(array2[3]) + pow(2, 32 - type);
+                break;
+            }
+            case 3: {
+                cur->min = (256 * 256 * 256 * atoi(array2[0])) + (256 * 256 * atoi(array2[1])) + (256 * atoi(array2[2]));
+                cur->max = (256 * 256 * 256 * atoi(array2[0])) + (256 * 256 * atoi(array2[1])) + (256 * atoi(array2[2])) + pow(2, 32 - type);
+                break;
+            }
+            case 2: {
+                cur->min = (256 * 256 * 256 * atoi(array2[0])) + (256 * 256 * atoi(array2[1]));
+                cur->max = (256 * 256 * 256 * atoi(array2[0])) + (256 * 256 * atoi(array2[1])) + pow(2, 32 - type);
+                break;
+            }
+            case 1:
+            default: {
+                cur->min = 256 * 256 * 256 * atoi(array2[0]);
+                cur->max = 256 * 256 * 256 * atoi(array2[0]) + pow(2, 32 - type);
+                break;
+            }
+            break;
+        }
+        copystring(cur->reason, reason);
+        copystring(cur->banner, banner);
+        loopv(clients) {
+            if(clients[i]->state.aitype == AI_NONE && getclientip(clients[i]->clientnum) >= cur->min && getclientip(clients[i]->clientnum) <= cur->max) {
+                disconnect_client(clients[i]->clientnum, DISC_IPBAN);
+            }
+        }
+    })
+
+#endif
+
+    ICOMMAND(disconnect, "ii", (int *cn, int *reason), {
+        if(!cn || !reason) return;
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        disconnect_client(ci->clientnum, *reason);
     })
        
     int allowconnect(clientinfo *ci, const char *pwd = "")
@@ -2967,7 +3125,7 @@ namespace server
         if(numclients(-1, false, true)>=maxclients) return DISC_MAXCLIENTS;
         uint ip = getclientip(ci->clientnum);
         loopv(bannedips) if(bannedips[i].ip==ip) return DISC_IPBAN;
-        loopv(pbans) if(!strcmp(pbans[i].ip, getclienthostname(ci->clientnum))) return DISC_IPBAN;
+        loopv(pbans) if(ip >= pbans[i].min && ip <= pbans[i].max) return DISC_IPBAN;
         if(checkgban(ip)) return DISC_IPBAN;
         if(mastermode>=MM_PRIVATE && allowedips.find(ip)<0) return DISC_PRIVATE;
         return DISC_NONE;
@@ -3145,39 +3303,6 @@ namespace server
         }
     }
 
-    int explodestr(char *string, char *array [], char separator = ' ', int count = 32) {
-        char *pch;
-        for(int i = 0; i < count; i++) array[i] = NULL;
-        if(!string || !*string) return 0;
-        array[0] = string;
-        int output = 1;
-        for(int i = 1; i < count; i++) {
-            pch = strchr(array[i-1], separator);
-            if(!pch) break;
-            *pch=0;
-            pch++;
-            while (*pch == separator) pch++;
-            array[i] = pch;
-            output++;
-        }
-        return output;
-    }
-
-    ICOMMAND(explode, "ssii", (char *string, char *separator, int *count, int *which), {
-        if(!string || !separator || !count || !which) return;
-        char *array[32];
-        int x = explodestr(string, array, separator[0], *count);
-        int y = *which;
-        if(*which >= x) y = x - 1;
-        result((const char *)array[y]);
-    });
-    ICOMMAND(explode_count, "ss", (char *string, char *separator), {
-        if(!string || !separator) return;
-        char *array[32];
-        int x = explodestr(string, array, separator[0], 32);
-        intret(x);
-    });
-
     struct servcmd {
         string name;
         string file;
@@ -3237,6 +3362,7 @@ namespace server
             sendf(ci->clientnum, 1, "ris", N_SERVMSG, "Permission denied.");
             return;
         }
+        if(isdedicatedserver()) logoutf("%s: #%s %s", colorname(ci), cmd, args);
         runcommand(ci->clientnum, args, command);
     }
 
@@ -3376,7 +3502,7 @@ namespace server
         ci->state.ammo[*type] += *quantity;
         if(ci->scfClient) {
             loopv(clients) {
-    			if(!clients[i]->scfClient) continue;
+                if(!clients[i]->scfClient) continue;
                 sendf(i, 1, "riiii", N_SCFAMMO, *cn, *type, *quantity);
             }
         } else sendspawn(ci);
@@ -3423,6 +3549,46 @@ namespace server
         if(!ci) return;
         if(ci->scfClient) intret(1);
     })
+    ICOMMAND(givekevlar, "i", (int *cn), {
+        if(!cn) return;
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        ci->state.armour = clamp(ci->state.armour + 100, 0, 200);
+        ci->state.kevlar = true;
+        if(ci->scfClient && ci->scfVersion >= 16) {
+            loopv(clients) {
+                if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
+                sendf(i, 1, "riii", N_SCFITEM, *cn, SCF_KEVLAR);
+                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
+            }
+        } else sendspawn(ci);
+    })
+    ICOMMAND(givehelmet, "i", (int *cn), {
+        if(!cn) return;
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        ci->state.armour = clamp(ci->state.armour + 100, 0, 200);
+        ci->state.helmet = true;
+        if(ci->scfClient && ci->scfVersion >= 16) {
+            loopv(clients) {
+                if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
+                sendf(i, 1, "riii", N_SCFITEM, *cn, SCF_HELMET);
+                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
+            }
+        } else sendspawn(ci);
+    })
+    ICOMMAND(givearmour, "ii", (int *cn, int *val), {
+        if(!cn || !val) return;
+        clientinfo *ci = getinfo(*cn);
+        if(!ci) return;
+        ci->state.armour = clamp(ci->state.armour + *val, 0, 200);
+        if(ci->scfClient && ci->scfVersion >= 16) {
+            loopv(clients) {
+                if(!clients[i]->scfClient || clients[i]->scfVersion < 16) continue;
+                sendf(i, 1, "riiii", N_SCFITEM, *cn, SCF_ARMOUR, ci->state.armour);
+            }
+        } else sendspawn(ci);
+    })
     ICOMMAND(strstr, "ss", (char *a, char *b), { char *s = strstr(a, b); intret(s ? s-a : -1); });
     INTCONST(PRIV_NONE, PRIV_NONE)
     INTCONST(PRIV_MASTER, PRIV_MASTER)
@@ -3448,8 +3614,20 @@ namespace server
     ICOMMANDS("m_dmsp", "i", (int *mode), { int gamemode = *mode; intret(m_dmsp); });
     ICOMMANDS("m_classicsp", "i", (int *mode), { int gamemode = *mode; intret(m_classicsp); });
     ICOMMAND(getmode, "", (), intret(gamemode));
+    INTCONST(DISC_NONE, DISC_NONE)
+    INTCONST(DISC_EOP, DISC_EOP)
+    INTCONST(DISC_LOCAL, DISC_LOCAL)
+    INTCONST(DISC_KICK, DISC_KICK)
+    INTCONST(DISC_MSGERR, DISC_MSGERR)
+    INTCONST(DISC_IPBAN, DISC_IPBAN)
+    INTCONST(DISC_PRIVATE, DISC_PRIVATE)
+    INTCONST(DISC_MAXCLIENTS, DISC_MAXCLIENTS)
+    INTCONST(DISC_TIMEOUT, DISC_TIMEOUT)
+    INTCONST(DISC_OVERFLOW, DISC_OVERFLOW)
+    INTCONST(DISC_PASSWORD, DISC_PASSWORD)
+    INTCONST(DISC_NUM, DISC_NUM)
 
-	/* Windows gives compilation errors with this - ugly workaround required
+    /* Windows gives compilation errors with this - ugly workaround required
     INTCONST(iswindows,
         #ifdef _WIN32
             1
@@ -3457,12 +3635,12 @@ namespace server
             0
         #endif
     )
-	*/
-	#ifdef _WIN32
-	INTCONST(iswindows, 1);
-	#else
-	INTCONST(iswindows, 0);
-	#endif
+    */
+    #ifdef _WIN32
+    INTCONST(iswindows, 1);
+    #else
+    INTCONST(iswindows, 0);
+    #endif
 
     #ifndef _WIN32
         ICOMMAND(downloadfile, "ss", (const char *url, const char *destination), {
@@ -3505,7 +3683,7 @@ namespace server
         copystring(cur->command, command);
     })
 
-	#ifndef _WIN32 // Somehow not working on windows - cashmode will run only on OS X / Linux until a workaround is found.
+    #ifndef _WIN32 // Somehow not working on windows - cashmode will run only on OS X / Linux until a workaround is found.
     struct price {
         int code;
         string name;
@@ -3521,7 +3699,7 @@ namespace server
         copystring(cur->name, n);
         cur->quantity = *q;
         cur->price = *p;
-	})
+    })
     ICOMMAND(getnumitems, "", (), {
         intret(prices.length());
     })
@@ -3543,7 +3721,7 @@ namespace server
             return;
         }
     })
-	#endif
+    #endif
 
     bool scfAnswerModelAuth(int m, clientinfo *ci) {
         if(!(m & 0x80000000)) return false;
@@ -3557,7 +3735,7 @@ namespace server
                 ci->scfClient = true;
                 ci->scfVersion = ((m >> 8) & 0xFF) & 0x7F;
                 #if 0
-				#ifndef _WIN32
+                #ifndef _WIN32
                 loopv(clients) if(clients[i]->state.aitype == AI_NONE) {
                     defformatstring(co)("%s", getGeoIpCountry(getclienthostname(i)));
                     defformatstring(city)("%s", getGeoIpCity(getclienthostname(i)));
@@ -3565,7 +3743,7 @@ namespace server
                 } else {
                     sendf(ci->clientnum, 1, "riiss", N_SCFCLIENTGEOIP, i, "Unknown", "Unknown");
                 }
-				#endif
+                #endif
                 #endif
                 return true;
             }
@@ -4114,7 +4292,6 @@ namespace server
                 getstring(text, p);
                 if(text[0] == '#' && text[1] != '\0') {
                     parsecommand(cq, &text[1]);
-                    if(isdedicatedserver() && cq) logoutf("%s: %s", colorname(cq), text);
                     return;
                 }
                 filtertext(text, text);
@@ -4546,7 +4723,6 @@ namespace server
             case N_SERVCMD:
                 getstring(text, p);
                 parsecommand(cq, text);
-                if(isdedicatedserver() && cq) logoutf("%s: /servcmd %s", colorname(cq), text);
                 break;
 
             case N_SCFNEEDSCRIPT: {
@@ -4628,4 +4804,3 @@ namespace server
 
     #include "aiman.h"
 }
-

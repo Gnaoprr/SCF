@@ -379,7 +379,7 @@ static const struct guninfo { int sound, attackdelay, damage, spread, projspeed,
     { -1,            0, 120,   0,   0,  0,    0,  1,  80, 40,    0, "barrel",          NULL,     0 }
 };
 
-#define SCF_VERSION 15
+#define SCF_VERSION 16
 #define SCF_MISTERYNUMBER 0x52
 
 enum {
@@ -393,6 +393,9 @@ enum {
     SCF_QUAD,
     SCF_PM_CN,
     SCF_PM,
+    SCF_KEVLAR,
+    SCF_HELMET,
+    SCF_ARMOUR,
     SCF_MAX
 };
 
@@ -598,7 +601,9 @@ struct fpsent : dynent, fpsstate
 
     int scfVersion;
 
-	fpsent() : weight(100), clientnum(-1), privilege(PRIV_NONE), lastupdate(0), plag(0), ping(0), lifesequence(0), respawned(-1), suicided(-1), lastpain(0), attacksound(-1), attackchan(-1), idlesound(-1), idlechan(-1), frags(0), flags(0), deaths(0), totaldamage(0), totalshots(0), edit(NULL), smoothmillis(-1), playermodel(-1), ai(NULL), ownernum(-1), muzzle(-1, -1, -1), cash(0.0f), scf(false), scfVersion(0)
+    bool kevlar, helmet;
+
+	fpsent() : weight(100), clientnum(-1), privilege(PRIV_NONE), lastupdate(0), plag(0), ping(0), lifesequence(0), respawned(-1), suicided(-1), lastpain(0), attacksound(-1), attackchan(-1), idlesound(-1), idlechan(-1), frags(0), flags(0), deaths(0), totaldamage(0), totalshots(0), edit(NULL), smoothmillis(-1), playermodel(-1), ai(NULL), ownernum(-1), muzzle(-1, -1, -1), cash(0.0f), scf(false), scfVersion(0), kevlar(false), helmet(false)
     {
         name[0] = team[0] = info[0] = country[0] = city[0] = 0;
         respawn();

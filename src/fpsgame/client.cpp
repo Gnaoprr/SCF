@@ -1240,6 +1240,30 @@ namespace game
         if(d) intret(d->cash);
         else intret(player1->cash);
     })
+    ICOMMAND(haskevlar, "", (), {
+        intret(player1->kevlar ? 1 : 0);
+    })
+    ICOMMAND(clienthaskevlar, "i", (int *cn), {
+        fpsent *d = cn ? getclient(*cn) : player1;
+        if(d) intret(d->kevlar ? 1 : 0);
+        else intret(player1->kevlar ? 1 : 0);
+    })
+    ICOMMAND(hashelmet, "", (), {
+        intret(player1->helmet ? 1 : 0);
+    })
+    ICOMMAND(clienthashelmet, "i", (int *cn), {
+        fpsent *d = cn ? getclient(*cn) : player1;
+        if(d) intret(d->helmet ? 1 : 0);
+        else intret(player1->helmet ? 1 : 0);
+    })
+    ICOMMAND(getarmour, "", (), {
+        intret(player1->armour);
+    })
+    ICOMMAND(getclientarmour, "i", (int *cn), {
+        fpsent *d = cn ? getclient(*cn) : player1;
+        if(d) intret(d->armour);
+        else intret(player1->armour);
+    })
 
     void parsestate(fpsent *d, ucharbuf &p, bool resume = false)
     {
@@ -1981,6 +2005,15 @@ namespace game
                         break;
                     case SCF_QUAD:
                         d->quadmillis += getint(p) * 1000;
+                        break;
+                    case SCF_KEVLAR:
+                        d->kevlar = getint(p) == 1;
+                        break;
+                    case SCF_HELMET:
+                        d->helmet = getint(p) == 1;
+                        break;
+                    case SCF_ARMOUR:
+                        d->armour += getint(p);
                         break;
                     default:
                         conoutf("Unknown N_SCFITEM attribute (server using newer version?)");
